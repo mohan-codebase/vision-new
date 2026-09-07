@@ -27,89 +27,142 @@ export const topBar = {
 const m = (label, href = '#', children) => ({ label, href, ...(children && { children }) })
 
 export const mainMenu = [
-  m('Business Setup', '#business-setup', [
-    m('UAE Mainland', '#business-setup'),
-    m('UAE Free Zone', '#business-setup'),
-    m('UAE Offshore', '#business-setup'),
+  m('Home', '/'),
+  m('About us', '/about'),
+  m('Business Setup', '/#business-setup', [
+    m('UAE Mainland', '/#business-setup'),
+    m('UAE Free Zone', '/#business-setup'),
+    m('UAE Offshore', '/#business-setup'),
   ]),
-  m('Our Services', '#services', [
-    m('Licence', '#services', [
-      m('License Renewal', '#services'),
-      m('License Modification', '#services'),
-      m('License Cancellation', '#services'),
-      m('License Freezing', '#services'),
+  m('Our Services', '/#services', [
+    m('Licence', '/#services', [
+      m('License Renewal', '/#services'),
+      m('License Modification', '/#services'),
+      m('License Cancellation', '/#services'),
+      m('License Freezing', '/#services'),
     ]),
-    m('Visa', '#services', [
-      m('Residence Visa', '#services'),
-      m('Dependent Visa', '#services'),
-      m('Remote Work Visa', '#services'),
-      m('Golden Visa', '#services'),
-      m('Freelance Visa', '#services'),
-      m('Domestic Worker Visa', '#services'),
+    m('Visa', '/#services', [
+      m('Residence Visa', '/#services'),
+      m('Dependent Visa', '/#services'),
+      m('Remote Work Visa', '/#services'),
+      m('Golden Visa', '/#services'),
+      m('Freelance Visa', '/#services'),
+      m('Domestic Worker Visa', '/#services'),
     ]),
-    m('Finance & Banking', '#services', [
-      m('Bank Account Opening', '#services'),
-      m('Corporate Tax Guide', '#services'),
-      m('Bookkeeping & VAT Registration', '#services'),
+    m('Finance & Banking', '/#services', [
+      m('Bank Account Opening', '/#services'),
+      m('Corporate Tax Guide', '/#services'),
+      m('Bookkeeping & VAT Registration', '/#services'),
     ]),
-    m('Other', '#services', [
-      m('VIP Medical & Emirates ID Assistance', '#services'),
-      m('Customs Registration', '#services'),
-      m('Office Spaces', '#services'),
+    m('Other', '/#services', [
+      m('VIP Medical & Emirates ID Assistance', '/#services'),
+      m('Customs Registration', '/#services'),
+      m('Office Spaces', '/#services'),
     ]),
   ]),
-  m('Contact Us', '#request-callback'),
+  m('Contact Us', '/contact'),
 ]
 
-/** Index of the item rendered as current. -1 = none (home has no nav match). */
-export const currentMenuIndex = -1
+/** Index of the item rendered as current (0 = Home, active gold like reference). */
+export const currentMenuIndex = 0
 
 /** The header's accent button is the phone number. */
 export const headerPhone = { label: contact.phoneDisplay, href: contact.phoneHref }
 
 export const footer = {
-  about: {
+  cta: {
+    badge: 'START YOUR UAE JOURNEY',
+    headline: 'Our team of qualified business setup consultants is ready & always available, anytime, anywhere.',
+    subheadline:
+      'Partner with Dubai’s premier corporate formation specialists for swift company setup, Golden Visas, corporate banking, and full regulatory compliance.',
+    primaryBtn: {
+      label: 'Book Free Consultation',
+      href: '/contact',
+    },
+    secondaryBtn: {
+      label: 'WhatsApp an Advisor',
+      href: `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(contact.whatsappMessage)}`,
+    },
+  },
+  contactCards: [
+    {
+      icon: 'phone',
+      label: 'Direct Phone Support',
+      value: contact.phoneDisplay,
+      href: contact.phoneHref,
+      detail: 'Available Mon – Sat (09:30 AM – 06:30 PM)',
+    },
+    {
+      icon: 'mail',
+      label: 'Official Inquiries',
+      value: contact.email,
+      href: `mailto:${contact.email}`,
+      detail: 'Guaranteed response within 2 hours',
+    },
+    {
+      icon: 'pin',
+      label: 'Dubai Headquarters',
+      value: '119, Mardoof Complex, Al Safa 1, Sheikh Zayed Rd',
+      href: `https://www.google.com/maps/search/${encodeURIComponent(contact.addressLines.join(' '))}`,
+      detail: 'Open in Google Maps ↗',
+      target: '_blank',
+    },
+  ],
+  company: {
     title: brand.name,
-    tagline: brand.tagline,
-    text: 'End-to-end business setup and corporate support services across UAE Mainland, Free Zone and Offshore jurisdictions — since 2015.',
+    text: `${brand.name} is the UAE’s trusted corporate advisory firm. We empower entrepreneurs, startups, and multinational corporations with seamless company formation, trade licensing, Golden Visas, and corporate banking solutions across Dubai Mainland, Free Zones, and Offshore.`,
+    workingHoursLabel: 'Business Hours',
+    workingHours: contact.hours,
+    accreditation: 'Licensed Corporate Service Provider · Dubai, UAE',
   },
   columns: [
     {
+      id: 'business-setup',
       title: 'Business Setup',
       links: [
-        { label: 'UAE Mainland', href: '#business-setup' },
-        { label: 'UAE Free Zone', href: '#business-setup' },
-        { label: 'UAE Offshore', href: '#business-setup' },
+        { label: 'UAE Mainland Formation', href: '/#business-setup' },
+        { label: 'UAE Free Zone Setup', href: '/#business-setup' },
+        { label: 'UAE Offshore Company', href: '/#business-setup' },
+        { label: 'Dubai South Free Zone', href: '/#business-setup' },
+        { label: 'Meydan Free Zone', href: '/#business-setup' },
+        { label: 'Trade License Renewal', href: '/#services' },
       ],
     },
     {
-      title: 'Our Services',
+      id: 'corporate-services',
+      title: 'Corporate Services',
       links: [
-        { label: 'Licence', href: '#services' },
-        { label: 'Visa', href: '#services' },
-        { label: 'Finance & Banking', href: '#services' },
-        { label: 'Other Services', href: '#services' },
+        { label: 'Residence & Golden Visa', href: '/#services' },
+        { label: 'Corporate Bank Account Opening', href: '/#services' },
+        { label: 'Corporate Tax Registration', href: '/#services' },
+        { label: 'VAT Registration & Filing', href: '/#services' },
+        { label: 'Accounting & Bookkeeping', href: '/#services' },
+        { label: 'PRO & Government Liaison', href: '/#services' },
       ],
     },
     {
-      title: 'Company',
+      id: 'company-links',
+      title: 'Company & Quick Links',
       links: [
-        { label: 'Our Story', href: '#our-story' },
-        { label: 'What Sets Us Apart', href: '#why-vision' },
-        { label: 'Our Founder', href: '#founder' },
-        { label: 'Core Values', href: '#values' },
+        { label: 'About Vision', href: '/about' },
+        { label: 'Why Businesses Choose Us', href: '/#why-vision' },
+        { label: 'Who We Work With', href: '/#who-we-work-with' },
+        { label: 'Our Core Values', href: '/#values' },
+        { label: 'Our Services Overview', href: '/#services' },
+        { label: 'Contact Us', href: '/contact' },
       ],
     },
   ],
-  contact,
+  legal: [
+    { label: 'Privacy Policy', href: '#top' },
+    { label: 'Terms & Conditions', href: '#top' },
+    { label: 'Disclaimer', href: '#top' },
+  ],
+  copyright: `© ${new Date().getFullYear()} Vision Business Setup. All rights reserved.`,
+  social: contact.social,
 }
 
 export const footerBottom = {
-  copyright: `© ${new Date().getFullYear()} ${brand.name}. All rights reserved.`,
-  menu: [
-    { label: 'Business Setup', href: '#business-setup' },
-    { label: 'Our Services', href: '#services' },
-    { label: 'Our Story', href: '#our-story' },
-    { label: 'Contact Us', href: '#request-callback' },
-  ],
+  copyright: `© ${new Date().getFullYear()} Vision Business Setup. All rights reserved.`,
+  social: contact.social,
 }

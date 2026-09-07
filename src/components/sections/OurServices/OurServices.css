@@ -37,24 +37,17 @@
   font-size: 3rem;
   line-height: 1.14;
   letter-spacing: -0.01em;
-}
-
-.svcHead__title::before {
-  content: '';
-  display: block;
-  width: 2em;
-  border-top: 2px solid var(--c-accent);
-  margin: 0 0 0.35em;
+  color: #000000;
 }
 
 .svcHead__plain {
-  font-weight: var(--fw-light);
-  color: var(--c-secondary);
+  font-weight: var(--fw-bold);
+  color: #000000;
 }
 
 .svcHead__accent {
   font-weight: var(--fw-bold);
-  color: var(--c-accent);
+  color: #000000;
 }
 
 .svcHead__intro {
@@ -79,18 +72,18 @@
   flex-direction: column;
   background-color: var(--c-white);
   padding: 2.25em 1.75em 2em;
-  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.06);
-  transition: transform var(--t-base), box-shadow var(--t-base);
+  border: 1px solid var(--c-border);
+  transition: transform var(--t-base), border-color var(--t-base);
 }
 
 .svcCard:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.12);
+  border-color: #000000;
 }
 
 .svcCard__icon {
   display: inline-flex;
-  color: var(--c-accent);
+  color: #000000;
   margin-bottom: 0.9em;
 }
 
@@ -105,18 +98,8 @@
   font-weight: var(--fw-bold);
   font-size: 1.375rem;
   line-height: 1.2;
-  color: var(--c-secondary);
-  padding-bottom: 0.7em;
-  margin-bottom: 1em;
-}
-
-.svcCard__title::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 2em;
-  border-top: 2px solid var(--c-accent);
+  color: #000000;
+  margin-bottom: 0.9em;
 }
 
 .svcCard__list {
@@ -141,7 +124,7 @@
   width: 6px;
   height: 6px;
   margin-top: 0.55em;
-  background: var(--c-accent);
+  background: #000000;
   transform: rotate(45deg);
 }
 
@@ -155,22 +138,27 @@
 .ourServices__button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6em;
-  padding: 1.1em 2.8em;
+  min-width: 160px;
+  padding: 0.85em 2.5em;
   font-family: var(--font-base);
-  font-weight: var(--fw-bold);
-  font-size: 0.9375rem;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--c-white);
-  background-color: var(--c-accent);
-  transition: background-color var(--t-base), color var(--t-base), box-shadow var(--t-base);
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  color: #000000;
+  background-color: transparent;
+  border: 1px solid #000000;
+  border-radius: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
 }
 
 .ourServices__button:hover {
-  background-color: var(--c-white);
-  color: var(--c-accent);
-  box-shadow: inset 0 0 0 2px var(--c-accent);
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
 }
 
 /* --- Responsive ------------------------------------------------- */

@@ -1,0 +1,311 @@
+/* ==========================================================================
+   About Us Page Styles — Vision Business Setup
+   ========================================================================== */
+
+.aboutPage {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+/* --- Hero Banner --------------------------------------------------------- */
+
+.aboutHero {
+  position: relative;
+  background: linear-gradient(135deg, #0d1522 0%, #152438 50%, #1c3c60 100%);
+  color: #ffffff;
+  padding: clamp(140px, 14vw, 190px) 0 clamp(70px, 8vw, 100px);
+  overflow: hidden;
+}
+
+.aboutHero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 30%, rgba(176, 132, 47, 0.15) 0%, transparent 60%),
+              radial-gradient(circle at 10% 80%, rgba(28, 63, 107, 0.25) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.aboutHero__container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+}
+
+.aboutBreadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Poppins', var(--font-base);
+  font-size: 13.5px;
+  margin-bottom: 24px;
+}
+
+.aboutBreadcrumb__link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.aboutBreadcrumb__link:hover {
+  color: var(--c-accent-light, #e4c877);
+}
+
+.aboutBreadcrumb__sep {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.aboutBreadcrumb__current {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.aboutHero__eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #c9a24e;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.aboutHero__title {
+  font-family: 'Poppins', var(--font-base);
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 700;
+  line-height: 1.18;
+  color: #ffffff;
+  max-width: 950px;
+  margin: 0 0 22px 0;
+  letter-spacing: -0.015em;
+}
+
+.aboutHero__lead {
+  font-family: var(--font-base);
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 840px;
+  margin: 0;
+}
+
+/* --- Metrics Strip ------------------------------------------------------- */
+
+.aboutMetricsStrip {
+  background-color: #0d1420;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 44px 0;
+}
+
+.aboutMetricsStrip__container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.aboutMetricCard {
+  border-left: 2px solid rgba(176, 132, 47, 0.4);
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutMetricCard__num {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.aboutMetricCard__label {
+  font-family: 'Poppins', var(--font-base);
+  font-size: 15px;
+  font-weight: 600;
+  color: #c9a24e;
+  margin-bottom: 6px;
+}
+
+.aboutMetricCard__desc {
+  font-family: var(--font-alt);
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+/* --- Deep Story Section -------------------------------------------------- */
+
+.aboutStoryDeep {
+  position: relative;
+  background-color: #f8fafc;
+  padding: clamp(70px, 8vw, 110px) 0;
+}
+
+.aboutStoryDeep__container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+}
+
+.aboutStoryDeep__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(36px, 5vw, 68px);
+  align-items: center;
+}
+
+.aboutStoryDeep__badge {
+  display: inline-block;
+  background-color: rgba(0, 46, 83, 0.08);
+  color: #1c3c60;
+  font-family: 'Poppins', var(--font-base);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.aboutStoryDeep__title {
+  font-family: 'Poppins', var(--font-base);
+  font-size: clamp(28px, 2.6vw, 38px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111827;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.01em;
+}
+
+.aboutStoryDeep__paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font-base);
+  font-size: 16px;
+  line-height: 1.75;
+  color: #374151;
+}
+
+.aboutStoryDeep__paragraphs p {
+  margin: 0;
+}
+
+.aboutStoryDeep__quote {
+  margin: 12px 0 0 0;
+  padding: 18px 24px;
+  background-color: #ffffff;
+  border-left: 4px solid #b0842f;
+  font-family: 'Poppins', var(--font-base);
+  font-size: 16.5px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #111827;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+/* Card on the right of Deep Story */
+.aboutStoryCard {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.aboutStoryCard__imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.aboutStoryCard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.aboutStoryCard__tag {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background-color: rgba(17, 24, 38, 0.95);
+  color: #ffffff;
+  font-family: var(--font-alt);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 5px 12px;
+  border-radius: 3px;
+}
+
+.aboutStoryCard__info {
+  padding: 26px 28px;
+}
+
+.aboutStoryCard__head {
+  font-family: 'Poppins', var(--font-base);
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 10px 0;
+}
+
+.aboutStoryCard__text {
+  font-family: var(--font-alt);
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* --- Responsiveness ------------------------------------------------------ */
+
+@media (max-width: 991px) {
+  .aboutMetricsStrip__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .aboutStoryDeep__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .aboutStoryDeep__visual {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .aboutMetricsStrip__container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .aboutHero {
+    padding-top: 120px;
+  }
+
+  .aboutHero__title {
+    font-size: 28px;
+  }
+}

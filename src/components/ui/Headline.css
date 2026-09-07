@@ -14,21 +14,21 @@
   font-weight: var(--fw-bold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--c-accent);
+  color: var(--c-muted);
   margin-bottom: 0.75em;
 }
 
 /* Title */
 .btHeadlineTitle {
   font-family: var(--font-heading);
-  font-weight: var(--fw-light);
+  font-weight: var(--fw-bold);
   line-height: var(--lh-heading);
-  color: inherit;
+  color: #000000;
 }
 
 .btHeadlineAccent {
   font-weight: var(--fw-bold);
-  color: var(--c-accent);
+  color: inherit;
 }
 
 .btAccent-block  { display: block; }
@@ -36,15 +36,8 @@
 
 /* Rule under the title */
 .btHeadlineDash {
-  display: block;
-  width: 60px;
-  height: 3px;
-  background-color: var(--c-accent);
-  margin-top: 1em;
+  display: none;
 }
-
-.btAlign-center .btHeadlineDash { margin-left: auto; margin-right: auto; }
-.btAlign-right  .btHeadlineDash { margin-left: auto; }
 
 /* Sub copy */
 .btHeadlineSub {
@@ -58,4 +51,5 @@
 
 .btAlign-center .btHeadlineSub { margin-left: auto; margin-right: auto; }
 
+.btSchemeDark .btHeadlineTitle { color: var(--c-white); }
 .btSchemeDark .btHeadlineSub { color: var(--c-on-dark); }

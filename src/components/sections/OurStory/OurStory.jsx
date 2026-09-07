@@ -1,135 +1,108 @@
 import { ourStory } from '../../../data/home.js'
-import useInView from '../../../hooks/useInView.js'
-import Icon from '../../ui/Icon.jsx'
+import imgAboutUs from '../../../assets/images/about-us.jpg'
 import './OurStory.css'
 
-import imgStory from '../../../assets/images/our-story.avif'
-
-const RADIUS = 54
-const CIRCUMFERENCE = 2 * Math.PI * RADIUS
-
-/** A decorative accent ring that draws itself in around the feature icon. */
-function Ring({ icon, active }) {
-  const offset = active ? 0 : CIRCUMFERENCE
-
+/**
+ * Custom circular checkmark SVG icon extracted directly from the Pride & Property design.
+ */
+function CheckCircleIcon() {
   return (
-    <span className="storyRing">
-      <svg className="storyRing__svg" viewBox="0 0 120 120" aria-hidden="true">
-        <circle className="storyRing__track" cx="60" cy="60" r={RADIUS} />
-        <circle
-          className="storyRing__arc"
-          cx="60"
-          cy="60"
-          r={RADIUS}
-          style={{ strokeDasharray: CIRCUMFERENCE, strokeDashoffset: offset }}
-        />
-      </svg>
-      <span className="storyRing__icon">
-        <Icon name={icon} />
-      </span>
-    </span>
+    <svg
+      className="aboutCheckIcon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 37 34"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16.8399 34.0002C11.5399 34.0002 6.53992 31.4802 3.36992 27.2002C1.79734 25.0814 0.735461 22.628 0.267119 20.0313C-0.201223 17.4346 -0.0633711 14.7649 0.669923 12.2302C1.3975 9.70141 2.70453 7.37702 4.48726 5.44154C6.26998 3.50605 8.47933 2.01277 10.9399 1.08021C13.3888 0.152141 16.0218 -0.186611 18.6259 0.091343C21.2299 0.369297 23.7321 1.25616 25.9299 2.68021C26.1099 2.79021 26.2299 2.97021 26.2899 3.18021C26.3134 3.28139 26.3165 3.38625 26.2989 3.48863C26.2814 3.59101 26.2435 3.68885 26.1876 3.77641C26.1318 3.86397 26.0589 3.93949 25.9735 3.99852C25.888 4.05756 25.7916 4.09893 25.6899 4.12021C25.4899 4.16021 25.2699 4.12021 25.0899 3.99021C23.198 2.76473 21.0567 1.97629 18.8218 1.68222C16.5869 1.38815 14.3145 1.59585 12.1699 2.29021C10.0172 2.99398 8.04658 4.16482 6.39909 5.71896C4.7516 7.2731 3.46793 9.17213 2.63992 11.2802C1.80598 13.3978 1.44547 15.6721 1.58367 17.9438C1.72187 20.2155 2.35544 22.4294 3.43992 24.4302C4.50376 26.4261 5.99985 28.1591 7.81898 29.503C9.63812 30.8468 11.7344 31.7675 13.9547 32.1978C16.1751 32.628 18.4635 32.5571 20.653 31.99C22.8424 31.423 24.8776 30.3742 26.6099 28.9202C28.3462 27.4583 29.7404 25.6331 30.6942 23.5734C31.648 21.5138 32.1381 19.2699 32.1299 17.0002V15.4502C32.1103 15.2463 32.1716 15.0429 32.3007 14.8838C32.4298 14.7248 32.6163 14.6229 32.8199 14.6002C33.2399 14.5602 33.6199 14.8702 33.6599 15.3002V17.0002C33.6599 21.5002 31.8899 25.8302 28.7299 29.0202C27.1755 30.5949 25.3244 31.8458 23.2835 32.7006C21.2426 33.5554 19.0526 33.9971 16.8399 34.0002Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.1401 20.4805C18.9401 20.4805 18.7401 20.3905 18.6001 20.2505L11.7201 13.2905C11.4201 12.9905 11.4201 12.4905 11.7201 12.1905C12.0201 11.8905 12.5001 11.8905 12.8001 12.1905L19.1401 18.5505L35.4401 2.16055C35.7301 1.86055 36.2201 1.86055 36.5201 2.16055C36.8201 2.46055 36.8201 2.96055 36.5201 3.26055L19.6901 20.2605C19.6178 20.3322 19.5319 20.3885 19.4374 20.4263C19.343 20.4641 19.2419 20.4826 19.1401 20.4805Z"
+        fill="currentColor"
+      />
+    </svg>
   )
 }
 
 /**
- * Section 3 — Why Vision / Our Story.
- *
- * Avantage two-column "experience" treatment: triangular photo on the left,
- * headline + two paragraphs + three feature medallions on the right.
+ * Section 3 — Why Choose Vision Business Setup?
+ * Recreated with luxury precision inspired by the user's reference image.
  */
 export default function OurStory() {
-  const { super: eyebrow, title, accent, paragraphs, features } = ourStory
-  const [featuresRef, featuresInView] = useInView({ threshold: 0.3 })
+  const {
+    badge = 'About Us',
+    title = 'Our Story',
+    paragraphs = [],
+    checklist = [],
+    quote,
+    buttonText = 'More about us',
+    buttonHref = '/about',
+  } = ourStory
 
   return (
-    <section className="ourStory" id="our-story">
-      <div className="ourStory__decor ourStory__decor--left" aria-hidden="true" />
-      <div className="ourStory__decor ourStory__decor--right" aria-hidden="true" />
-
-      <div className="ourStory__cell">
-        <div className="ourStory__grid">
-          {/* Left Column: Visual Media Presentation */}
-          <div className="ourStory__media">
-            <div className="ourStory__mediaCard">
-              <div className="ourStory__mediaShape">
-                <img
-                  src={imgStory}
-                  alt="The Vision Business Setup consulting team"
-                  className="ourStory__image"
-                  loading="lazy"
-                />
-                <div className="ourStory__overlayGradient" aria-hidden="true" />
-                <div className="ourStory__imageTag">
-                  <span className="ourStory__tagDot" />
-                  <span>Trusted Business Advisors</span>
-                </div>
-              </div>
-              
-              <div className="ourStory__statFloating">
-                <span className="ourStory__statNum">10+</span>
-                <span className="ourStory__statLabel">Years of Excellence in UAE Formation</span>
-              </div>
-            </div>
+    <section className="aboutWhySection" id="our-story" data-id="about-us">
+      <div className="aboutWhyContainer">
+        {/* Left Column: Content */}
+        <div className="aboutWhyContent">
+          <div className="aboutWhyBadgeWrapper">
+            <span className="aboutWhyBadge">{badge}</span>
           </div>
 
-          {/* Right Column: Editorial & Value Proposition */}
-          <div className="ourStory__content">
-            <header className="storyHeadline">
-              <span className="storyHeadline__super">{eyebrow}</span>
-              <h2 className="storyHeadline__title">
-                <span className="storyHeadline__plain">{title}</span>
-                <strong className="storyHeadline__accent">{accent}</strong>
-              </h2>
-            </header>
+          <h2 className="aboutWhyTitle">{title}</h2>
 
-            <p className="storyLead">{paragraphs[0]}</p>
-
-            <div className="storyHighlights">
-              <div className="storyHighlight">
-                <div className="storyHighlight__icon">
-                  <Icon name="compass" />
-                </div>
-                <div className="storyHighlight__text">
-                  <h4>Strategic Guidance</h4>
-                  <p>Advisory that aligns jurisdiction, banking, and structure with your long-term goals.</p>
-                </div>
-              </div>
-
-              <div className="storyHighlight">
-                <div className="storyHighlight__icon">
-                  <Icon name="handshake" />
-                </div>
-                <div className="storyHighlight__text">
-                  <h4>Client-First Focus</h4>
-                  <p>Dedicated consultant support from initial idea to operational launch and beyond.</p>
-                </div>
-              </div>
+          {paragraphs.length > 0 && (
+            <div className="aboutWhyParagraphs">
+              <p className="aboutWhyParagraph">{paragraphs[0]}</p>
+              {paragraphs[1] && (
+                <p className="aboutWhyParagraph">{paragraphs[1]}</p>
+              )}
             </div>
+          )}
 
-            <div className="storyActions">
-              <a href="#request-callback" className="storyBtn storyBtn--primary">
-                <span>Request Consultation</span>
-              </a>
-              <a href="#business-setup" className="storyBtn storyBtn--secondary">
-                <span>Explore Jurisdictions</span>
-              </a>
+          {checklist.length > 0 && (
+            <ul className="aboutWhyList">
+              {checklist.map((item, index) => (
+                <li className="aboutWhyListItem" key={index}>
+                  <span className="aboutWhyIconWrapper">
+                    <CheckCircleIcon />
+                  </span>
+                  <span className="aboutWhyItemText">{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {quote && (
+            <div className="aboutWhyQuote">
+              <span className="aboutWhyQuoteText">&ldquo;{quote}&rdquo;</span>
             </div>
+          )}
+
+          <div className="aboutWhyAction">
+            <a href={buttonHref} className="aboutWhyButton">
+              <span>{buttonText}</span>
+            </a>
           </div>
         </div>
 
-        {/* Feature Medallions Strip */}
-        <div className="ourStory__featuresStrip" ref={featuresRef}>
-          <ul className="storyFeatures">
-            {features.map((f) => (
-              <li className="storyFeature" key={f.title}>
-                <div className="storyFeature__inner">
-                  <Ring icon={f.icon} active={featuresInView} />
-                  <h3 className="storyFeature__title">{f.title}</h3>
-                  <p className="storyFeature__text">{f.text}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+        {/* Right Column: Visual Media Presentation */}
+        <div className="aboutWhyMedia">
+          <div className="aboutWhyImageFrame">
+            <img
+              src={imgAboutUs}
+              alt="Vision Business Setup — Downtown Dubai"
+              className="aboutWhyImage"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>

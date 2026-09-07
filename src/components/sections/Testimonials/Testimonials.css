@@ -65,16 +65,9 @@
   color: var(--c-on-dark-strong);
 }
 
-.tHeadline__title::before {
-  content: '';
-  display: block;
-  width: 2.1875rem;
-  border-top: 2px solid var(--c-accent);
-  margin: 0 0 0.35em;
-}
 
 .tHeadline__plain { font-weight: var(--fw-light); }
-.tHeadline__accent { font-weight: var(--fw-bold); color: var(--c-accent); }
+.tHeadline__accent { font-weight: var(--fw-bold); color: var(--c-on-dark-strong); }
 
 /* --- Cards ---------------------------------------------------------- */
 

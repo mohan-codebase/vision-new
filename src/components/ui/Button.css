@@ -1,40 +1,44 @@
 .btButton {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6em;
   font-family: var(--font-base);
-  font-weight: var(--fw-bold);
-  font-size: 0.875em;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-radius: var(--radius-soft);
-  transition: var(--t-base) all;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  border-radius: 0;
   cursor: pointer;
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
+  text-decoration: none;
 }
 
-.btButton-normal { padding: 1.1em 2.2em; }
-.btButton-small  { padding: 0.8em 1.6em; font-size: 0.8125em; }
-.btButton-large  { padding: 1.3em 2.8em; }
+.btButton-normal { padding: 0.85em 2.5em; min-width: 150px; }
+.btButton-small  { padding: 0.65em 1.8em; font-size: 0.85rem; min-width: 120px; }
+.btButton-large  { padding: 1.1em 3em; font-size: 1.05rem; min-width: 180px; }
 
 /* filled */
 .btButton-filled {
-  background-color: var(--c-accent);
+  background-color: var(--c-secondary);
   color: var(--c-white);
+  border: 1px solid var(--c-secondary);
 }
 .btButton-filled:hover {
-  background-color: var(--c-accent-dark);
+  background-color: transparent;
+  color: var(--c-secondary);
 }
 
 /* outline */
 .btButton-outline {
   background-color: transparent;
   color: currentColor;
-  box-shadow: inset 0 0 0 2px currentColor;
+  border: 1px solid currentColor;
 }
 .btButton-outline:hover {
-  background-color: var(--c-accent);
+  background-color: var(--c-secondary);
   color: var(--c-white);
-  box-shadow: inset 0 0 0 2px var(--c-accent);
+  border-color: var(--c-secondary);
 }
 
 /* link */

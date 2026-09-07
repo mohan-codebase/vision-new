@@ -2,16 +2,22 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { heroSlides } from '../../../data/home.js'
 import './HeroSlider.css'
 
-import banner01 from '../../../assets/images/banner-1.avif'
-import banner02 from '../../../assets/images/banner-2.avif'
-import banner03 from '../../../assets/images/banner-3.avif'
-import banner04 from '../../../assets/images/banner-4.avif'
+import bannerBurjKhalifa from '../../../assets/images/banner-burj-khalifa.jpg'
+import bannerPalmJumeirah from '../../../assets/images/banner-palm-jumeirah.jpg'
+import bannerAtlantis from '../../../assets/images/banner-atlantis.webp'
+import bannerNight from '../../../assets/images/banner-night.jpg'
 
 const IMAGES = {
-  'banner-1.avif': banner01,
-  'banner-2.avif': banner02,
-  'banner-3.avif': banner03,
-  'banner-4.avif': banner04,
+  'banner-burj-khalifa.jpg': bannerBurjKhalifa,
+  'banner-palm-jumeirah.jpg': bannerPalmJumeirah,
+  'banner-atlantis.webp': bannerAtlantis,
+  'banner-night.jpg': bannerNight,
+}
+
+const resolveImage = (imgName) => {
+  if (IMAGES[imgName]) return IMAGES[imgName]
+  if (imgName?.startsWith('/')) return imgName
+  return `/banner/${imgName}`
 }
 
 const AUTOPLAY_MS = 5500
@@ -19,10 +25,8 @@ const AUTOPLAY_MS = 5500
 /**
  * Section 1 — Hero slider.
  *
- * Full-bleed, 3 fading slides carrying the Vision Business Setup message
- * ("Every Business starts with Vision"). No jQuery — a small fade carousel:
- * slides are stacked in one CSS grid cell so the section keeps a stable
- * height and the crossfade never makes the page jump.
+ * Full-bleed, centered luxury banner with dark Dubai skyline,
+ * elegant typography and dual outline buttons inspired by Pride and Property.
  */
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0)
@@ -56,38 +60,32 @@ export default function HeroSlider() {
         {heroSlides.map((slide, i) => (
           <article
             key={slide.title}
-            className={`heroSlide heroSlide--${slide.side}${i === current ? ' is-active' : ''}`}
-            style={{ backgroundImage: `url(${IMAGES[slide.image]})` }}
+            className={`heroSlide${i === current ? ' is-active' : ''}`}
+            style={{ backgroundImage: `url(${resolveImage(slide.image)})` }}
             aria-hidden={i === current ? undefined : true}
             aria-roledescription="slide"
             aria-label={`${i + 1} of ${count}`}
           >
             <div className="heroSlide__inner">
-              <div className="heroSlide__row">
-                <div className="heroSlide__col heroSlide__col--text">
-                  <header className="heroHeadline">
-                    <span className="heroHeadline__super">{slide.super}</span>
-                    <h1 className="heroHeadline__title">
-                      <span className="heroHeadline__plain">{slide.title}</span>
-                      <strong className="heroHeadline__accent">{slide.accent}</strong>
-                    </h1>
-                    {slide.text && <p className="heroHeadline__sub">{slide.text}</p>}
-                  </header>
+              <div className="heroSlide__content">
+                {slide.super && <p className="heroSlide__super">{slide.super}</p>}
+                <h1 className="heroSlide__title">{slide.title}</h1>
+                {slide.text && <p className="heroSlide__sub">{slide.text}</p>}
 
+                {slide.buttons?.length > 0 && (
                   <div className="heroButtons">
                     {slide.buttons.map((btn) => (
                       <a
                         key={btn.label}
                         href={btn.href}
-                        className={`heroButton heroButton--${btn.variant}`}
+                        className="heroButton"
                         tabIndex={i === current ? 0 : -1}
                       >
-                        <span className="heroButton__text">{btn.label}</span>
+                        {btn.label}
                       </a>
                     ))}
                   </div>
-                </div>
-                <div className="heroSlide__col heroSlide__col--media" aria-hidden="true" />
+                )}
               </div>
             </div>
           </article>

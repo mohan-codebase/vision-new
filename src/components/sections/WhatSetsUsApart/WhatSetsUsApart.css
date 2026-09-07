@@ -56,26 +56,19 @@
   font-size: 3rem;
   line-height: 1.14;
   letter-spacing: -0.01em;
-}
-
-.whatSets__title::before {
-  content: '';
-  display: block;
-  width: 2em;
-  border-top: 2px solid var(--c-accent);
-  margin: 0 0 0.35em;
+  color: #000000;
 }
 
 .whatSets__titlePlain {
   display: block;
-  font-weight: var(--fw-light);
-  color: var(--c-secondary);
+  font-weight: var(--fw-bold);
+  color: #000000;
 }
 
 .whatSets__titleAccent {
   display: block;
   font-weight: var(--fw-bold);
-  color: var(--c-accent);
+  color: #000000;
 }
 
 .whatSets__intro {
@@ -104,7 +97,7 @@
 
 .wsItem__icon {
   flex: 0 0 auto;
-  color: var(--c-accent);
+  color: #000000;
   transition: color 280ms ease;
 }
 
@@ -114,7 +107,7 @@
 }
 
 .wsItem:hover .wsItem__icon {
-  color: var(--c-secondary);
+  color: #000000;
 }
 
 .wsItem__body {
@@ -128,7 +121,7 @@
   font-size: 1.375rem;
   line-height: 1.25;
   letter-spacing: -0.02em;
-  color: var(--c-secondary);
+  color: #000000;
 }
 
 .wsItem__text {
@@ -156,22 +149,27 @@
 .whatSets__button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6em;
-  padding: 1em 2.6em;
+  min-width: 160px;
+  padding: 0.85em 2.5em;
   font-family: var(--font-base);
-  font-weight: var(--fw-bold);
-  font-size: 0.9375rem;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--c-white);
-  background-color: var(--c-secondary);
-  transition: background-color var(--t-base), color var(--t-base), box-shadow var(--t-base);
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  color: #000000;
+  background-color: transparent;
+  border: 1px solid #000000;
+  border-radius: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
 }
 
 .whatSets__button:hover {
-  background-color: var(--c-white);
-  color: var(--c-secondary);
-  box-shadow: inset 0 0 0 2px var(--c-secondary);
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
 }
 
 /* --- Responsive -------------------------------------------------- */

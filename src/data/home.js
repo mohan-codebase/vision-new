@@ -12,51 +12,30 @@
 
 export const heroSlides = [
   {
-    super: 'EVERY BUSINESS STARTS WITH VISION',
-    title: 'Set up your business',
-    accent: 'in the UAE with confidence',
-    text: 'End-to-end company formation and corporate support across Mainland, Free Zone and Offshore — handled with precision, from first idea to operational launch.',
-    image: 'banner-1.avif',
-    side: 'right',
+    super: 'Your Gateway To Business Setup In Dubai',
+    title: 'Vision Business Setup',
+    image: 'banner-burj-khalifa.jpg',
     buttons: [
-      { label: 'Get Started', href: '#request-callback', variant: 'accent' },
-      { label: 'Explore Business Setup', href: '#business-setup', variant: 'navy' },
+      { label: 'About Us', href: '#our-story' },
+      { label: 'Contact Us', href: '#request-callback' },
     ],
   },
   {
-    super: 'MAINLAND · FREE ZONE · OFFSHORE',
-    title: 'The right structure',
-    accent: 'for your goals',
-    text: 'We act as strategic advisors — helping you choose the right jurisdiction, navigate regulations and build a strong foundation for long-term success.',
-    image: 'banner-2.avif',
-    side: 'left',
+    super: 'Mainland · Free Zone · Offshore',
+    title: 'Set Up Your Business With Confidence',
+    image: 'banner-palm-jumeirah.jpg',
     buttons: [
-      { label: 'Request a Callback', href: '#request-callback', variant: 'accent' },
-      { label: 'Our Services', href: '#services', variant: 'navy' },
+      { label: 'Business Setup', href: '#business-setup' },
+      { label: 'Contact Us', href: '#request-callback' },
     ],
   },
   {
-    super: 'STRATEGIC GUIDANCE, END-TO-END SUPPORT',
-    title: 'More than paperwork —',
-    accent: 'a partner for growth',
-    text: 'From company formation to visas, PRO services and banking, we manage the entire process so you can focus on building your business.',
-    image: 'banner-3.avif',
-    side: 'left',
+    super: 'Strategic Guidance, End-to-End Support',
+    title: 'A Trusted Partner For Your Growth',
+    image: 'banner-atlantis.webp',
     buttons: [
-      { label: 'Get Started', href: '#request-callback', variant: 'accent' },
-      { label: 'Why Vision', href: '#why-vision', variant: 'navy' },
-    ],
-  },
-  {
-    super: 'OUR APPROACH & COMMITMENT',
-    title: 'We partner with you',
-    accent: 'throughout your journey',
-    text: 'Delivering value, building trust, and ensuring your business operates with confidence and long-term success in the UAE.',
-    image: 'banner-4.avif',
-    side: 'left',
-    buttons: [
-      { label: 'Request a Callback', href: '#request-callback', variant: 'accent' },
-      { label: 'Our Commitment', href: '#commitment', variant: 'navy' },
+      { label: 'Our Services', href: '#services' },
+      { label: 'Contact Us', href: '#request-callback' },
     ],
   },
 ]
@@ -115,14 +94,37 @@ export const businessSetup = {
 /* 3 — WHY VISION / OUR STORY -------------------------------------------- */
 
 export const ourStory = {
-  super: 'OUR STORY',
-  title: 'Why businesses',
-  accent: 'choose Vision',
-  image: 'our-story.avif',
+  badge: 'About Us',
+  title: 'Our Story',
+  subtitle:
+    'Strategic corporate advisors dedicated to your long-term success in the UAE.',
+  checklist: [
+    'End-to-end company formation across Mainland, Free Zone & Offshore jurisdictions',
+    'Visa processing, Emirates ID, and executive corporate PRO services',
+    'Strategic advisory beyond documentation: structure, regulations, and foundation',
+    'Established in 2015: trusted by entrepreneurs and high-value business networks',
+  ],
+  buttonText: 'More about us',
+  buttonHref: '/about',
+  image: 'about-us.jpg',
+  quote:
+    'Our journey has been defined by one simple principle: putting our clients first in everything we do.',
   paragraphs: [
     'At Vision Business Setup, we provide end-to-end business setup and corporate support services in the UAE. From company formation across Mainland, Free Zone, and Offshore jurisdictions to visa processing and PRO services, we manage the entire process with precision and efficiency. Our role goes beyond documentation—we act as strategic advisors, helping clients choose the right structure, navigate regulations, and build a strong foundation for long-term success in the UAE.',
     'Established in 2015, Vision Business Setup has grown into a trusted name in the UAE’s business setup landscape. Over the years, we have had the privilege of working with high-value clients, entrepreneurs, and well-connected business networks across the region—delivering solutions that are not only efficient, but also strategically aligned with long-term success.',
     'Our journey has been defined by one simple principle: putting our clients first in everything we do.',
+  ],
+  highlights: [
+    {
+      icon: 'compass',
+      title: 'Strategic Guidance',
+      text: 'Advisory that aligns jurisdiction, banking, and structure with your long-term goals.',
+    },
+    {
+      icon: 'handshake',
+      title: 'Client-First Focus',
+      text: 'Dedicated consultant support from initial idea to operational launch and beyond.',
+    },
   ],
   features: [
     { icon: 'compass', title: 'Strategic advisory', text: 'Guidance on structure, jurisdiction and compliance — not just filing.' },
@@ -304,14 +306,57 @@ export const coreValues = {
   super: 'OUR CORE VALUES',
   title: 'What we stand',
   accent: 'behind',
+  subtitle: 'Seven foundational pillars guiding every client relationship, jurisdiction strategy, and corporate milestone across the UAE.',
   items: [
-    { icon: 'shield', title: 'Trust', text: 'We build long-term relationships through honesty, reliability, and consistency.' },
-    { icon: 'eye', title: 'Transparency', text: 'Clear communication and straightforward processes are at the heart of how we operate.' },
-    { icon: 'chat', title: 'Understanding', text: 'We listen before we advise—ensuring every solution is aligned with your unique needs.' },
-    { icon: 'puzzle', title: 'Tailored Solutions', text: 'No two businesses are the same. Our approach reflects that in every recommendation we make.' },
-    { icon: 'star', title: 'Quality Service', text: 'We maintain high standards in every interaction, every process, and every outcome.' },
-    { icon: 'sync', title: 'Reliability & Consistency', text: 'Our clients depend on us—and we deliver, every time.' },
-    { icon: 'route', title: 'End-to-End Support', text: 'From initial idea to operational launch, we stay with you at every step.' },
+    {
+      num: '01',
+      icon: 'shield',
+      title: 'Trust',
+      text: 'We build long-term relationships through honesty, reliability, and unwavering consistency in every engagement.',
+      image: 'trust.jpg',
+    },
+    {
+      num: '02',
+      icon: 'eye',
+      title: 'Transparency',
+      text: 'Clear communication and straightforward processes are at the heart of how we operate.',
+      image: 'transparency.jpg',
+    },
+    {
+      num: '03',
+      icon: 'chat',
+      title: 'Understanding',
+      text: 'We listen before we advise—ensuring every solution is aligned with your unique needs.',
+      image: 'understanding.jpg',
+    },
+    {
+      num: '04',
+      icon: 'puzzle',
+      title: 'Tailored Solutions',
+      text: 'No two businesses are the same. Our approach reflects that in every recommendation we make.',
+      image: 'tailored-solutions.jpg',
+    },
+    {
+      num: '05',
+      icon: 'star',
+      title: 'Quality Service',
+      text: 'We maintain high standards in every interaction, every process, and every outcome.',
+      image: 'quality-service.jpg',
+    },
+    {
+      num: '06',
+      icon: 'sync',
+      title: 'Reliability & Consistency',
+      text: 'Our clients depend on us—and we deliver, every time.',
+      image: 'reliability.jpg',
+    },
+    {
+      num: '07',
+      icon: 'route',
+      title: 'End-to-End Support',
+      text: 'From initial idea to operational launch, we stay with you at every step.',
+      image: 'end-to-end-support.jpg',
+    },
   ],
 }
 

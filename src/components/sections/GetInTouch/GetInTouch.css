@@ -53,7 +53,6 @@
   border-radius: 50% 50% 50% 0;
   background: var(--c-accent);
   color: var(--c-white);
-  box-shadow: 0 12px 24px rgba(233, 77, 101, 0.4);
 }
 
 .getInTouch__mapPin .btIcon {
@@ -77,7 +76,7 @@
   display: flex;
   align-items: stretch;
   background: var(--c-white);
-  box-shadow: 0 40px 80px rgba(24, 24, 24, 0.22);
+  border: 1px solid var(--c-border);
   overflow: hidden;
 }
 
@@ -90,7 +89,7 @@
   height: 0;
   border-style: solid;
   border-width: 74px 74px 0 0;
-  border-color: var(--c-accent) transparent transparent transparent;
+  border-color: #000000 transparent transparent transparent;
   z-index: 3;
 }
 
@@ -120,24 +119,17 @@
   font-size: 3rem;
   line-height: 1.14;
   letter-spacing: -0.01em;
-}
-
-.giPanel__title::before {
-  content: '';
-  display: block;
-  width: 2em;
-  border-top: 2px solid var(--c-accent);
-  margin: 0 0 0.35em;
+  color: #000000;
 }
 
 .giPanel__titlePlain {
-  font-weight: var(--fw-light);
-  color: var(--c-secondary);
+  font-weight: var(--fw-bold);
+  color: #000000;
 }
 
 .giPanel__titleAccent {
   font-weight: var(--fw-bold);
-  color: var(--c-accent);
+  color: #000000;
 }
 
 .giPanel__text {
@@ -158,35 +150,42 @@
 .giBtn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5em;
-  padding: 0.9em 1.6em;
+  min-width: 140px;
+  padding: 0.85em 1.8em;
   font-family: var(--font-base);
-  font-weight: var(--fw-bold);
-  font-size: 0.8125rem;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  line-height: 1;
-  transition: background-color var(--t-base), color var(--t-base), box-shadow var(--t-base);
+  font-weight: 500;
+  font-size: 0.92rem;
+  line-height: 1.2;
+  border-radius: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
 }
 
 .giBtn--accent {
-  color: var(--c-white);
-  background-color: var(--c-accent);
+  color: #000000;
+  background-color: transparent;
+  border: 1px solid #000000;
 }
 
 .giBtn--accent:hover {
-  background-color: var(--c-white);
-  color: var(--c-accent);
-  box-shadow: inset 0 0 0 2px var(--c-accent);
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
 }
 
 .giBtn--wa {
-  color: var(--c-white);
-  background-color: #25d366;
+  color: #1ebe5b;
+  background-color: transparent;
+  border: 1px solid #25d366;
 }
 
 .giBtn--wa:hover {
-  background-color: #1ebe5b;
+  background-color: #25d366;
+  color: #ffffff;
+  border-color: #25d366;
 }
 
 /* Right: three equal contact columns --------------------------------- */
@@ -213,7 +212,7 @@
 
 .giCol__icon {
   display: inline-flex;
-  color: var(--c-accent);
+  color: #000000;
   margin-bottom: 0.9em;
 }
 
@@ -227,7 +226,7 @@
   font-size: 1.375rem;
   font-weight: var(--fw-bold);
   line-height: 1.2;
-  color: var(--c-secondary);
+  color: #000000;
   margin-bottom: 0.5em;
 }
 

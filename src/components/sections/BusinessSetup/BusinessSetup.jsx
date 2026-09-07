@@ -16,7 +16,7 @@ const IMAGES = {
  * Section 2 — Business Setup Options.
  *
  * Reuses the Avantage "three overlapping cards" treatment (cards ride up over
- * the hero, faded photo background, drop shadow). Each card introduces one of
+ * the hero, faded photo background, crisp border). Each card introduces one of
  * the three UAE jurisdictions and links to its future dedicated page.
  */
 export default function BusinessSetup() {

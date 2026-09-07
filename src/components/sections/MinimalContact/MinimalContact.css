@@ -1,0 +1,332 @@
+/* ==========================================================================
+   Minimal Contact Form — Home Page Section
+   · Clean light background (#fcfcfc)
+   · Single-tone black typography (#000000)
+   · Rectangular sharp inputs and button (border-radius: 0)
+   · Monochrome trust badges and clear link to full /contact page
+   ========================================================================== */
+
+.minimalContact {
+  background-color: #f7f8fa;
+  padding: 100px 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.minimalContact__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.minimalContact__card {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 56px 64px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+}
+
+/* Header */
+
+.minimalContact__header {
+  margin-bottom: 40px;
+  max-width: 740px;
+}
+
+.minimalContact__super {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.minimalContact__title {
+  font-family: var(--font-base);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.25;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.minimalContact__desc {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: rgba(0, 0, 0, 0.65);
+  margin: 0;
+}
+
+/* Form */
+
+.minimalContact__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.15fr auto;
+  gap: 20px;
+  align-items: flex-end;
+  margin-bottom: 36px;
+}
+
+.minimalContact__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.minimalContact__label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #000000;
+}
+
+.minimalContact__input,
+.minimalContact__select {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  font-family: var(--font-base);
+  font-size: 14.5px;
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 0;
+  outline: none;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.minimalContact__input::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.minimalContact__input:focus,
+.minimalContact__select:focus {
+  border-color: #000000;
+  box-shadow: 0 0 0 1px #000000;
+}
+
+.minimalContact__select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+.minimalContact__submitWrap {
+  display: flex;
+  align-items: flex-end;
+}
+
+.minimalContact__submitBtn {
+  height: 52px;
+  padding: 0 32px;
+  font-family: var(--font-base);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #000000;
+  border: 1px solid #000000;
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  white-space: nowrap;
+}
+
+.minimalContact__submitBtn:hover {
+  background-color: #222222;
+  border-color: #222222;
+}
+
+.minimalContact__submitBtn .btIcon,
+.minimalContact__submitBtn svg {
+  width: 14px;
+  height: 14px;
+  color: #ffffff;
+  transition: transform var(--t-fast);
+}
+
+.minimalContact__submitBtn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Success State */
+
+.minimalContact__success {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: #f7f8fa;
+  border: 1px solid #000000;
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+.minimalContact__successIcon {
+  width: 44px;
+  height: 44px;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.minimalContact__successIcon svg {
+  width: 22px;
+  height: 22px;
+  stroke: #ffffff;
+}
+
+.minimalContact__successBody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.minimalContact__successTitle {
+  font-family: var(--font-base);
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+}
+
+.minimalContact__successText {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 0;
+}
+
+.minimalContact__successText a {
+  color: #000000;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.minimalContact__successAgain {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: var(--font-base);
+  font-size: 13px;
+  font-weight: 600;
+  color: #000000;
+  text-decoration: underline;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+/* Footer Strip */
+
+.minimalContact__footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.minimalContact__trustList {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.minimalContact__trustItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.minimalContact__trustItem .btIcon,
+.minimalContact__trustItem svg {
+  width: 14px;
+  height: 14px;
+  color: #000000;
+}
+
+.minimalContact__pageLink {
+  font-size: 13.5px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.minimalContact__contactLink {
+  color: #000000;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid #000000;
+  transition: opacity var(--t-fast);
+}
+
+.minimalContact__contactLink:hover {
+  opacity: 0.7;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .minimalContact__card {
+    padding: 44px 36px;
+  }
+
+  .minimalContact__form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .minimalContact__submitWrap {
+    grid-column: span 2;
+  }
+
+  .minimalContact__submitBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .minimalContact {
+    padding: 60px 16px;
+  }
+
+  .minimalContact__card {
+    padding: 32px 20px;
+  }
+
+  .minimalContact__form {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .minimalContact__submitWrap {
+    grid-column: auto;
+  }
+
+  .minimalContact__trustList {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .minimalContact__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

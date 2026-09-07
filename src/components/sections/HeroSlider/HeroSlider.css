@@ -1,11 +1,11 @@
 /* ==========================================================================
-   Section 1 — Hero slider
-   Reference: `bt_bb_section.bt_bb_layout_wide` > `bt_bb_content_slider`
-     · fade animation, autoplay 4500ms, dots pinned right, no arrows
-     · full-bleed photo per slide, content rail capped at 1260px / 30px gutter
-     · two 50/50 inner columns — copy on one side, photo shows through the other
-   The reference photos are bright on the copy side, so the hero ink is dark
-   (#191919), matching the reference; there is no dark image overlay.
+   Section 1 — Hero Banner (Centered Luxury Style)
+   Inspired by modern luxury Dubai aesthetics (Pride and Property reference):
+     · Full-bleed high-res night backdrop with subtle dark overlay
+     · Centered subtitle eyebrow
+     · Large bold white title
+     · Dual crisp outline action buttons
+     · Clean bottom-centered slide indicators
    ========================================================================== */
 
 .heroSlider {
@@ -15,8 +15,6 @@
   background-color: var(--c-navy-deep);
 }
 
-/* All slides share one grid cell → the section is as tall as the tallest
-   slide and the crossfade never nudges the page height. */
 .heroSlider__viewport {
   display: grid;
   grid-template-areas: 'slide';
@@ -25,232 +23,165 @@
 .heroSlide {
   grid-area: slide;
   min-width: 0;
+  position: relative;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 600ms ease-out, visibility 0s linear 600ms;
+  transition: opacity 700ms ease-out, visibility 0s linear 700ms;
 }
 
-.heroSlide--right {
-  background-position: left 5% center;
-}
-
-.heroSlide--left {
-  background-position: right 5% center;
+/* Dark cinematic overlay for rich contrast and readable white typography */
+.heroSlide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(5, 10, 20, 0.55) 50%,
+    rgba(5, 10, 20, 0.72) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
 }
 
 .heroSlide.is-active {
   opacity: 1;
   visibility: visible;
-  transition: opacity 600ms ease-out;
+  transition: opacity 700ms ease-out;
 }
 
-/* Content rail — mirrors
-   `.bt_bb_layout_wide .bt_bb_content_slider ... .bt_bb_content_slider_item_content` */
 .heroSlide__inner {
-  max-width: 1260px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 30px;
-}
-
-/* Inner row — `.bt_bb_row_inner { display:flex; margin:0 -20px }` */
-.heroSlide__row {
-  display: flex;
-  flex-flow: row wrap;
-  margin: 0 -20px;
-  /* Full viewport height minus the fixed header (topbar + logo row ≈ --header-row + 32px). */
-  min-height: calc(100vh - var(--header-row) - 32px);
-  min-height: calc(100svh - var(--header-row) - 32px);
-  align-items: center;
-}
-
-.heroSlide__col {
-  padding: 2.5em 20px;
-}
-
-.heroSlide__col--text {
-  flex: 0 0 54%;
-  max-width: 54%;
-}
-
-.heroSlide__col--media {
-  flex: 0 0 46%;
-  max-width: 46%;
-  padding: 0;
-}
-
-/* Slide with copy on the right */
-.heroSlide--right .heroSlide__col--text {
-  order: 2;
-  padding-left: clamp(20px, 3vw, 50px);
-}
-.heroSlide--right .heroSlide__col--media {
-  order: 1;
-}
-
-/* Slide with copy on the left */
-.heroSlide--left .heroSlide__col--text {
-  order: 1;
-  padding-right: clamp(20px, 3vw, 50px);
-}
-.heroSlide--left .heroSlide__col--media {
-  order: 2;
-}
-
-/* --- Headline — `bt_bb_headline.bt_bb_size_huge` -------------------------- */
-
-.heroHeadline {
-  color: var(--c-dark);
-}
-
-/* Eyebrow with the accent dash — `bt_bb_dash_top` + `bt_bb_size_huge` */
-.heroHeadline__super {
+  padding: calc(var(--header-row) + 20px) 24px 3em;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
-  font-family: var(--font-heading);
-  font-size: 0.9375rem;
-  font-weight: var(--fw-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  line-height: 1.125;
-  margin-bottom: 1.1em;
-  color: var(--c-secondary);
+  justify-content: center;
 }
 
-.heroHeadline__super::before {
-  content: '';
-  width: 3.5rem;
-  border-top: 2px solid var(--c-accent);
-  margin-right: 0.9rem;
-  flex: 0 0 auto;
+.heroSlide__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
 }
 
-.heroHeadline__super:empty { display: none; }
+/* Subtitle / Eyebrow (e.g. "Your Gateway To Business Setup In Dubai") */
+.heroSlide__super {
+  font-family: var(--font-base);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.02em;
+  margin: 0 0 0.85rem;
+  text-transform: none;
+}
 
-.heroHeadline__title {
-  font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 3.6vw, 3.5rem);
-  line-height: 1.12;
-  color: var(--c-dark);
+/* Main Heading (e.g. "Vision Business Setup") */
+.heroSlide__title {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #ffffff;
   letter-spacing: -0.01em;
+  margin: 0 0 2.2rem;
 }
 
-.heroHeadline__plain {
-  display: block;
-  font-weight: var(--fw-light);
-}
-
-.heroHeadline__accent {
-  display: block;
-  font-weight: var(--fw-bold);
-  color: var(--c-accent);
-}
-
-.heroHeadline__sub {
-  max-width: 32em;
-  margin-top: 1.1em;
+.heroSlide__sub {
   font-family: var(--font-alt);
   font-size: 1.0625rem;
   line-height: 1.6;
-  color: #333333;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 38em;
+  margin: -1rem auto 2rem;
 }
 
-/* --- Buttons — `bt_bb_button.bt_bb_style_filled` ------------------------- */
+/* --- Action Buttons (Centered Dual Outline Buttons) ------------------- */
 
 .heroButtons {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 0.75em;
-  margin-top: 1.8em;
+  gap: 1.25rem;
 }
 
 .heroButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1em 3em;
+  min-width: 150px;
+  padding: 0.85em 2.5em;
   font-family: var(--font-base);
-  font-weight: var(--fw-bold);
-  font-size: 1rem;
-  line-height: 1;
-  color: #fff;
-  transition: background-color 300ms ease, color 300ms ease, box-shadow 300ms ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
 }
 
-.heroButton--accent {
-  background-color: var(--c-accent);
-}
-.heroButton--accent:hover {
-  background-color: #fff;
-  color: var(--c-accent);
-  box-shadow: inset 0 0 0 2px var(--c-accent);
+.heroButton:hover {
+  background-color: #ffffff;
+  color: var(--c-navy-deep);
+  border-color: #ffffff;
 }
 
-.heroButton--navy {
-  background-color: var(--c-secondary);
-}
-.heroButton--navy:hover {
-  background-color: #fff;
-  color: var(--c-secondary);
-  box-shadow: inset 0 0 0 2px var(--c-secondary);
-}
-
-/* --- Dots — `bt_bb_show_dots_right` + `bt_bb_dots_style_accent_dot` ------ */
+/* --- Slide Indicators (Bottom Centered) -------------------------------- */
 
 .heroDots {
   position: absolute;
-  right: 2em;
-  top: 0;
-  bottom: 0;
-  z-index: 2;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .heroDots li {
   position: relative;
-  width: 1em;
-  height: 2.4em;
+  width: 10px;
+  height: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Inactive: a faint vertical hairline (`li:before`, scaleY(.8), opacity .2) */
 .heroDots li::before {
   content: '';
-  width: 2px;
-  height: 100%;
-  background-color: var(--c-dark);
-  opacity: 0.2;
-  transform: scaleY(0.8);
-  transition: 200ms ease all;
-}
-
-/* Active / hover: the accent dot (`li:after`, scale 0 → 1) */
-.heroDots li::after {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background-color: var(--c-accent);
-  transform: scale(0);
-  transition: 200ms ease all;
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: all 250ms ease;
 }
 
-.heroDots li:hover::before,
-.heroDots li.is-active::before {
-  transform: scaleY(0);
-  opacity: 0;
+.heroDots li.is-active::before,
+.heroDots li:hover::before {
+  width: 24px;
+  border-radius: 4px;
+  background-color: #ffffff;
 }
-
-.heroDots li.is-active::after { transform: scale(1); }
-.heroDots li:hover::after { transform: scale(0.8); }
 
 .heroDots button {
   position: absolute;
@@ -259,44 +190,43 @@
   height: 100%;
   font-size: 0;
   background: none;
+  border: none;
   cursor: pointer;
 }
 
-/* --- Responsive (desktop-first, per the reference breakpoints) ----------- */
+/* --- Responsive -------------------------------------------------------- */
 
-@media (max-width: 1200px) {
-  .heroHeadline__title { font-size: 3.5rem; }
-  .heroSlide__col { padding: 3.5em 20px; }
-}
-
-/* Topbar is hidden below 782px → subtract only the logo row, not the +32px. */
 @media (max-width: 782px) {
-  .heroSlide__row {
-    min-height: calc(100vh - var(--header-row));
-    min-height: calc(100svh - var(--header-row));
+  .heroSlide__inner {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: calc(var(--header-row) + 16px) 20px 3em;
+  }
+
+  .heroSlide__title {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+    margin-bottom: 1.75rem;
+  }
+
+  .heroButtons {
+    gap: 0.85rem;
+  }
+
+  .heroButton {
+    padding: 0.8em 1.8em;
+    font-size: 0.9rem;
+    min-width: 130px;
   }
 }
 
-@media (max-width: 992px) {
-  .heroSlide__col--text {
-    max-width: 100%;
-    flex-basis: 100%;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(10px);
-    padding: 2.5em 24px;
-    border-radius: 12px;
-    margin: 2em 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+@media (max-width: 480px) {
+  .heroSlide__super {
+    font-size: 0.95rem;
   }
-  .heroSlide__col--media { display: none; }
-  .heroSlide--right .heroSlide__col--text { order: 0; }
-  .heroHeadline__title { font-size: 2.75rem; }
-  .heroDots { right: 1em; }
-}
 
-@media (max-width: 620px) {
-  .heroHeadline__title { font-size: 2.4rem; }
-  .heroHeadline__sub { font-size: 1rem; }
-  .heroButton { padding: 0.95em 2em; font-size: 0.9375rem; }
-  .heroSlide__inner { padding: 0 20px; }
+  .heroButtons {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+  }
 }

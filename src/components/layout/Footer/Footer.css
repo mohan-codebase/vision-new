@@ -1,332 +1,583 @@
 /* ==========================================================================
-   Footer — theme dark skin (`btDarkSkin`)
-     · widget band `#191919`, 4 columns (brand + 3 link lists)
-     · accent (brand gold) bottom bar — copyright + footer menu + back-to-top
+   Footer — High-Utility Executive Luxury Theme
+   · Pitch black background (#000000)
+   · Actionable Top CTA Banner (Twin Action Buttons)
+   · 3-Column Interactive Contact Cards (Phone, Email, Headquarters with Maps)
+   · 4-Column Main Grid with Brand Logo, Hours & Clear Service Categories
+   · Bottom bar with Copyright, Legal Disclaimers, Socials & Back to Top
    ========================================================================== */
 
-.siteFooter {
-  font-size: 0.875rem;
-  line-height: 1.7;
-  background-color: var(--c-navy-deep);
-}
-
-/* --- Widgets band --------------------------------------------------- */
-
-.siteFooterWidgets {
+.luxuryFooter {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--font-base);
+  width: 100%;
   position: relative;
-  background-color: var(--c-navy-deep);
-  color: rgba(255, 255, 255, 0.7);
-  padding-top: 4.5em;
   overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.siteFooterWidgets__decor {
-  position: absolute;
-  z-index: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  pointer-events: none;
-  right: -80px;
-  top: 30px;
-  border-width: 0 0 320px 320px;
-  border-color: transparent transparent transparent rgba(255, 255, 255, 0.025);
-}
-
-.siteFooterWidgets__decor--2 {
-  left: -60px;
-  bottom: 40px;
-  right: auto;
-  top: auto;
-  border-width: 220px 220px 0 0;
-  border-color: rgba(255, 255, 255, 0.02) transparent transparent transparent;
-}
-
-.siteFooterWidgets__port {
-  position: relative;
-  z-index: 1;
-  max-width: var(--w-content);
+.luxuryFooter__container {
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 var(--page-gutter);
+  padding: 80px 48px 48px;
 }
 
-.siteFooterWidgets__row {
+/* --------------------------------------------------------------------------
+   1. Top Callout & Action Card
+   -------------------------------------------------------------------------- */
+
+.luxuryFooter__ctaCard {
+  background: linear-gradient(180deg, #111111 0%, #080808 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 48px 52px;
+  margin-bottom: 44px;
   display: flex;
-  flex-flow: row wrap;
-  margin: 0 -20px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
 }
 
-.ftBox {
-  padding: 0 20px;
-  margin-bottom: 4.5em;
+.luxuryFooter__ctaContent {
+  max-width: 780px;
 }
 
-.ftBox--about {
-  flex: 1 1 340px;
-  max-width: 420px;
-}
-
-.ftBox--links {
-  flex: 1 1 180px;
-}
-
-/* --- Widget headline ---------------------------------------------- */
-
-.ftWidget__super {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 0.875rem;
-  font-weight: var(--fw-bold);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--c-accent);
-  margin-bottom: 1em;
-}
-
-.ftWidget__title {
-  font-family: var(--font-heading);
-  font-size: 1.75rem;
-  font-weight: var(--fw-light);
-  line-height: 1.2;
-  color: var(--c-white);
-  margin-bottom: 0.7em;
-}
-
-.ftBrandLogo {
-  display: block;
-  width: 168px;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 1.5em;
-  padding: 16px 20px;
-  background: var(--c-white);
-  border-radius: 10px;
-  box-sizing: content-box;
-}
-
-.ftWidget__text {
-  margin: 0 0 1.6em;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-/* --- Contact list ---------------------------------------------- */
-
-.ftContact {
-  list-style: none;
-  margin-bottom: 1.8em;
-}
-
-.ftContact li {
-  margin-bottom: 0.7em;
-}
-
-.ftContact a,
-.ftContact__plain {
+.luxuryFooter__ctaBadge {
   display: inline-flex;
   align-items: center;
-  gap: 0.75em;
-  color: rgba(255, 255, 255, 0.85);
-  transition: color var(--t-base);
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 14px;
 }
 
-.ftContact a:hover {
-  color: var(--c-accent);
+.luxuryFooter__ctaBadgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
 }
 
-.ftContact__icon {
+.luxuryFooter__ctaHeadline {
+  font-family: var(--font-base);
+  font-size: clamp(1.6rem, 2.2vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+
+.luxuryFooter__ctaSubheadline {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  max-width: 680px;
+}
+
+.luxuryFooter__ctaActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.luxuryFooter__ctaBtn {
   display: inline-flex;
-  flex: none;
-  color: var(--c-accent);
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 0;
+  transition: all var(--t-fast);
+  cursor: pointer;
+  white-space: nowrap;
 }
 
-.ftContact__icon .btIcon {
+.luxuryFooter__ctaBtn--primary {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+}
+
+.luxuryFooter__ctaBtn--primary:hover {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.luxuryFooter__ctaBtn--outline {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.luxuryFooter__ctaBtn--outline:hover {
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.luxuryFooter__ctaBtn svg {
   width: 16px;
   height: 16px;
 }
 
-/* --- Quick links --------------------------------------------- */
+/* --------------------------------------------------------------------------
+   2. Interactive Contact Cards (3 Pillars)
+   -------------------------------------------------------------------------- */
 
-.ftLinks {
-  list-style: none;
+.luxuryFooter__contactGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 56px;
 }
 
-.ftLinks li {
-  margin-bottom: 0.6em;
-}
-
-.ftLinks a {
-  position: relative;
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.72);
-  transition: color var(--t-base), padding-left var(--t-base);
-}
-
-.ftLinks a::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 10px;
-  height: 2px;
-  margin-top: -1px;
-  background: var(--c-accent);
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  transition: transform var(--t-base);
-}
-
-.ftLinks a:hover {
-  color: var(--c-white);
-  padding-left: 18px;
-}
-
-.ftLinks a:hover::before {
-  transform: scaleX(1);
-}
-
-/* --- Social ------------------------------------------------- */
-
-.ftSocial {
+.luxuryFooter__contactCard {
+  background-color: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 24px 28px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
+  align-items: flex-start;
+  gap: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--t-fast);
 }
 
-.ftSocial__link {
-  width: 2.7em;
-  height: 2.7em;
+.luxuryFooter__contactCard:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.luxuryFooter__cardIconHolder {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  transition: border-color var(--t-fast), background-color var(--t-fast);
+}
+
+.luxuryFooter__contactCard:hover .luxuryFooter__cardIconHolder {
+  border-color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.luxuryFooter__cardIconHolder .btIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.7);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-  transition: background-color var(--t-base), color var(--t-base),
-    box-shadow var(--t-base);
+  width: 20px;
+  height: 20px;
 }
 
-.ftSocial__link .btIcon {
+.luxuryFooter__cardIconHolder svg {
+  width: 20px;
+  height: 20px;
+}
+
+.luxuryFooter__cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.luxuryFooter__cardLabel {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 2px;
+}
+
+.luxuryFooter__cardValue {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.luxuryFooter__cardDetail {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Divider
+   -------------------------------------------------------------------------- */
+
+.luxuryFooter__divider {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 56px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Main Multi-Column Grid (Brand + 3 Navigation Columns)
+   -------------------------------------------------------------------------- */
+
+.luxuryFooter__mainGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.luxuryFooter__block {
+  display: flex;
+  flex-direction: column;
+}
+
+.luxuryFooter__block--brand {
+  padding-right: 20px;
+}
+
+.luxuryFooter__logoLink {
+  display: inline-block;
+  margin-bottom: 22px;
+}
+
+.luxuryFooter__logoImg {
+  display: block;
+  width: auto;
+  height: 48px;
+  object-fit: contain;
+}
+
+.luxuryFooter__desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 24px;
+}
+
+.luxuryFooter__metaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.luxuryFooter__hours {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.luxuryFooter__metaIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 1px;
+}
+
+.luxuryFooter__metaIcon .btIcon,
+.luxuryFooter__metaIcon svg {
   width: 15px;
   height: 15px;
 }
 
-.ftSocial__link:hover {
-  color: var(--c-white);
-  background-color: var(--c-accent);
-  box-shadow: inset 0 0 0 1px var(--c-accent);
+.luxuryFooter__hoursText {
+  line-height: 1.5;
 }
 
-/* --- Bottom bar (accent) ----------------------------------- */
-
-.siteFooterBar {
-  background-color: var(--c-accent);
-  color: var(--c-white);
-  font-family: var(--font-heading);
+.luxuryFooter__hoursLabel {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
 }
 
-.siteFooterBar__port {
-  max-width: var(--w-content);
-  margin: 0 auto;
-  padding: 0 var(--page-gutter);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0 2em;
+.luxuryFooter__hoursValue {
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.siteFooterBar__copy {
-  margin: 0;
-  padding: 1.7857em 0;
-}
-
-.siteFooterBar__menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.6em 2em;
-  padding: 1.7857em 0;
-  list-style: none;
-}
-
-.siteFooterBar__menu a,
-.siteFooterBar__top {
-  position: relative;
+.luxuryFooter__accreditation {
   display: inline-flex;
   align-items: center;
-  color: var(--c-white);
-  white-space: nowrap;
-  transition: opacity var(--t-fast);
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
 }
 
-.siteFooterBar__menu a::before {
-  content: '';
-  position: absolute;
-  left: -15px;
-  top: 50%;
-  margin-top: -1px;
-  width: 10px;
-  height: 2px;
-  background: var(--c-navy-deep);
-  transform: scaleX(0);
-  transform-origin: 0 0;
-  transition: transform 200ms ease;
-}
-
-.siteFooterBar__menu a:hover::before {
-  transform: scaleX(1);
-}
-
-.siteFooterBar__menu a:hover,
-.siteFooterBar__top:hover {
+.luxuryFooter__accreditationDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ffffff;
   opacity: 0.7;
 }
 
-.siteFooterBar__topIcon {
+/* Navigation Columns */
+
+.luxuryFooter__title {
+  font-family: var(--font-base);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.luxuryFooter__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.luxuryFooter__link {
   display: inline-flex;
-  margin-left: 0.45em;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all var(--t-fast);
 }
 
-.siteFooterBar__topIcon .btIcon {
-  width: 13px;
-  height: 13px;
-  transform: rotate(180deg);
+.luxuryFooter__linkArrow {
+  opacity: 0.4;
+  font-size: 15px;
+  line-height: 1;
+  transition: opacity var(--t-fast), transform var(--t-fast);
 }
 
-/* --- Responsive ------------------------------------------- */
+.luxuryFooter__link:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
 
-@media (max-width: 960px) {
-  .ftBox--about {
-    flex-basis: 100%;
-    max-width: none;
+.luxuryFooter__link:hover .luxuryFooter__linkArrow {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* --------------------------------------------------------------------------
+   4. Bottom Bar
+   -------------------------------------------------------------------------- */
+
+.luxuryFooter__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 64px;
+  padding-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.luxuryFooter__copy {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.luxuryFooter__legal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.luxuryFooter__legalItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.luxuryFooter__legalLink {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+.luxuryFooter__legalLink:hover {
+  color: #ffffff;
+}
+
+.luxuryFooter__legalSep {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 13px;
+}
+
+.luxuryFooter__bottomRight {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.luxuryFooter__social {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.luxuryFooter__socialLink {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: all var(--t-fast);
+  border-radius: 0;
+}
+
+.luxuryFooter__socialLink:hover {
+  border-color: #ffffff;
+  color: #000000;
+  background-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.luxuryFooter__socialLink .btIcon,
+.luxuryFooter__socialLink svg {
+  width: 16px;
+  height: 16px;
+  color: inherit;
+}
+
+.luxuryFooter__toTopBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px 16px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  border-radius: 0;
+  font-family: var(--font-base);
+}
+
+.luxuryFooter__toTopBtn:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.luxuryFooter__toTopBtn .btIcon,
+.luxuryFooter__toTopBtn svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .luxuryFooter__container {
+    padding: 64px 36px 36px;
   }
-  .ftBox--links {
-    flex-basis: 45%;
+
+  .luxuryFooter__ctaCard {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px;
+    gap: 28px;
   }
-  .ftWidget__title {
+
+  .luxuryFooter__contactGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .luxuryFooter__mainGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 32px;
+  }
+
+  .luxuryFooter__block--brand {
+    grid-column: span 2;
+    padding-right: 0;
+  }
+
+  .luxuryFooter__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .luxuryFooter__bottomRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 680px) {
+  .luxuryFooter__container {
+    padding: 50px 20px 32px;
+  }
+
+  .luxuryFooter__ctaCard {
+    padding: 28px 22px;
+  }
+
+  .luxuryFooter__ctaHeadline {
     font-size: 1.5rem;
   }
-}
 
-@media (max-width: 620px) {
-  .siteFooterWidgets {
-    padding-top: 3.5em;
-  }
-  .ftBox {
-    flex-basis: 100%;
-    margin-bottom: 2.75em;
-  }
-  .siteFooterBar__port {
+  .luxuryFooter__ctaActions {
+    width: 100%;
     flex-direction: column;
-    text-align: center;
   }
-  .siteFooterBar__copy {
-    padding: 1.4em 0 0.6em;
+
+  .luxuryFooter__ctaBtn {
+    width: 100%;
   }
-  .siteFooterBar__menu {
-    justify-content: center;
-    padding: 0.6em 0 1.4em;
+
+  .luxuryFooter__mainGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
-  .siteFooterBar__menu a::before {
-    display: none;
+
+  .luxuryFooter__block--brand {
+    grid-column: auto;
+  }
+
+  .luxuryFooter__legal {
+    flex-wrap: wrap;
+  }
+
+  .luxuryFooter__bottomRight {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
 }

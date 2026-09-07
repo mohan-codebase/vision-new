@@ -1,25 +1,21 @@
+import { FaWhatsapp } from 'react-icons/fa6'
 import { whatsappLink } from '../../../config/contact.js'
-import Icon from '../../ui/Icon.jsx'
 import './WhatsApp.css'
 
 /**
- * Floating "Chat Now" WhatsApp button — fixed to the lower-right of every
- * viewport. The number and prefilled message are configured in
- * `src/config/contact.js`.
+ * Floating WhatsApp button — Clean white rounded card with react-icons FaWhatsapp.
  */
 export default function WhatsApp() {
   return (
     <a
-      className="waFloat"
+      className="whatsapp-float"
       href={whatsappLink}
       target="_blank"
-      rel="noreferrer"
-      aria-label="Chat with Vision Business Setup on WhatsApp"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      title="Chat on WhatsApp"
     >
-      <span className="waFloat__icon">
-        <Icon name="whatsapp" />
-      </span>
-      <span className="waFloat__label">Chat Now</span>
+      <FaWhatsapp className="whatsapp-float__icon" aria-hidden="true" />
     </a>
   )
 }

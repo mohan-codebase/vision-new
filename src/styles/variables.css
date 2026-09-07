@@ -51,9 +51,9 @@
 
   --fw-light:   300;
   --fw-normal:  400;
-  --fw-medium:  500;
-  --fw-bold:    700;
-  --fw-black:   900;
+  --fw-medium:  400;
+  --fw-bold:    400;
+  --fw-black:   400;
 
   --lh-base:     1.7;
   --lh-heading:  1.2;
@@ -77,9 +77,9 @@
   --header-height: 100px;
   --radius-soft:   4px;
   --radius-page:   15px;
-  --shadow-header: 0 2px 30px 0 rgba(0, 0, 0, 0.15);
-  --shadow-page:   0 0 20px 0 rgba(0, 0, 0, 0.15);
-  --shadow-card:   0 8px 30px 0 rgba(0, 0, 0, 0.1);
+  --shadow-header: none;
+  --shadow-page:   none;
+  --shadow-card:   none;
 
   --ease:       cubic-bezier(0.23, 1, 0.32, 1);
   --t-fast:     200ms ease;

@@ -16,10 +16,9 @@ const IMAGES = {
 }
 
 /**
- * Section 5 — Who We Work With.
- *
- * Avantage triangular portfolio-tile treatment, reused as an industries
- * showcase. Exactly the five industries documented — no more.
+ * Section 5 — Who We Work With (Minimal Executive Redesign)
+ * Clean, uniform 5-card layout showcasing client industries with
+ * crisp photography, index numbering, and single-tone black typography.
  */
 export default function WhoWeWorkWith() {
   const { super: eyebrow, title, accent, intro, items } = whoWeWorkWith
@@ -37,16 +36,20 @@ export default function WhoWeWorkWith() {
         </header>
 
         <ul className="whoWork__grid">
-          {items.map((item) => (
+          {items.map((item, idx) => (
             <li className="workTile" key={item.title}>
-              <img
-                className="workTile__img"
-                src={IMAGES[item.image]}
-                alt={item.title}
-                loading="lazy"
-              />
-              <span className="workTile__corner" aria-hidden="true" />
-              <span className="workTile__label">{item.title}</span>
+              <div className="workTile__media">
+                <img
+                  className="workTile__img"
+                  src={IMAGES[item.image]}
+                  alt={item.title}
+                  loading="lazy"
+                />
+              </div>
+              <div className="workTile__body">
+                <span className="workTile__index">0{idx + 1}</span>
+                <h3 className="workTile__label">{item.title}</h3>
+              </div>
             </li>
           ))}
         </ul>

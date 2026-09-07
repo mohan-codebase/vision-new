@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Icon from '../../ui/Icon.jsx'
-import { headerPhone, mainMenu, topBar, currentMenuIndex } from '../../../data/site.js'
+import { headerPhone, mainMenu, topBar } from '../../../data/site.js'
 import MenuItem from './MenuItem.jsx'
 
 const logo = `${import.meta.env.BASE_URL}logo-lockup.png`
@@ -13,6 +14,8 @@ const logo = `${import.meta.env.BASE_URL}logo-lockup.png`
  * at 1200px, which is where the 6 items + 140px logo + tools stop fitting.
  */
 export default function MobileMenu({ open, onClose }) {
+  const location = useLocation()
+
   useEffect(() => {
     if (!open) return
     const onKey = (e) => e.key === 'Escape' && onClose()
@@ -48,9 +51,12 @@ export default function MobileMenu({ open, onClose }) {
 
         <nav aria-label="Primary (mobile)">
           <ul className="menu">
-            {mainMenu.map((item, i) => (
-              <MenuItem key={item.label} item={item} current={i === currentMenuIndex} />
-            ))}
+            {mainMenu.map((item) => {
+              const isCurrent =
+                item.href === location.pathname ||
+                (item.href === '/' && location.pathname === '/')
+              return <MenuItem key={item.label} item={item} current={isCurrent} />
+            })}
           </ul>
         </nav>
 

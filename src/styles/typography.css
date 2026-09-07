@@ -62,3 +62,10 @@ b {
     --fs-h2: 1.6em;
   }
 }
+
+/* Global override — remove all bold text site-wide */
+*,
+*::before,
+*::after {
+  font-weight: 400 !important;
+}
