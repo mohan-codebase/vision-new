@@ -14,7 +14,7 @@
   position: relative;
   background: linear-gradient(135deg, #0d1522 0%, #152438 50%, #1c3c60 100%);
   color: #ffffff;
-  padding: clamp(140px, 14vw, 190px) 0 clamp(70px, 8vw, 100px);
+  padding: clamp(180px, 16vw, 220px) 0 clamp(75px, 8vw, 105px);
   overflow: hidden;
 }
 
@@ -138,10 +138,10 @@
 }
 
 .aboutMetricCard__desc {
-  font-family: var(--font-alt);
-  font-size: 13px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.65);
+  font-family: var(--font-base);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.7);
   margin: 0;
 }
 
@@ -149,8 +149,8 @@
 
 .aboutStoryDeep {
   position: relative;
-  background-color: #f8fafc;
-  padding: clamp(70px, 8vw, 110px) 0;
+  background-color: #ffffff;
+  padding: clamp(75px, 8vw, 115px) 0;
 }
 
 .aboutStoryDeep__container {
@@ -169,14 +169,15 @@
 
 .aboutStoryDeep__badge {
   display: inline-block;
-  background-color: rgba(0, 46, 83, 0.08);
-  color: #1c3c60;
-  font-family: var(--font-alt);
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  background-color: rgba(176, 132, 47, 0.12);
+  color: #b0842f;
+  font-family: var(--font-superheadline);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   padding: 6px 14px;
-  border-radius: 4px;
+  border-radius: 2px;
   margin-bottom: 16px;
 }
 
@@ -193,10 +194,10 @@
 .aboutStoryDeep__paragraphs {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
   font-family: var(--font-base);
   font-size: 16px;
-  line-height: 1.75;
+  line-height: 1.8;
   color: #374151;
 }
 
@@ -205,9 +206,9 @@
 }
 
 .aboutStoryDeep__quote {
-  margin: 12px 0 0 0;
-  padding: 18px 24px;
-  background-color: #ffffff;
+  margin: 14px 0 0 0;
+  padding: 20px 24px;
+  background-color: #f8fafc;
   border-left: 4px solid #b0842f;
   font-family: var(--font-base);
   font-size: 16.5px;
@@ -221,10 +222,10 @@
 /* Card on the right of Deep Story */
 .aboutStoryCard {
   background-color: #ffffff;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 20px 45px -12px rgba(17, 24, 38, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .aboutStoryCard__imageWrapper {
@@ -232,7 +233,7 @@
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background-color: #000;
+  background-color: #0d1626;
 }
 
 .aboutStoryCard__img {
@@ -240,36 +241,43 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aboutStoryCard:hover .aboutStoryCard__img {
+  transform: scale(1.03);
 }
 
 .aboutStoryCard__tag {
   position: absolute;
-  bottom: 14px;
-  left: 14px;
-  background-color: rgba(17, 24, 38, 0.95);
-  color: #ffffff;
-  font-family: var(--font-alt);
+  bottom: 16px;
+  left: 16px;
+  background-color: rgba(13, 21, 34, 0.92);
+  backdrop-filter: blur(8px);
+  color: #c9a24e;
+  border: 1px solid rgba(201, 162, 78, 0.3);
+  font-family: var(--font-superheadline);
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  padding: 5px 12px;
-  border-radius: 3px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 6px 14px;
+  border-radius: 2px;
 }
 
 .aboutStoryCard__info {
-  padding: 26px 28px;
+  padding: 28px 30px;
 }
 
 .aboutStoryCard__head {
   font-family: var(--font-heading);
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   color: #111827;
   margin: 0 0 10px 0;
 }
 
 .aboutStoryCard__text {
-  font-family: var(--font-alt);
+  font-family: var(--font-base);
   font-size: 14.5px;
   line-height: 1.65;
   color: #4b5563;
@@ -279,6 +287,10 @@
 /* --- Responsiveness ------------------------------------------------------ */
 
 @media (max-width: 991px) {
+  .aboutHero {
+    padding-top: 160px;
+  }
+
   .aboutMetricsStrip__container {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
@@ -296,16 +308,16 @@
 }
 
 @media (max-width: 600px) {
-  .aboutMetricsStrip__container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
   .aboutHero {
-    padding-top: 120px;
+    padding-top: 140px;
   }
 
   .aboutHero__title {
-    font-size: 28px;
+    font-size: 30px;
+  }
+
+  .aboutMetricsStrip__container {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }

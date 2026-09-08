@@ -1,4 +1,5 @@
 import { useId, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Icon from '../../ui/Icon.jsx'
 
 /**
@@ -15,6 +16,7 @@ export default function MenuItem({ item, depth = 0, current = false }) {
   const [open, setOpen] = useState(false)
   const id = useId()
   const hasChildren = Boolean(item.children?.length)
+  const isRouterLink = item.href?.startsWith('/')
 
   const classes = [
     'menu-item',
@@ -37,14 +39,25 @@ export default function MenuItem({ item, depth = 0, current = false }) {
         }
       }}
     >
-      <a
-        href={item.href}
-        aria-current={current ? 'page' : undefined}
-        aria-expanded={hasChildren ? open : undefined}
-        aria-controls={hasChildren ? id : undefined}
-      >
-        {item.label}
-      </a>
+      {isRouterLink ? (
+        <Link
+          to={item.href}
+          aria-current={current ? 'page' : undefined}
+          aria-expanded={hasChildren ? open : undefined}
+          aria-controls={hasChildren ? id : undefined}
+        >
+          {item.label}
+        </Link>
+      ) : (
+        <a
+          href={item.href}
+          aria-current={current ? 'page' : undefined}
+          aria-expanded={hasChildren ? open : undefined}
+          aria-controls={hasChildren ? id : undefined}
+        >
+          {item.label}
+        </a>
+      )}
 
       {hasChildren && (
         <>

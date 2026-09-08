@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { commitment } from '../../../data/home.js'
 import './Commitment.css'
 
@@ -10,7 +11,7 @@ import imgCommitment from '../../../assets/images/our-commitment-clean.avif'
  * left, triangular photo bleeding off the right edge.
  */
 export default function Commitment() {
-  const { super: eyebrow, title, accent, text, cta, ctaHref, closing } = commitment
+  const { super: eyebrow, title, accent, text, cta, closing } = commitment
 
   return (
     <section className="commitment" id="commitment">
@@ -28,9 +29,9 @@ export default function Commitment() {
               <p className="cmtHeadline__sub">{text}</p>
             </header>
 
-            <a href={ctaHref} className="cmtButton">
+            <Link to="/contact" className="cmtButton">
               <span>{cta}</span>
-            </a>
+            </Link>
 
             <span className="cmtRule" aria-hidden="true" />
 
