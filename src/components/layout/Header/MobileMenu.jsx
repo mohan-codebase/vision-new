@@ -43,7 +43,7 @@ export default function MobileMenu({ open, onClose }) {
         inert={!open}
       >
         <div className="btMobileHead">
-          <img className="btMobileLogo" src={logo} alt="Vision Business Setup" width="132" height="87" />
+          <img className="btMobileLogo" src={logo} alt="Vision Business Setup" width="185" height="122" />
           <button type="button" className="btMobileClose" aria-label="Close menu" onClick={onClose}>
             <Icon name="close" size="large" />
           </button>

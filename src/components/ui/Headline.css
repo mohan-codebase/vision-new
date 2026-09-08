@@ -9,7 +9,7 @@
 /* Eyebrow */
 .btHeadlineSuper {
   display: block;
-  font-family: var(--font-alt);
+  font-family: var(--font-superheadline);
   font-size: 0.875em;
   font-weight: var(--fw-bold);
   letter-spacing: 0.1em;

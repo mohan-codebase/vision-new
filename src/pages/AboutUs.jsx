@@ -1,18 +1,15 @@
+import { Link } from 'react-router-dom'
 import Founder from '../components/sections/Founder/Founder.jsx'
 import CoreValues from '../components/sections/CoreValues/CoreValues.jsx'
-import WhatSetsUsApart from '../components/sections/WhatSetsUsApart/WhatSetsUsApart.jsx'
-import WhoWeWorkWith from '../components/sections/WhoWeWorkWith/WhoWeWorkWith.jsx'
 import Commitment from '../components/sections/Commitment/Commitment.jsx'
-import CallbackForm from '../components/sections/CallbackForm/CallbackForm.jsx'
-import OurStory from '../components/sections/OurStory/OurStory.jsx'
 import imgAboutUs from '../assets/images/about-us.jpg'
 import './AboutUs.css'
 
 /**
  * Dedicated About Us page for Vision Business Setup.
- * Comprehensive company presentation, narrative, founder, values, and credentials.
+ * Streamlined executive profile: narrative, founder, core values, and corporate commitment.
  */
-export default function AboutUs({ onNavigateHome }) {
+export default function AboutUs() {
   return (
     <main className="aboutPage">
       {/* 1. Page Hero Banner */}
@@ -20,18 +17,9 @@ export default function AboutUs({ onNavigateHome }) {
         <div className="aboutHero__overlay" aria-hidden="true" />
         <div className="aboutHero__container">
           <nav className="aboutBreadcrumb" aria-label="Breadcrumb">
-            <a
-              href="#top"
-              onClick={(e) => {
-                if (onNavigateHome) {
-                  e.preventDefault()
-                  onNavigateHome()
-                }
-              }}
-              className="aboutBreadcrumb__link"
-            >
+            <Link to="/" className="aboutBreadcrumb__link">
               Home
-            </a>
+            </Link>
             <span className="aboutBreadcrumb__sep">/</span>
             <span className="aboutBreadcrumb__current">About Us</span>
           </nav>
@@ -130,26 +118,14 @@ export default function AboutUs({ onNavigateHome }) {
         </div>
       </section>
 
-      {/* 4. Why Choose Vision Section (Pride & Property reference style) */}
-      <OurStory />
-
-      {/* 5. What Sets Us Apart (4 pillars from official content) */}
-      <WhatSetsUsApart />
-
-      {/* 6. Our Founder: Viekram Sadwani */}
+      {/* 4. Our Founder: Viekram Sadwani */}
       <Founder />
 
-      {/* 7. Our Core Values (7 values from official content) */}
+      {/* 5. Our Core Values (7 values) */}
       <CoreValues />
 
-      {/* 8. Who We Work With (5 verified industries) */}
-      <WhoWeWorkWith />
-
-      {/* 9. Our Commitment */}
+      {/* 6. Our Commitment */}
       <Commitment />
-
-      {/* 10. Consultation & Callback Form */}
-      <CallbackForm />
     </main>
   )
 }

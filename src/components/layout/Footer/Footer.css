@@ -63,10 +63,10 @@
 }
 
 .luxuryFooter__ctaHeadline {
-  font-family: var(--font-base);
-  font-size: clamp(1.6rem, 2.2vw, 2.25rem);
-  font-weight: 500;
-  line-height: 1.35;
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
   color: #ffffff;
   margin: 0 0 14px;
   letter-spacing: -0.01em;
@@ -260,7 +260,7 @@
 .luxuryFooter__logoImg {
   display: block;
   width: auto;
-  height: 48px;
+  height: 96px;
   object-fit: contain;
 }
 
@@ -333,9 +333,9 @@
 /* Navigation Columns */
 
 .luxuryFooter__title {
-  font-family: var(--font-base);
-  font-size: 14px;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #ffffff;
@@ -569,6 +569,10 @@
 
   .luxuryFooter__block--brand {
     grid-column: auto;
+  }
+
+  .luxuryFooter__logoImg {
+    height: 76px;
   }
 
   .luxuryFooter__legal {

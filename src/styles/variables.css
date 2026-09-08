@@ -36,10 +36,12 @@
   --c-linkedin:  #007bb5;
   --c-pinterest: #bd081b;
 
-  /* --- Typography -------------------------------------------------------- */
-  --font-base:      "Sarabun", Arial, Helvetica, sans-serif;        /* body + buttons */
-  --font-heading:   "Roboto Condensed", Arial, Helvetica, sans-serif; /* headline titles */
-  --font-alt:       "Roboto", Arial, Helvetica, sans-serif;         /* super/sub headlines */
+  /* --- Typography (Avantage Theme Specifications) ----------------------- */
+  --font-base:            "Roboto", Arial, Helvetica, sans-serif;          /* body, paragraphs, button text */
+  --font-heading:         "Sarabun", Arial, Helvetica, sans-serif;         /* h1-h6, section titles, card titles */
+  --font-superheadline:   "Roboto Condensed", Arial, Helvetica, sans-serif;/* eyebrows, badges, tags */
+  --font-alt:             "Roboto Condensed", Arial, Helvetica, sans-serif;/* superheadline alias */
+  --font-menu:            "Sarabun", Arial, Helvetica, sans-serif;         /* primary header navigation */
 
   --fs-root:  16px;   /* html { font-size: 16px } — all em values cascade from here */
   --fs-h1:    3em;
@@ -51,9 +53,9 @@
 
   --fw-light:   300;
   --fw-normal:  400;
-  --fw-medium:  400;
-  --fw-bold:    400;
-  --fw-black:   400;
+  --fw-medium:  500;
+  --fw-bold:    700;
+  --fw-black:   900;
 
   --lh-base:     1.7;
   --lh-heading:  1.2;

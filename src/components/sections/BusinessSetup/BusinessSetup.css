@@ -30,7 +30,7 @@
 
 .bsHead__super {
   display: block;
-  font-family: var(--font-heading);
+  font-family: var(--font-superheadline);
   font-size: 1rem;
   font-weight: var(--fw-normal);
   letter-spacing: 0.06em;
@@ -59,9 +59,9 @@
 
 .bsHead__intro {
   margin-top: 1.2em;
-  font-family: var(--font-alt);
+  font-family: var(--font-base);
   font-size: 1.0625rem;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--c-body);
 }
 
@@ -128,7 +128,7 @@
 
 .bsCard__super {
   display: block;
-  font-family: var(--font-heading);
+  font-family: var(--font-superheadline);
   font-size: 0.8125rem;
   font-weight: var(--fw-bold);
   letter-spacing: 0.06em;
@@ -148,9 +148,9 @@
 
 .bsCard__text {
   margin-top: 1em;
-  font-family: var(--font-alt);
+  font-family: var(--font-base);
   font-size: 0.9375rem;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--c-body);
 }
 

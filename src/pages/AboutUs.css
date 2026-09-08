@@ -39,7 +39,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Poppins', var(--font-base);
+  font-family: var(--font-base);
   font-size: 13.5px;
   margin-bottom: 24px;
 }
@@ -65,7 +65,7 @@
 
 .aboutHero__eyebrow {
   display: inline-block;
-  font-family: var(--font-heading);
+  font-family: var(--font-superheadline);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -75,7 +75,7 @@
 }
 
 .aboutHero__title {
-  font-family: 'Poppins', var(--font-base);
+  font-family: var(--font-heading);
   font-size: clamp(32px, 4vw, 54px);
   font-weight: 700;
   line-height: 1.18;
@@ -130,7 +130,7 @@
 }
 
 .aboutMetricCard__label {
-  font-family: 'Poppins', var(--font-base);
+  font-family: var(--font-heading);
   font-size: 15px;
   font-weight: 600;
   color: #c9a24e;
@@ -171,7 +171,7 @@
   display: inline-block;
   background-color: rgba(0, 46, 83, 0.08);
   color: #1c3c60;
-  font-family: 'Poppins', var(--font-base);
+  font-family: var(--font-alt);
   font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -181,7 +181,7 @@
 }
 
 .aboutStoryDeep__title {
-  font-family: 'Poppins', var(--font-base);
+  font-family: var(--font-heading);
   font-size: clamp(28px, 2.6vw, 38px);
   font-weight: 700;
   line-height: 1.25;
@@ -209,7 +209,7 @@
   padding: 18px 24px;
   background-color: #ffffff;
   border-left: 4px solid #b0842f;
-  font-family: 'Poppins', var(--font-base);
+  font-family: var(--font-base);
   font-size: 16.5px;
   font-style: italic;
   font-weight: 500;
@@ -261,7 +261,7 @@
 }
 
 .aboutStoryCard__head {
-  font-family: 'Poppins', var(--font-base);
+  font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 600;
   color: #111827;
