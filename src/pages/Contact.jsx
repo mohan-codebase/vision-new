@@ -1,6 +1,6 @@
 import CallbackForm from '../components/sections/CallbackForm/CallbackForm.jsx'
 import GetInTouch from '../components/sections/GetInTouch/GetInTouch.jsx'
-import { contact, whatsappLink } from '../config/contact.js'
+import { contact, hasPhone, whatsappLink } from '../config/contact.js'
 import './Contact.css'
 
 import workWith01 from '../assets/images/who-we-work-with-1-clean.avif'
@@ -12,9 +12,9 @@ import workWith05 from '../assets/images/who-we-work-with-5-clean.avif'
 const CONTACT_CHANNELS = [
   {
     index: '01',
-    title: 'Phone Consultation',
-    detail: contact.phoneDisplay,
-    href: contact.phoneHref,
+    title: hasPhone ? 'Phone Consultation' : 'Callback Consultation',
+    detail: hasPhone ? contact.phoneDisplay : 'Request a callback',
+    href: hasPhone ? contact.phoneHref : '#request-callback',
     image: workWith03,
   },
   {
@@ -36,7 +36,7 @@ const CONTACT_CHANNELS = [
   {
     index: '04',
     title: 'Dubai Headquarters',
-    detail: 'Al Safa 1, Sheikh Zayed Rd',
+    detail: contact.addressLines.join(', '),
     href: '#contact',
     image: workWith05,
   },

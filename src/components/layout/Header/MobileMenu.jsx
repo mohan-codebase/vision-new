@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Icon from '../../ui/Icon.jsx'
 import { headerPhone, mainMenu, topBar } from '../../../data/site.js'
+import { whatsappLink } from '../../../config/contact.js'
 import MenuItem from './MenuItem.jsx'
 
 const logo = `${import.meta.env.BASE_URL}logo-lockup.png`
@@ -61,10 +62,22 @@ export default function MobileMenu({ open, onClose }) {
         </nav>
 
         <div className="btMobileFoot">
-          <a href={headerPhone.href} className="bt_button_widget bt_button_widget_accent">
-            <span className="bt_bb_button_text">{headerPhone.label}</span>
-            <Icon name="phone" size="small" />
-          </a>
+          {headerPhone ? (
+            <a href={headerPhone.href} className="bt_button_widget bt_button_widget_accent">
+              <span className="bt_bb_button_text">{headerPhone.label}</span>
+              <Icon name="phone" size="small" />
+            </a>
+          ) : (
+            <a
+              href={whatsappLink}
+              className="bt_button_widget bt_button_widget_accent"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="bt_bb_button_text">Chat on WhatsApp</span>
+              <Icon name="whatsapp" size="small" />
+            </a>
+          )}
 
           <div className="btMobileSocial">
             {topBar.social.map((link) => (

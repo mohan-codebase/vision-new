@@ -1,4 +1,4 @@
-import { contact, whatsappLink } from '../../../config/contact.js'
+import { contact, hasPhone, whatsappLink } from '../../../config/contact.js'
 import Icon from '../../ui/Icon.jsx'
 import './GetInTouch.css'
 
@@ -8,7 +8,7 @@ import './GetInTouch.css'
  * Reproduces the Avantage contact section: a full-width map with a wide,
  * horizontal white panel overlapping its lower-middle. Left of the panel:
  * label + heading + description; right: three equal contact columns
- * (Address / Call us / Email us).
+ * (Address / Call us — or WhatsApp while the phone number is hidden / Email us).
  *
  * All contact values come from `src/config/contact.js`. When a value is not
  * configured the column shows a neutral placeholder — never fabricated data.
@@ -35,13 +35,23 @@ export default function GetInTouch() {
         ? address
         : [<span key="ph" className="giCol__placeholder">Office address to be added</span>],
     },
-    {
-      icon: 'phone',
-      title: 'Call us',
-      lines: [
-        <a key="tel" href={contact.phoneHref}>{contact.phoneDisplay}</a>,
-      ],
-    },
+    hasPhone
+      ? {
+          icon: 'phone',
+          title: 'Call us',
+          lines: [
+            <a key="tel" href={contact.phoneHref}>{contact.phoneDisplay}</a>,
+          ],
+        }
+      : {
+          icon: 'whatsapp',
+          title: 'Message us',
+          lines: [
+            <a key="wa" href={whatsappLink} target="_blank" rel="noreferrer">
+              Chat on WhatsApp
+            </a>,
+          ],
+        },
     {
       icon: 'mail',
       title: 'Email us',

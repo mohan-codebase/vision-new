@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { callbackForm } from '../../../data/home.js'
-import { contact, whatsappLink } from '../../../config/contact.js'
+import { contact, hasPhone, whatsappLink } from '../../../config/contact.js'
 import Icon from '../../ui/Icon.jsx'
 import './CallbackForm.css'
 
@@ -49,10 +49,12 @@ export default function CallbackForm() {
             </ul>
 
             <div className="cbfIntro__contact">
-              <a href={contact.phoneHref} className="cbfIntro__contactLink">
-                <Icon name="phone" size="small" />
-                {contact.phoneDisplay}
-              </a>
+              {hasPhone && (
+                <a href={contact.phoneHref} className="cbfIntro__contactLink">
+                  <Icon name="phone" size="small" />
+                  {contact.phoneDisplay}
+                </a>
+              )}
               <a
                 href={whatsappLink}
                 className="cbfIntro__contactLink"
@@ -74,7 +76,7 @@ export default function CallbackForm() {
                 <h3 className="cbfSuccess__title">Thank you — request received</h3>
                 <p className="cbfSuccess__text">
                   A Vision Business Setup consultant will be in touch shortly. For anything
-                  urgent, call us on {contact.phoneDisplay}.
+                  urgent, {hasPhone ? `call us on ${contact.phoneDisplay}.` : 'message us on WhatsApp.'}
                 </p>
                 <button
                   type="button"

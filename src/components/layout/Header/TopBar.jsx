@@ -3,8 +3,9 @@ import { topBar } from '../../../data/site.js'
 
 /**
  * TopBar — the navy (#1b4962) utility strip above the logo area.
- * Left: the Vision tagline. Right: a "speak to a consultant" phone line and
- * social links. Hidden once the header sticks (see Header.css).
+ * Left: the Vision tagline. Right: a "speak to a consultant" phone line (only
+ * while a number is configured) and social links. Hidden once the header
+ * sticks (see Header.css).
  */
 export default function TopBar() {
   return (
@@ -15,12 +16,14 @@ export default function TopBar() {
         </div>
 
         <div className="topTools btTopToolsRight">
-          <IconWidget
-            icon={topBar.phone.icon}
-            title={`Call us: ${topBar.phone.text}`}
-            href={topBar.phone.href}
-            label="Call Vision Business Setup"
-          />
+          {topBar.phone && (
+            <IconWidget
+              icon={topBar.phone.icon}
+              title={`Call us: ${topBar.phone.text}`}
+              href={topBar.phone.href}
+              label="Call Vision Business Setup"
+            />
+          )}
           {topBar.social.map((link) => (
             <IconWidget key={link.icon} icon={link.icon} href={link.href} label={link.label} />
           ))}

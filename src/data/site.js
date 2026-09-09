@@ -5,7 +5,7 @@
  * Contact details (phone, WhatsApp, email, address) live in
  * `src/config/contact.js` — that is the single place to edit them.
  */
-import { contact } from '../config/contact.js'
+import { contact, hasPhone } from '../config/contact.js'
 
 export const brand = {
   name: 'Vision Business Setup',
@@ -15,7 +15,10 @@ export const brand = {
 export const topBar = {
   tagline: brand.tagline,
   hours: { icon: 'clock', title: brand.tagline },
-  phone: { icon: 'phone', title: 'Speak to a consultant', text: contact.phoneDisplay, href: contact.phoneHref },
+  // Rendered only while a phone number is configured — see `hasPhone`.
+  phone: hasPhone
+    ? { icon: 'phone', title: 'Speak to a consultant', text: contact.phoneDisplay, href: contact.phoneHref }
+    : null,
   social: contact.social,
 }
 
@@ -66,8 +69,10 @@ export const mainMenu = [
 /** Index of the item rendered as current (0 = Home, active gold like reference). */
 export const currentMenuIndex = 0
 
-/** The header's accent button is the phone number. */
-export const headerPhone = { label: contact.phoneDisplay, href: contact.phoneHref }
+/** The header's accent button is the phone number — null while it is hidden. */
+export const headerPhone = hasPhone
+  ? { label: contact.phoneDisplay, href: contact.phoneHref }
+  : null
 
 export const footer = {
   cta: {
@@ -85,13 +90,26 @@ export const footer = {
     },
   },
   contactCards: [
-    {
-      icon: 'phone',
-      label: 'Direct Phone Support',
-      value: contact.phoneDisplay,
-      href: contact.phoneHref,
-      detail: 'Available Mon – Sat (09:30 AM – 06:30 PM)',
-    },
+    ...(hasPhone
+      ? [
+          {
+            icon: 'phone',
+            label: 'Direct Phone Support',
+            value: contact.phoneDisplay,
+            href: contact.phoneHref,
+            detail: 'Available Mon – Sat (09:30 AM – 06:30 PM)',
+          },
+        ]
+      : [
+          {
+            icon: 'whatsapp',
+            label: 'WhatsApp Advisory',
+            value: 'Chat with an advisor',
+            href: `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(contact.whatsappMessage)}`,
+            detail: 'Available Mon – Sat (09:30 AM – 06:30 PM)',
+            target: '_blank',
+          },
+        ]),
     {
       icon: 'mail',
       label: 'Official Inquiries',
@@ -102,7 +120,7 @@ export const footer = {
     {
       icon: 'pin',
       label: 'Dubai Headquarters',
-      value: '119, Mardoof Complex, Al Safa 1, Sheikh Zayed Rd',
+      value: contact.addressLines.join(', '),
       href: `https://www.google.com/maps/search/${encodeURIComponent(contact.addressLines.join(' '))}`,
       detail: 'Open in Google Maps ↗',
       target: '_blank',

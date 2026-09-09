@@ -21,7 +21,7 @@
   width: 100%;
   z-index: 1020;
   font-family: var(--font-base);
-  background: transparent;
+  background-color: #000000;
   border: none;
 }
 

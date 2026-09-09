@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { contact } from '../../../config/contact.js'
+import { contact, hasPhone, whatsappLink } from '../../../config/contact.js'
 import Icon from '../../ui/Icon.jsx'
 import './MinimalContact.css'
 
@@ -45,7 +45,11 @@ export default function MinimalContact() {
                 <h3 className="minimalContact__successTitle">Callback Request Received</h3>
                 <p className="minimalContact__successText">
                   Thank you. A Vision Business Setup advisor will call you {phone ? `at ${phone}` : 'shortly'}. For immediate assistance, feel free to contact us on{' '}
-                  <a href={contact.phoneHref}>{contact.phoneDisplay}</a>.
+                  {hasPhone ? (
+                    <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
+                  ) : (
+                    <a href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a>
+                  )}.
                 </p>
                 <button
                   type="button"
@@ -77,7 +81,7 @@ export default function MinimalContact() {
                   id="min-phone"
                   name="phone"
                   type="tel"
-                  placeholder="+971 54 288 7888"
+                  placeholder="+971 50 000 0000"
                   autoComplete="tel"
                   required
                   className="minimalContact__input"
