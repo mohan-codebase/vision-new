@@ -31,8 +31,7 @@
   margin: 0;
   padding: 3em 2.5em;
   color: var(--c-white);
-  background:
-    linear-gradient(150deg, var(--c-secondary) 0%, var(--c-navy-deep) 100%);
+  background: var(--c-brand);
   position: relative;
   overflow: hidden;
 }
@@ -180,7 +179,7 @@
   padding: 1.1em 1.2em;
   background: var(--c-white);
   border: 1px solid var(--c-border);
-  border-left: 3px solid var(--c-accent, #000000);
+  border-left: 3px solid var(--c-brand);
 }
 
 .founderFact__value {

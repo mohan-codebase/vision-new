@@ -191,8 +191,8 @@
 .cbfField textarea:focus {
   outline: none;
   background: #ffffff;
-  border-color: #000000;
-  box-shadow: 0 0 0 1px #000000;
+  border-color: #295583;
+  box-shadow: 0 0 0 1px #295583;
 }
 
 .cbfField textarea {
@@ -211,16 +211,16 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #ffffff;
-  background-color: #000000;
-  border: 1px solid #000000;
+  background-color: #295583;
+  border: 1px solid #295583;
   border-radius: 0;
   cursor: pointer;
   transition: background-color var(--t-fast), border-color var(--t-fast);
 }
 
 .cbfSubmit:hover {
-  background-color: #222222;
-  border-color: #222222;
+  background-color: #1f4468;
+  border-color: #1f4468;
 }
 
 .cbfForm__note {
@@ -245,7 +245,7 @@
   justify-content: center;
   width: 60px;
   height: 60px;
-  background: #000000;
+  background: #295583;
   color: #ffffff;
   margin-bottom: 1.2em;
 }

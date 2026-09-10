@@ -125,7 +125,7 @@
 
 .svcCol:hover,
 .svcCol:focus-within {
-  background-color: #0a0a0a;
+  background-color: #295583;
   color: #ffffff;
 }
 
@@ -298,7 +298,7 @@
   line-height: 1.2;
   color: #000000;
   background-color: transparent;
-  border: 1px solid #000000;
+  border: 1px solid #295583;
   border-radius: 0;
   text-decoration: none;
   cursor: pointer;
@@ -307,9 +307,9 @@
 }
 
 .ourServices__button:hover {
-  background-color: #000000;
+  background-color: #295583;
   color: #ffffff;
-  border-color: #000000;
+  border-color: #295583;
 }
 
 /* --- Responsive -------------------------------------------------------- */

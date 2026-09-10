@@ -71,7 +71,7 @@ export default function MinimalContact() {
                   id="min-fullname"
                   name="fullname"
                   type="text"
-                  placeholder="e.g. John Doe"
+                  placeholder="e.g. Mohammed Al Mansoori"
                   autoComplete="name"
                   required
                   className="minimalContact__input"

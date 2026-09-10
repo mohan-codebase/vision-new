@@ -54,7 +54,7 @@
   width: 3.25em;
   height: 3.25em;
   border-radius: 50% 50% 50% 0;
-  background: var(--c-accent);
+  background: var(--c-brand);
   color: var(--c-white);
 }
 
@@ -92,7 +92,7 @@
   height: 0;
   border-style: solid;
   border-width: 74px 74px 0 0;
-  border-color: #000000 transparent transparent transparent;
+  border-color: #295583 transparent transparent transparent;
   z-index: 3;
 }
 
@@ -170,25 +170,25 @@
 .giBtn--accent {
   color: #000000;
   background-color: transparent;
-  border: 1px solid #000000;
+  border: 1px solid #295583;
 }
 
 .giBtn--accent:hover {
-  background-color: #000000;
+  background-color: #295583;
   color: #ffffff;
-  border-color: #000000;
+  border-color: #295583;
 }
 
 .giBtn--wa {
   color: #000000;
   background-color: transparent;
-  border: 1px solid #000000;
+  border: 1px solid #295583;
 }
 
 .giBtn--wa:hover {
-  background-color: #000000;
+  background-color: #295583;
   color: #ffffff;
-  border-color: #000000;
+  border-color: #295583;
 }
 
 .giBtn .btIcon,

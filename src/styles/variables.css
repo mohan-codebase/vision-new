@@ -4,21 +4,22 @@
    ========================================================================== */
 
 :root {
-  /* --- Palette — monochrome ---------------------------------------------
-     The site is styled in black / white / grey only: headings and accents are
-     black, body copy is black at reduced opacity, rules are hairlines, and
-     #f5f5f5 carries any tonal band. Token names are unchanged so components
-     keep working; every one of them now resolves to a step on the grey scale.
+  /* --- Palette — brand blue + monochrome type ---------------------------
+     Every dark surface, fill, rule, border and focus ring is brand blue
+     #295583 (flat — no gradients). Text stays black; body copy is black at
+     reduced opacity and #f5f5f5 carries any light tonal band.
      ---------------------------------------------------------------------- */
-  --c-accent:            #000000;  /* main / primary — was brand gold */
-  --c-accent-dark:       #000000;  /* hover / pressed */
-  --c-accent-alt:        #222222;
+  --c-brand:             #295583;  /* dark surfaces, fills, accents */
+  --c-brand-deep:        #1f4468;  /* hover / pressed, panels on brand ground */
+  --c-accent:            #000000;  /* text accents — was brand gold */
+  --c-accent-dark:       #1f4468;  /* hover / pressed */
+  --c-accent-alt:        #1f4468;
   --c-accent-light:      #444444;  /* lighter step, used on dark grounds */
   --c-secondary:         #000000;  /* headline */
-  --c-navy-deep:         #000000;  /* near-black */
-  --c-brand-blue:        #111111;  /* feature bands */
+  --c-navy-deep:         #295583;  /* dark bands, hero, mobile drawer */
+  --c-brand-blue:        #295583;  /* feature bands */
   --c-dark:              #000000;  /* base font color */
-  --c-dark-alt:          #111111;  /* dark scheme background */
+  --c-dark-alt:          #295583;  /* dark scheme background */
 
   /* --- Neutrals ---------------------------------------------------------- */
   --c-white:             #ffffff;

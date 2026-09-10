@@ -1,6 +1,6 @@
 /* ==========================================================================
    Footer — High-Utility Executive Luxury Theme
-   · Pitch black background (#000000)
+   · Brand blue background (#295583), flat — no gradients
    · Actionable Top CTA Banner (Twin Action Buttons)
    · 3-Column Interactive Contact Cards (Phone, Email, Headquarters with Maps)
    · 4-Column Main Grid with Brand Logo, Hours & Clear Service Categories
@@ -8,7 +8,7 @@
    ========================================================================== */
 
 .luxuryFooter {
-  background-color: #000000;
+  background-color: #295583;
   color: #ffffff;
   font-family: var(--font-base);
   width: 100%;
@@ -29,7 +29,7 @@
    -------------------------------------------------------------------------- */
 
 .luxuryFooter__ctaCard {
-  background: linear-gradient(180deg, #111111 0%, #080808 100%);
+  background: var(--c-brand-deep);
   border: 1px solid rgba(255, 255, 255, 0.12);
   padding: clamp(26px, 2.8vw, 36px) clamp(24px, 3vw, 44px);
   margin-bottom: 30px;

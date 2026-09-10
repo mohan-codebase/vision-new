@@ -439,10 +439,10 @@ export const callbackForm = {
     'End-to-End Support — from initial idea to operational launch',
   ],
   fields: [
-    { name: 'name', label: 'Full name', type: 'text', autoComplete: 'name', required: true },
-    { name: 'phone', label: 'Phone number', type: 'tel', autoComplete: 'tel', required: true },
-    { name: 'email', label: 'Email address', type: 'email', autoComplete: 'email', required: true },
-    { name: 'message', label: 'How can we help?', type: 'textarea', required: false },
+    { name: 'name', label: 'Full name', type: 'text', placeholder: 'e.g. Mohammed Al Mansoori', autoComplete: 'name', required: true },
+    { name: 'phone', label: 'Phone number', type: 'tel', placeholder: '+971 50 000 0000', autoComplete: 'tel', required: true },
+    { name: 'email', label: 'Email address', type: 'email', placeholder: 'mohammed@example.com', autoComplete: 'email', required: true },
+    { name: 'message', label: 'How can we help?', type: 'textarea', placeholder: 'Tell us about your business setup requirements...', required: false },
   ],
   submitLabel: 'Request a Callback',
 }

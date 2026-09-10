@@ -115,9 +115,9 @@
 }
 
 .whoNavBtn:hover:not(.whoNavBtn--disabled) {
-  background-color: #000000;
+  background-color: #295583;
   color: #ffffff;
-  border-color: #000000;
+  border-color: #295583;
   transform: translateY(-2px);
 }
 
@@ -204,23 +204,13 @@
 .whoCard__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.58) 0%,
-    rgba(0, 0, 0, 0.22) 34%,
-    rgba(0, 0, 0, 0) 62%
-  );
+  background: rgba(31, 68, 104, 0.3);
   pointer-events: none;
   transition: background 300ms ease;
 }
 
 .whoCard:hover .whoCard__overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.16) 34%,
-    rgba(0, 0, 0, 0) 62%
-  );
+  background: rgba(31, 68, 104, 0.18);
 }
 
 /* Top Meta: Numeral Badge & Tag */
@@ -245,7 +235,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(41, 85, 131, 0.9);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.22);
@@ -354,7 +344,7 @@
 .whoCard__featureBullet {
   width: 4px;
   height: 4px;
-  background: #000000;
+  background: #295583;
   transform: rotate(45deg);
   flex-shrink: 0;
 }
@@ -416,7 +406,7 @@
 
 .whoWork__progressBar {
   height: 100%;
-  background-color: #000000;
+  background-color: #295583;
   transition: width 320ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -434,7 +424,7 @@
 .whoWork__closingStrip {
   margin-top: clamp(36px, 4vw, 54px);
   padding: 30px 36px;
-  background-color: #111111;
+  background-color: #295583;
   color: #ffffff;
   border-radius: 4px;
   display: flex;

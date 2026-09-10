@@ -13,7 +13,7 @@
 
 .contactHero {
   position: relative;
-  background: linear-gradient(135deg, #000000 0%, #111111 50%, #222222 100%);
+  background: var(--c-brand);
   color: #ffffff;
   padding: clamp(180px, 16vw, 220px) 0 clamp(75px, 8vw, 105px);
   overflow: hidden;
@@ -22,8 +22,7 @@
 .contactHero__overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
-              radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  background: none;
   pointer-events: none;
 }
 

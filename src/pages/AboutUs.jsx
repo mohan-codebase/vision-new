@@ -210,19 +210,19 @@ export default function AboutUs() {
               <form className="aboutContact__form" onSubmit={handleSubmit}>
                 <div className="aboutField">
                   <label htmlFor="ab-name">Name</label>
-                  <input id="ab-name" name="name" type="text" autoComplete="name" />
+                  <input id="ab-name" name="name" type="text" placeholder="e.g. Mohammed Al Mansoori" autoComplete="name" />
                 </div>
                 <div className="aboutField">
                   <label htmlFor="ab-phone">Phone*</label>
-                  <input id="ab-phone" name="phone" type="tel" autoComplete="tel" required />
+                  <input id="ab-phone" name="phone" type="tel" placeholder="+971 50 000 0000" autoComplete="tel" required />
                 </div>
                 <div className="aboutField">
                   <label htmlFor="ab-email">Email*</label>
-                  <input id="ab-email" name="email" type="email" autoComplete="email" required />
+                  <input id="ab-email" name="email" type="email" placeholder="mohammed@example.com" autoComplete="email" required />
                 </div>
                 <div className="aboutField">
                   <label htmlFor="ab-message">Message</label>
-                  <textarea id="ab-message" name="message" rows={4} />
+                  <textarea id="ab-message" name="message" rows={4} placeholder="Tell us about your business setup requirements..." />
                 </div>
                 <button type="submit" className="aboutContact__submit">Request a Callback</button>
               </form>

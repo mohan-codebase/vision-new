@@ -110,7 +110,7 @@
 
 .ctaButton:hover {
   background-color: #ffffff;
-  color: var(--c-navy-deep);
+  color: #000000;
   border-color: #ffffff;
 }
 

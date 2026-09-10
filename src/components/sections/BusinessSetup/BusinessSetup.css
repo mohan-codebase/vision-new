@@ -101,7 +101,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, #fff 40%);
+  background: rgba(255, 255, 255, 0.94);
   pointer-events: none;
 }
 
@@ -112,7 +112,7 @@
 
 .bsCard__content:hover {
   transform: translateY(-6px);
-  border-color: #000000;
+  border-color: #295583;
 }
 
 .bsCard__icon {
@@ -199,7 +199,7 @@
   line-height: 1.2;
   color: #000000;
   background-color: transparent;
-  border: 1px solid #000000;
+  border: 1px solid #295583;
   border-radius: 0;
   text-decoration: none;
   cursor: pointer;
@@ -207,9 +207,9 @@
 }
 
 .bsCard__cta:hover {
-  background-color: #000000;
+  background-color: #295583;
   color: #ffffff;
-  border-color: #000000;
+  border-color: #295583;
 }
 
 /* --- Responsive ------------------------------------------------------- */

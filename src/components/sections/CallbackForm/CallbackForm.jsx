@@ -102,6 +102,7 @@ export default function CallbackForm() {
                         id={`cbf-${field.name}`}
                         name={field.name}
                         rows="4"
+                        placeholder={field.placeholder}
                         required={field.required}
                       />
                     ) : (
@@ -109,6 +110,7 @@ export default function CallbackForm() {
                         id={`cbf-${field.name}`}
                         name={field.name}
                         type={field.type}
+                        placeholder={field.placeholder}
                         autoComplete={field.autoComplete}
                         required={field.required}
                       />

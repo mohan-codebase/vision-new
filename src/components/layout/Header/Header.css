@@ -24,7 +24,7 @@
   width: 100%;
   z-index: 1020;
   font-family: var(--font-base);
-  background-color: #000000;
+  background-color: #295583;
   border: none;
 }
 
@@ -137,7 +137,7 @@
   min-width: 220px;
   margin: 0;
   padding: 8px 0;
-  background: #000000;
+  background: #295583;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
@@ -274,7 +274,7 @@
   position: fixed;
   inset: 0;
   z-index: 1030;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(31, 68, 104, 0.6);
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--t-base);
@@ -515,13 +515,13 @@
 
 .mainHeader--light .navCtaBtn {
   color: #000000;
-  border-color: #000000;
+  border-color: #295583;
 }
 
 .mainHeader--light .navCtaBtn:hover {
-  background-color: #000000;
+  background-color: #295583;
   color: #ffffff;
-  border-color: #000000;
+  border-color: #295583;
 }
 
 .mainHeader--light .btHorizontalMenuTrigger {
