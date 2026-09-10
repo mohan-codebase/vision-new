@@ -1,9 +1,11 @@
 /**
  * Homepage section content for Vision Business Setup.
  *
- * Source of truth: "Website Content_Vision.docx". Copy here is condensed from
- * that document for a concise, conversion-focused homepage — the full detail
- * belongs on the dedicated inner pages, which are linked but not built here.
+ * Source of truth: "Website Content_Vision.docx" (see `Website-Content-Vision.txt`).
+ * Every user-facing string below is taken from that document — verbatim where
+ * the document provides a full sentence, and otherwise assembled only from its
+ * own headings and navigation labels. The three Business Setup jurisdictions
+ * have dedicated pages in `src/data/jurisdictions.js`.
  *
  * One export per section, named to match its component.
  */
@@ -12,8 +14,8 @@
 
 export const heroSlides = [
   {
-    super: 'Your Gateway To Business Setup In Dubai',
-    title: 'Vision Business Setup',
+    super: 'Vision Business Setup',
+    title: 'Every Business starts with Vision',
     image: 'banner-burj-khalifa.jpg',
     buttons: [
       { label: 'About Us', href: '#our-story' },
@@ -21,8 +23,8 @@ export const heroSlides = [
     ],
   },
   {
-    super: 'Mainland · Free Zone · Offshore',
-    title: 'Set Up Your Business With Confidence',
+    super: 'UAE Mainland · UAE Free Zone · UAE Offshore',
+    title: 'End-to-end business setup and corporate support services in the UAE',
     image: 'banner-palm-jumeirah.jpg',
     buttons: [
       { label: 'Business Setup', href: '#business-setup' },
@@ -30,8 +32,8 @@ export const heroSlides = [
     ],
   },
   {
-    super: 'Strategic Guidance, End-to-End Support',
-    title: 'A Trusted Partner For Your Growth',
+    super: 'Established in 2015',
+    title: 'A trusted name in the UAE’s business setup landscape',
     image: 'banner-atlantis.webp',
     buttons: [
       { label: 'Our Services', href: '#services' },
@@ -43,30 +45,32 @@ export const heroSlides = [
 /* 2 — BUSINESS SETUP OPTIONS --------------------------------------------- */
 
 export const businessSetup = {
-  super: 'CHOOSE YOUR JURISDICTION',
+  super: 'BUSINESS SETUP',
   title: 'UAE Business',
   accent: 'Setup Options',
   intro:
-    'Three routes into the UAE market, each with distinct advantages. Our consultants match the structure to your business model, then manage the setup end to end.',
+    'We act as strategic advisors, helping clients choose the right structure, navigate regulations, and build a strong foundation for long-term success in the UAE.',
   options: [
     {
       title: 'UAE Mainland',
-      super: 'MAXIMUM FLEXIBILITY',
+      super: 'UNMATCHED FLEXIBILITY',
       icon: 'building',
-      text: 'Licensed by the DET, a Mainland company can trade anywhere in the UAE and work with both government and private sectors.',
+      href: '/business-setup/uae-mainland',
+      text: 'A Mainland company is licensed by the Department of Economic Development & Tourism (DET) and allows you to conduct business anywhere within the UAE market.',
       benefits: [
-        'Up to 100% foreign ownership on many activities',
         'No restrictions on business location within the UAE',
-        'Expand operations across multiple emirates',
+        'Ability to work with government and private sectors',
+        'Flexibility to expand operations across multiple emirates',
       ],
       cta: 'Explore Mainland',
       bg: 'bgn-boxes-01.jpg',
     },
     {
       title: 'UAE Free Zone',
-      super: 'FULL OWNERSHIP, FAST SETUP',
+      super: '100% FOREIGN OWNERSHIP',
       icon: 'globe',
-      text: 'Set up inside a designated economic zone with investor-friendly regulation, simplified procedures and industry-specific ecosystems.',
+      href: '/business-setup/uae-free-zone',
+      text: 'A Free Zone company is established within a designated economic zone, offering investor-friendly regulations, operational advantages and 100% foreign ownership.',
       benefits: [
         '100% foreign ownership',
         'Fast and simplified registration process',
@@ -77,9 +81,10 @@ export const businessSetup = {
     },
     {
       title: 'UAE Offshore',
-      super: 'INTERNATIONAL STRUCTURING',
+      super: 'INTERNATIONAL BUSINESS OPERATIONS',
       icon: 'shield',
-      text: 'A compliant entity for holding companies, international trade and asset protection, operating outside the UAE domestic market.',
+      href: '/business-setup/uae-offshore',
+      text: 'An offshore company is a legal entity established in a jurisdiction that allows businesses to operate internationally without conducting direct commercial activities within the UAE market.',
       benefits: [
         '100% foreign ownership',
         'No requirement for physical office space',
@@ -96,40 +101,21 @@ export const businessSetup = {
 export const ourStory = {
   badge: 'About Us',
   title: 'Our Story',
-  subtitle:
-    'Strategic corporate advisors dedicated to your long-term success in the UAE.',
   checklist: [
-    'End-to-end company formation across Mainland, Free Zone & Offshore jurisdictions',
-    'Visa processing, Emirates ID, and executive corporate PRO services',
-    'Strategic advisory beyond documentation: structure, regulations, and foundation',
-    'Established in 2015: trusted by entrepreneurs and high-value business networks',
+    'Company formation across Mainland, Free Zone, and Offshore jurisdictions',
+    'Visa processing and PRO services, managed with precision and efficiency',
+    'Strategic advisory that goes beyond documentation — structure, regulations, foundation',
+    'Established in 2015 — a trusted name in the UAE’s business setup landscape',
   ],
   buttonText: 'More about us',
   buttonHref: '/about',
-  image: 'about-us.jpg',
+  image: 'our-story-advisory.jpg',
   quote:
     'Our journey has been defined by one simple principle: putting our clients first in everything we do.',
   paragraphs: [
     'At Vision Business Setup, we provide end-to-end business setup and corporate support services in the UAE. From company formation across Mainland, Free Zone, and Offshore jurisdictions to visa processing and PRO services, we manage the entire process with precision and efficiency. Our role goes beyond documentation—we act as strategic advisors, helping clients choose the right structure, navigate regulations, and build a strong foundation for long-term success in the UAE.',
     'Established in 2015, Vision Business Setup has grown into a trusted name in the UAE’s business setup landscape. Over the years, we have had the privilege of working with high-value clients, entrepreneurs, and well-connected business networks across the region—delivering solutions that are not only efficient, but also strategically aligned with long-term success.',
     'Our journey has been defined by one simple principle: putting our clients first in everything we do.',
-  ],
-  highlights: [
-    {
-      icon: 'compass',
-      title: 'Strategic Guidance',
-      text: 'Advisory that aligns jurisdiction, banking, and structure with your long-term goals.',
-    },
-    {
-      icon: 'handshake',
-      title: 'Client-First Focus',
-      text: 'Dedicated consultant support from initial idea to operational launch and beyond.',
-    },
-  ],
-  features: [
-    { icon: 'compass', title: 'Strategic advisory', text: 'Guidance on structure, jurisdiction and compliance — not just filing.' },
-    { icon: 'handshake', title: 'Client-first', text: 'Tailored solutions built around your goals, never templated.' },
-    { icon: 'badge-check', title: 'Since 2015', text: 'Over 10 years of business setup and corporate support experience in the UAE.' },
   ],
 }
 
@@ -179,11 +165,11 @@ export const testimonials = {
 
 export const whatSetsUsApart = {
   super: 'WHAT SETS US APART',
-  title: 'Value is in',
-  accent: 'how we deliver',
+  title: 'What Sets',
+  accent: 'Us Apart',
   intro:
     'At Vision Business Setup, we believe that true value lies not just in delivering a service—but in how that service is delivered.',
-  cta: 'Talk to our team',
+  cta: 'Contact Us',
   ctaHref: '#request-callback',
   items: [
     {
@@ -213,27 +199,68 @@ export const whatSetsUsApart = {
 
 export const whoWeWorkWith = {
   super: 'WHO WE WORK WITH',
-  title: 'Experience across',
-  accent: 'industries',
+  title: 'Who We',
+  accent: 'Work With',
   intro:
     'Our diverse client base spans multiple industries, reflecting our ability to adapt, understand, and deliver across different business environments. We have successfully supported:',
   items: [
-    { title: 'Real Estate & Property Development', image: 'who-we-work-with-1-clean.avif' },
-    { title: 'Food & Beverage', image: 'who-we-work-with-2-clean.avif' },
-    { title: 'Trading & General Commerce', image: 'who-we-work-with-3-clean.avif' },
-    { title: 'Salons & Lifestyle Brands', image: 'who-we-work-with-4-clean.avif' },
-    { title: 'Manpower & Workforce Supply', image: 'who-we-work-with-5-clean.avif' },
+    {
+      num: '01',
+      tag: 'Real Estate & Development',
+      icon: 'building',
+      title: 'Real estate and property development companies',
+      image: 'industry-real-estate.jpg',
+      desc: 'Licensing, RERA developer registrations, mainland structuring, and commercial office acquisitions in prime business hubs.',
+      features: ['RERA Broker & Developer Licences', 'Land & Development Structuring', 'Commercial Office Leasing'],
+    },
+    {
+      num: '02',
+      tag: 'Food & Beverage Ventures',
+      icon: 'utensils',
+      title: 'Food & beverage ventures',
+      image: 'industry-food-beverage.jpg',
+      desc: 'Turnkey hospitality setup including Dubai Municipality food safety approvals, layout clearances, and commercial restaurant lease advisory.',
+      features: ['DED Restaurant & Cafe Permits', 'Food Safety & Health Clearances', 'Liquor & Entertainment Approvals'],
+    },
+    {
+      num: '03',
+      tag: 'Trading & General Commerce',
+      icon: 'briefcase',
+      title: 'Trading and general commerce businesses',
+      image: 'industry-trading-commerce.jpg',
+      desc: 'General trading licenses, customs code clearance, warehouse leasing, and multi-currency international corporate banking.',
+      features: ['General Trading Licences', 'Dubai Customs & Code Registration', 'Corporate Banking & Tax Structuring'],
+    },
+    {
+      num: '04',
+      tag: 'Salons & Lifestyle Brands',
+      icon: 'sparkle',
+      title: 'Salons and lifestyle brands',
+      image: 'industry-salons-lifestyle.jpg',
+      desc: 'Health authority clearances, specialized salon and wellness facility licensing, aesthetics permits, and luxury retail agreements.',
+      features: ['Municipality & Health Approvals', 'Specialized Aesthetics Licensing', 'Prime Retail & Mall Leases'],
+    },
+    {
+      num: '05',
+      tag: 'Manpower & Workforce Supply',
+      icon: 'users',
+      title: 'Manpower and workforce supply companies',
+      image: 'industry-manpower-workforce.jpg',
+      desc: 'MOHRE labor supply licensing, bank guarantee compliance, quota approvals, and bulk corporate visa mobility across UAE emirates.',
+      features: ['MOHRE Labour Supply Licences', 'Quota & Bank Guarantee Approvals', 'Bulk Visa & Workforce Mobility'],
+    },
   ],
+  closing:
+    'This cross-industry experience allows us to offer practical insights and tailored strategies that go beyond standard setup services.',
 }
 
 /* 6 — OUR SERVICES -------------------------------------------------- */
 
 export const ourServices = {
-  super: 'BEYOND COMPANY FORMATION',
+  super: 'OUR SERVICES',
   title: 'Our',
   accent: 'Services',
-  intro:
-    'Corporate support for every stage of your journey in the UAE. Detailed service pages follow — start with a callback and we will point you to the right one.',
+  intro: '',
   cta: 'Request a Callback',
   ctaHref: '#request-callback',
   groups: [
@@ -254,7 +281,7 @@ export const ourServices = {
     },
     {
       icon: 'grid',
-      title: 'Other Services',
+      title: 'Other',
       items: ['VIP Medical & Emirates ID Assistance', 'Customs Registration', 'Office Spaces'],
     },
   ],
@@ -264,8 +291,8 @@ export const ourServices = {
 
 export const commitment = {
   super: 'OUR COMMITMENT',
-  title: 'We partner with you',
-  accent: 'throughout your journey',
+  title: 'Our',
+  accent: 'Commitment',
   text: 'At Vision Business Setup, we don’t just help you start a business—we partner with you throughout your journey. From initial setup to ongoing support, our focus remains on delivering value, building trust, and ensuring your business operates with confidence in the UAE.',
   cta: 'Request a Callback',
   ctaHref: '#request-callback',
@@ -287,11 +314,29 @@ export const founder = {
   role: 'Founder, Vision Business Setup',
   initials: 'VS',
   quote: 'Successful businesses are built on strong relationships, clear understanding, and a commitment to solving real challenges.',
+  /*
+   * `heading` carries the document's own sub-headings ("A People-First
+   * Approach", "Commitment Beyond Expectations"); paragraphs without one
+   * simply continue the section.
+   */
   paragraphs: [
-    'Vision Business Setup is led by Viekram Sadwani, a seasoned professional with deep-rooted experience in the UAE market since 2008. He began his career in the real estate sector, gaining valuable insights into the region’s business landscape before establishing Vision Business Setup in 2015.',
-    'With a strong understanding of how businesses operate in the UAE, Viekram built the company with a clear focus—delivering reliable, high-quality solutions that genuinely support clients in achieving their goals.',
-    'What distinguishes Viekram’s leadership is his genuine, people-centric mindset. This philosophy continues to shape the way Vision Business Setup engages with every client.',
-    'Viekram is known for his hands-on approach and unwavering dedication to service excellence. He consistently goes beyond conventional expectations to ensure that every client receives not just a service, but a complete and dependable experience.',
+    {
+      text: 'Vision Business Setup is led by Viekram Sadwani, a seasoned professional with deep-rooted experience in the UAE market since 2008. He began his career in the real estate sector, gaining valuable insights into the region’s business landscape before establishing Vision Business Setup in 2015.',
+    },
+    {
+      text: 'With a strong understanding of how businesses operate in the UAE, Viekram built the company with a clear focus—delivering reliable, high-quality solutions that genuinely support clients in achieving their goals.',
+    },
+    {
+      heading: 'A People-First Approach',
+      text: 'What distinguishes Viekram’s leadership is his genuine, people-centric mindset. He believes that successful businesses are built on strong relationships, clear understanding, and a commitment to solving real challenges. This philosophy continues to shape the way Vision Business Setup engages with every client.',
+    },
+    {
+      heading: 'Commitment Beyond Expectations',
+      text: 'Viekram is known for his hands-on approach and unwavering dedication to service excellence. He consistently goes beyond conventional expectations to ensure that every client receives not just a service, but a complete and dependable experience.',
+    },
+    {
+      text: 'His focus on quality, attention to detail, and commitment to delivering results have become foundational principles within the organization—setting a standard that is increasingly rare in today’s fast-paced business environment.',
+    },
   ],
   facts: [
     { label: 'In the UAE market since', value: '2008' },
@@ -306,13 +351,14 @@ export const coreValues = {
   super: 'OUR CORE VALUES',
   title: 'What we stand',
   accent: 'behind',
-  subtitle: 'Seven foundational pillars guiding every client relationship, jurisdiction strategy, and corporate milestone across the UAE.',
+  /* The document gives no introductory line for this section, so none is shown. */
+  subtitle: '',
   items: [
     {
       num: '01',
       icon: 'shield',
       title: 'Trust',
-      text: 'We build long-term relationships through honesty, reliability, and unwavering consistency in every engagement.',
+      text: 'We build long-term relationships through honesty, reliability, and consistency.',
       image: 'trust.jpg',
     },
     {
@@ -374,14 +420,14 @@ export const ctaBanner = {
 /* 11 — REQUEST A CALLBACK FORM --------------------------- */
 
 export const callbackForm = {
-  super: 'REQUEST A CALLBACK',
-  title: 'Let’s talk about',
-  accent: 'your business',
-  text: 'Share a few details and a Vision Business Setup consultant will call you back to discuss the right setup for your goals.',
+  super: 'EVERY BUSINESS STARTS WITH VISION',
+  title: 'Request a',
+  accent: 'Callback',
+  text: 'Whether you are starting fresh or expanding your presence, our team is here to guide you with expertise, clarity, and dedication. Connect with Vision Business Setup and experience a service built around you.',
   points: [
-    'No-obligation consultation',
-    'Guidance on Mainland, Free Zone & Offshore',
-    'End-to-end setup and corporate support',
+    'Round-the-Clock Support — beyond the conventional 9-to-5 framework',
+    'Tailored Solutions — every strategy is tailored, not templated',
+    'End-to-End Support — from initial idea to operational launch',
   ],
   fields: [
     { name: 'name', label: 'Full name', type: 'text', autoComplete: 'name', required: true },

@@ -3,28 +3,66 @@
 **Design reference:** Avantage Business (<https://avantage.bold-themes.com/business/>) —
 used only for the visual language (typography, geometric shapes, angled
 sections, image masks, hover states).
-**Content source of truth:** `Website Content_Vision.docx`.
+**Content source of truth:** `Website Content_Vision.docx`, extracted to
+`Website-Content-Vision.txt` (body text, tables and the document's editorial
+comments). Every user-facing string on the site is taken from that document —
+verbatim where it provides a full sentence, otherwise assembled only from its
+own headings and navigation labels. The exceptions are ordinary UI chrome (form
+labels, buttons, breadcrumbs, legal links) and the contact placeholders below.
 
 Stack: React 19 + Vite 8, plain CSS (no framework). One folder per component,
 co-located `.css`. Content lives in `src/data/`, never inline in JSX.
 
 ## Design tokens
 
-`src/styles/variables.css` — extracted from the Avantage theme and kept.
+`src/styles/variables.css` — the single place the palette is defined.
 
-Palette is derived from the **Vision Business Setup logo** (`public/logo.png`):
-deep navy wordmark, brand-gold "BUSINESS SETUP", blue "V" gradient.
+The site is **monochrome**: black, white and grey only. Headings and accents are
+`#000000`, body copy is black at reduced opacity, rules are hairlines, and
+`#f5f5f5` carries any tonal band. Dark bands invert the same scale (white type
+on black). Photographs and the logo keep their own colour; only the UI chrome is
+monochrome.
 
-| Token | Value |
-|---|---|
-| Accent (brand gold) | `#b0842f` (light `#e4c877`, dark `#8a6626`) |
-| Secondary (navy) | `#1c3c60` |
-| Navy deep (near-black) | `#111826` |
-| Brand blue / feature bands | `#1c3f6b` |
-| Dark section | `#161c2b` |
-| Body font | Sarabun · Headings | Roboto Condensed · Eyebrows/sub | Roboto |
-| Boxed widths | 1200 / 1400px, `max-width: calc(100% - 60px)` |
-| Spacing scale | 2em / 5em / 8.75em (normal / medium / large) |
+| Token | Value | Used for |
+|---|---|---|
+| `--c-accent` / `--c-accent-dark` | `#000000` | primary, hover |
+| `--c-accent-alt` / `--c-accent-light` | `#222222` / `#444444` | secondary steps |
+| `--c-secondary` / `--c-navy-deep` / `--c-dark` | `#000000` | headings, dark grounds |
+| `--c-body` | `rgba(0,0,0,.65)` | paragraphs |
+| `--c-muted` | `rgba(0,0,0,.45)` | eyebrows, captions |
+| `--c-border` / `--c-border-soft` | `rgba(0,0,0,.12)` / `.09` | hairlines |
+| `--c-bg-sub` | `#f5f5f5` | tonal bands, row hover |
+
+Token *names* still read as brand colours (`--c-accent`, `--c-navy-deep`) so no
+component needed rewriting; every one now resolves to a step on the grey scale.
+
+**The button.** There is exactly one, used for every labelled button on the
+site — header CTA, hero, section CTAs, form submit, footer pair:
+
+```css
+display: inline-flex; align-items: center; justify-content: center;
+gap: 0.6em; min-width: 160px; padding: 0.85em 2.5em;
+font: 500 0.95rem/1.2 var(--font-base);
+background: transparent; border: 1px solid; border-radius: 0;
+transition: background-color 250ms, color 250ms, border-color 250ms;
+```
+
+Only the colour changes with the ground — black border/text on light, white on
+dark — and hover fills with that same colour, inverting the label. Icons inside
+a button must use `currentColor` so they flip with it. The one permitted
+deviation is a pinned `height` where a button has to line up with form inputs
+beside it (`.minimalContact__submitBtn`); padding and type stay the same.
+
+Icon-only controls are *not* buttons in this sense: the carousel arrows
+(`.cvNavBtn`), the floating WhatsApp tile and the footer's back-to-top keep
+their own compact sizing.
+
+**Other shared patterns.** Cards are white with a `rgba(0,0,0,.09)` hairline and
+square corners. Index labels (`01`, `02`, …) are `11px / 600 / .12em` uppercase
+at `rgba(0,0,0,.55)`. On dark grounds these invert to the white scale.
+
+Typography is unchanged: body `Sarabun`, headings `Roboto Condensed`,
+eyebrows `Roboto`; boxed widths 1200 / 1400px; spacing scale 2em / 5em / 8.75em.
 
 ## Homepage section order
 
@@ -64,8 +102,31 @@ international format.
   third-level flyout of sub-services)
 - **Contact Us**
 
-All links are on-page anchors (`#business-setup`, `#services`,
-`#request-callback`, …). Dedicated inner pages are not built yet.
+**Business Setup** links to the three jurisdiction pages; the remaining items
+are on-page anchors (`#services`, `#request-callback`, …).
+
+## Pages
+
+| Route | Component | Content |
+|---|---|---|
+| `/` | `pages/Home.jsx` | homepage sections, table above |
+| `/about` | `pages/AboutUs.jsx` | doc "About Us" + Founder / Core Values / Commitment |
+| `/contact` | `pages/Contact.jsx` | `CallbackForm` + `GetInTouch` |
+| `/business-setup/uae-mainland` | `pages/Jurisdiction.jsx` | doc "UAE Mainland" |
+| `/business-setup/uae-free-zone` | `pages/Jurisdiction.jsx` | doc "UAE Free Zone" |
+| `/business-setup/uae-offshore` | `pages/Jurisdiction.jsx` | doc "UAE Offshore" |
+
+### Business Setup inner pages
+
+One renderer (`pages/Jurisdiction.jsx` + `Jurisdiction.css`) drives all three,
+fed by `src/data/jurisdictions.js` — a verbatim transcription of the document's
+three jurisdiction chapters. Section order: hero (breadcrumb + intro) → "What is
+a … Company?" beside the key-advantages panel → "Our … Services Include" card
+grid → "Our Approach" navy band (plus "Why Choose Vision Business Setup" on
+Offshore only) → closing CTA. Sections the document does not provide are not
+rendered: Free Zone has no closing CTA, and only Offshore has a "Why Choose"
+list. The visual language matches `AboutUs.css` (navy gradient hero, gold
+accents, 1240px container); no existing selector is redefined.
 
 ## Kept UI primitives
 

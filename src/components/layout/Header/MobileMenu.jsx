@@ -16,6 +16,14 @@ const logo = `${import.meta.env.BASE_URL}logo-lockup.png`
  */
 export default function MobileMenu({ open, onClose }) {
   const location = useLocation()
+  const { pathname, hash } = location
+
+  /* Close the panel once a menu link has navigated — otherwise the drawer
+     stays over the new page and the link looks like it did nothing. */
+  useEffect(() => {
+    if (open) onClose()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname, hash])
 
   useEffect(() => {
     if (!open) return
@@ -50,7 +58,15 @@ export default function MobileMenu({ open, onClose }) {
           </button>
         </div>
 
-        <nav aria-label="Primary (mobile)">
+        {/* Tapping any link closes the panel — including one pointing at the
+            page you are already on, where the route never changes. Submenu
+            toggles are <button>s, so they keep the panel open. */}
+        <nav
+          aria-label="Primary (mobile)"
+          onClick={(event) => {
+            if (event.target.closest('a')) onClose()
+          }}
+        >
           <ul className="menu">
             {mainMenu.map((item) => {
               const isCurrent =
@@ -81,7 +97,13 @@ export default function MobileMenu({ open, onClose }) {
 
           <div className="btMobileSocial">
             {topBar.social.map((link) => (
-              <a key={link.icon} href={link.href} aria-label={link.label}>
+              <a
+                key={link.icon}
+                href={link.href}
+                aria-label={link.label}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
+              >
                 <Icon name={link.icon} />
               </a>
             ))}

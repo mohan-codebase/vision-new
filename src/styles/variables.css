@@ -4,25 +4,30 @@
    ========================================================================== */
 
 :root {
-  /* --- Brand colors — Vision Business Setup logo ------------------------- */
-  --c-accent:            #b0842f;  /* main / primary — brand gold ("BUSINESS SETUP") */
-  --c-accent-dark:       #8a6626;  /* bronze — hover / pressed */
-  --c-accent-alt:        #c9a24e;
-  --c-accent-light:      #e4c877;  /* gold highlight (logo "V" tip / gradients) */
-  --c-secondary:         #1c3c60;  /* headline navy — the "VISION" wordmark */
-  --c-navy-deep:         #111826;  /* near-black navy — logo "VIS" letters */
-  --c-brand-blue:        #1c3f6b;  /* blue in the "V" gradient — feature bands */
-  --c-dark:              #121826;  /* base font color — deep navy */
-  --c-dark-alt:          #161c2b;  /* dark scheme background */
+  /* --- Palette — monochrome ---------------------------------------------
+     The site is styled in black / white / grey only: headings and accents are
+     black, body copy is black at reduced opacity, rules are hairlines, and
+     #f5f5f5 carries any tonal band. Token names are unchanged so components
+     keep working; every one of them now resolves to a step on the grey scale.
+     ---------------------------------------------------------------------- */
+  --c-accent:            #000000;  /* main / primary — was brand gold */
+  --c-accent-dark:       #000000;  /* hover / pressed */
+  --c-accent-alt:        #222222;
+  --c-accent-light:      #444444;  /* lighter step, used on dark grounds */
+  --c-secondary:         #000000;  /* headline */
+  --c-navy-deep:         #000000;  /* near-black */
+  --c-brand-blue:        #111111;  /* feature bands */
+  --c-dark:              #000000;  /* base font color */
+  --c-dark-alt:          #111111;  /* dark scheme background */
 
   /* --- Neutrals ---------------------------------------------------------- */
   --c-white:             #ffffff;
-  --c-body:              rgba(18, 24, 38, 0.8);
-  --c-muted:             rgba(18, 24, 38, 0.5);
-  --c-border:            rgba(18, 24, 38, 0.15);
-  --c-border-soft:       rgba(18, 24, 38, 0.1);
+  --c-body:              rgba(0, 0, 0, 0.65);
+  --c-muted:             rgba(0, 0, 0, 0.45);
+  --c-border:            rgba(0, 0, 0, 0.12);
+  --c-border-soft:       rgba(0, 0, 0, 0.09);
   --c-bg:                #ffffff;
-  --c-bg-sub:            rgba(18, 24, 38, 0.05);
+  --c-bg-sub:            #f5f5f5;
 
   /* On dark color scheme (bt_bb_color_scheme_1) */
   --c-on-dark:           rgba(255, 255, 255, 0.8);
@@ -30,11 +35,8 @@
   --c-on-dark-border:    rgba(255, 255, 255, 0.15);
   --c-on-dark-sub:       rgba(255, 255, 255, 0.05);
 
-  /* --- Social brand colors (footer / topbar icons) ----------------------- */
-  --c-facebook:  #3b5998;
-  --c-twitter:   #1da1f2;
-  --c-linkedin:  #007bb5;
-  --c-pinterest: #bd081b;
+  /* --- Social icons — monochrome like the rest of the chrome ------------- */
+  --c-whatsapp:  #000000;
 
   /* --- Typography (Avantage Theme Specifications) ----------------------- */
   --font-base:            "Roboto", Arial, Helvetica, sans-serif;          /* body, paragraphs, button text */

@@ -1,18 +1,14 @@
 /* ==========================================================================
-   Section 3 — Why Choose Vision Business Setup? (About Us)
-   Recreated to match the user's reference design from Pride & Property Dubai:
-   - Subtle "About Us" badge
-   - Bold "Why Choose Vision Business Setup?" headline
-   - Subtitle "The Team Our Experts Always Ready to Work With You"
-   - 4-item checklist with custom SVG check circle icons
-   - Solid dark button "More about us"
-   - Large right-column Dubai sunset skyline photo
+   Section 3 — Our Story
+   Two columns: copy, checklist, pull-quote and CTA on the left; a capped
+   portrait image on the right. The vertical rhythm is kept tight so the
+   section does not dominate the page.
    ========================================================================== */
 
 .aboutWhySection {
   position: relative;
   background-color: #ffffff;
-  padding: clamp(64px, 7vw, 110px) 0;
+  padding: clamp(20px, 2.2vw, 30px) 0;
   overflow: hidden;
 }
 
@@ -23,8 +19,8 @@
   padding: 0 clamp(20px, 4vw, 40px);
   display: grid;
   grid-template-columns: 53% 47%;
-  gap: clamp(32px, 4vw, 64px);
-  align-items: stretch;
+  gap: clamp(24px, 3vw, 44px);
+  align-items: center;
 }
 
 /* Left Column: Content */
@@ -37,12 +33,12 @@
 }
 
 .aboutWhyBadgeWrapper {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .aboutWhyBadge {
   display: inline-block;
-  background-color: rgba(0, 46, 83, 0.08);
+  background-color: rgba(0, 0, 0, 0.08);
   color: #222222;
   font-family: var(--font-alt);
   font-size: 13px;
@@ -55,61 +51,61 @@
 
 .aboutWhyTitle {
   font-family: var(--font-heading);
-  font-size: clamp(28px, 2.8vw, 40px);
+  font-size: clamp(26px, 2.4vw, 34px);
   font-weight: 700;
-  line-height: 1.22;
+  line-height: 1.2;
   color: #000000;
-  margin: 0 0 16px 0;
+  margin: 0 0 10px 0;
   letter-spacing: -0.01em;
 }
 
 .aboutWhyParagraphs {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin: 0 0 24px 0;
+  gap: 8px;
+  margin: 0 0 14px 0;
 }
 
 .aboutWhyParagraph {
   font-family: var(--font-base);
-  font-size: clamp(15px, 1.05vw, 16px);
+  font-size: clamp(14.5px, 1vw, 15.5px);
   font-weight: 400;
-  line-height: 1.7;
-  color: #374151;
+  line-height: 1.58;
+  color: #3d3d3d;
   margin: 0;
 }
 
 .aboutWhyQuote {
-  margin: 0 0 26px 0;
-  padding: 12px 18px;
-  background-color: rgba(0, 46, 83, 0.04);
-  border-left: 3px solid #b0842f;
+  margin: 0 0 14px 0;
+  padding: 9px 14px;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-left: 3px solid #000000;
   border-radius: 0 4px 4px 0;
 }
 
 .aboutWhyQuoteText {
   font-family: var(--font-base);
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 500;
   font-style: italic;
-  line-height: 1.6;
-  color: #111827;
+  line-height: 1.55;
+  color: #000000;
 }
 
 .aboutWhyList {
   list-style: none;
   padding: 0;
-  margin: 0 0 32px 0;
+  margin: 0 0 16px 0;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 8px;
   width: 100%;
 }
 
 .aboutWhyListItem {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 13px;
 }
 
 .aboutWhyIconWrapper {
@@ -118,18 +114,18 @@
   align-items: center;
   justify-content: center;
   margin-top: 1px;
-  color: #002e53;
+  color: #000000;
 }
 
 .aboutCheckIcon {
-  width: 24px;
-  height: 23px;
+  width: 21px;
+  height: 21px;
   display: block;
 }
 
 .aboutWhyItemText {
   font-family: var(--font-base);
-  font-size: clamp(15px, 1.05vw, 16px);
+  font-size: clamp(14.5px, 1vw, 15.5px);
   font-weight: 400;
   line-height: 1.5;
   color: #000000;
@@ -143,40 +139,42 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #000000;
-  color: #ffffff;
+  min-width: 160px;
+  background-color: transparent;
+  color: #000000;
   font-family: var(--font-base);
-  font-size: 15px;
+  font-size: 0.95rem;
   font-weight: 500;
-  padding: 13px 28px;
-  border-radius: 6px;
+  line-height: 1.2;
+  padding: 0.85em 2.5em;
+  border: 1px solid #000000;
+  border-radius: 0;
   text-decoration: none;
-  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
 }
 
 .aboutWhyButton:hover {
-  background-color: #1c3c60;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
 }
 
 /* Right Column: Visual Media */
 .aboutWhyMedia {
   position: relative;
   width: 100%;
-  height: 100%;
   display: flex;
 }
 
 .aboutWhyImageFrame {
   position: relative;
   width: 100%;
-  height: 100%;
-  min-height: 520px;
+  aspect-ratio: 4 / 4.4;
+  max-height: 420px;
   border-radius: 4px;
   overflow: hidden;
-  background-color: #f1f5f9;
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.14);
+  background-color: #f5f5f5;
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.12);
 }
 
 .aboutWhyImage {
@@ -196,23 +194,23 @@
 @media (max-width: 991px) {
   .aboutWhyContainer {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 28px;
   }
 
   .aboutWhyMedia {
-    max-width: 620px;
+    max-width: 580px;
     margin: 0 auto;
   }
 
   .aboutWhyImageFrame {
-    aspect-ratio: 16 / 11;
-    max-height: 440px;
+    aspect-ratio: 16 / 10;
+    max-height: 330px;
   }
 }
 
 @media (max-width: 576px) {
   .aboutWhySection {
-    padding: 50px 0;
+    padding: 20px 0;
   }
 
   .aboutWhyTitle {
@@ -221,12 +219,12 @@
 
   .aboutWhySubtitle {
     font-size: 15px;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   }
 
   .aboutWhyList {
-    gap: 13px;
-    margin-bottom: 26px;
+    gap: 10px;
+    margin-bottom: 20px;
   }
 
   .aboutWhyItemText {
@@ -239,6 +237,7 @@
   }
 
   .aboutWhyImageFrame {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
+    max-height: 250px;
   }
 }

@@ -13,7 +13,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   color: var(--c-on-dark-strong);
-  padding: 6em 0 5.5em;
+  padding: clamp(40px, 4.5vw, 56px) 0;
 }
 
 .testimonials__coverage {
@@ -42,7 +42,7 @@
 
 .tHeadline {
   max-width: 620px;
-  margin-bottom: 3em;
+  margin-bottom: 2rem;
 }
 
 .tHeadline__super {
@@ -164,7 +164,7 @@
 /* --- Responsive --------------------------------------------------- */
 
 @media (max-width: 992px) {
-  .testimonials { padding: 5em 0 4.5em; }
+  .testimonials { padding: 36px 0; }
   .tHeadline__title { font-size: 2.4rem; }
   .tGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -177,8 +177,8 @@
 }
 
 @media (max-width: 620px) {
-  .testimonials { padding: 4em 0 3.5em; }
-  .tHeadline { margin-bottom: 2.25em; }
+  .testimonials { padding: 30px 0; }
+  .tHeadline { margin-bottom: 1.75rem; }
   .tHeadline__title { font-size: 2rem; }
   .tGrid {
     grid-template-columns: 1fr;

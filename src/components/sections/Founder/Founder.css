@@ -5,8 +5,8 @@
    ========================================================================== */
 
 .founder {
-  background-color: #f8fafc;
-  padding: 4.5em 0;
+  background-color: #f5f5f5;
+  padding: clamp(38px, 4vw, 54px) 0;
 }
 
 .founder__cell {
@@ -46,7 +46,7 @@
   height: 0;
   border-style: solid;
   border-width: 0 0 220px 220px;
-  border-color: transparent transparent rgba(176, 132, 47, 0.22) transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.22) transparent;
 }
 
 .founderCard__monogram {
@@ -57,12 +57,12 @@
   height: 110px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.08);
-  border: 2px solid rgba(201, 162, 78, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.35);
   font-family: var(--font-heading);
   font-weight: var(--fw-bold);
   font-size: 2.5rem;
   letter-spacing: 0.04em;
-  color: #e4c877;
+  color: #ffffff;
   margin-bottom: 1.4em;
 }
 
@@ -153,6 +153,20 @@
   margin-bottom: 1em;
 }
 
+/* Document sub-headings inside the founder narrative. */
+.founder__subhead {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--c-secondary);
+  margin: 1.4em 0 0.5em;
+}
+
+.founder__block:first-child .founder__subhead {
+  margin-top: 0;
+}
+
 .founderFacts {
   display: flex;
   flex-wrap: wrap;
@@ -166,7 +180,7 @@
   padding: 1.1em 1.2em;
   background: var(--c-white);
   border: 1px solid var(--c-border);
-  border-left: 3px solid var(--c-accent, #b0842f);
+  border-left: 3px solid var(--c-accent, #000000);
 }
 
 .founderFact__value {

@@ -1,0 +1,514 @@
+/* ==========================================================================
+   Business Setup inner pages — UAE Mainland / Free Zone / Offshore
+   Visual language mirrors AboutUs.css (navy gradient hero, gold accents,
+   1240px container, clamp-based scale). Self-contained: no existing
+   selector is redefined here.
+   ========================================================================== */
+
+.jurPage {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+/* --- 1. Hero banner ------------------------------------------------------- */
+
+.jurHero {
+  position: relative;
+  background: linear-gradient(135deg, #000000 0%, #111111 50%, #222222 100%);
+  color: #ffffff;
+  padding: clamp(140px, 13vw, 180px) 0 clamp(40px, 4.5vw, 56px);
+  overflow: hidden;
+}
+
+.jurHero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
+              radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.jurHero__container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+}
+
+.jurBreadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: var(--font-base);
+  font-size: 13.5px;
+  margin-bottom: 24px;
+}
+
+.jurBreadcrumb__link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.jurBreadcrumb__link:hover {
+  color: #ffffff;
+}
+
+.jurBreadcrumb__sep {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.jurBreadcrumb__current {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.jurHero__eyebrow {
+  display: inline-block;
+  font-family: var(--font-superheadline);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.72);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.jurHero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 700;
+  line-height: 1.18;
+  color: #ffffff;
+  max-width: 950px;
+  margin: 0 0 22px 0;
+  letter-spacing: -0.015em;
+}
+
+.jurHero__lead {
+  font-family: var(--font-base);
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 900px;
+  margin: 0 0 16px 0;
+}
+
+.jurHero__lead:last-child {
+  margin-bottom: 0;
+}
+
+/* --- 2. Definition + key advantages --------------------------------------- */
+
+.jurIntro {
+  background-color: #ffffff;
+  padding: clamp(38px, 4vw, 54px) 0;
+}
+
+.jurIntro__container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+}
+
+.jurIntro__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(36px, 5vw, 68px);
+  align-items: start;
+}
+
+.jurIntro__title {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 2.6vw, 38px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #000000;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.01em;
+}
+
+.jurIntro__para {
+  font-family: var(--font-base);
+  font-size: 16px;
+  line-height: 1.8;
+  color: #3d3d3d;
+  margin: 0 0 18px 0;
+}
+
+.jurIntro__para:last-child {
+  margin-bottom: 0;
+}
+
+/* Advantages card — navy panel with gold ticks */
+.jurAdvantages {
+  background: linear-gradient(150deg, #000000 0%, #111111 60%, #222222 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+  padding: clamp(28px, 3vw, 38px);
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.18);
+}
+
+.jurAdvantages__title {
+  font-family: var(--font-heading);
+  font-size: clamp(18px, 1.6vw, 22px);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 0 0 22px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.jurAdvantages__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.jurAdvantages__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: var(--font-base);
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.jurAdvantages__check {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* --- 3. Services ---------------------------------------------------------- */
+
+.jurServices {
+  background-color: #f5f5f5;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  padding: clamp(38px, 4vw, 54px) 0;
+}
+
+.jurServices__container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+}
+
+.jurServices__head {
+  margin-bottom: clamp(24px, 3vw, 36px);
+}
+
+.jurServices__title {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 2.6vw, 38px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #000000;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.jurServices__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.jurSvcCard {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 4px;
+  padding: clamp(26px, 2.6vw, 34px);
+  transition: transform 0.35s var(--ease, ease), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.jurSvcCard:hover {
+  transform: translateY(-4px);
+  border-color: #000000;
+  box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.18);
+}
+
+.jurSvcCard__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #000000;
+  margin-bottom: 18px;
+}
+
+.jurSvcCard__title {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #000000;
+  margin: 0 0 10px 0;
+}
+
+.jurSvcCard__text {
+  font-family: var(--font-base);
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555555;
+  margin: 0;
+}
+
+.jurSvcCard__subList {
+  list-style: none;
+  margin: 16px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.jurSvcCard__subItem {
+  font-family: var(--font-superheadline);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #000000;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  border-radius: 2px;
+  padding: 6px 12px;
+}
+
+/* --- 4. Our Approach (+ Why Choose) --------------------------------------- */
+
+.jurApproach {
+  position: relative;
+  background: linear-gradient(135deg, #000000 0%, #111111 55%, #222222 100%);
+  color: #ffffff;
+  padding: clamp(38px, 4vw, 54px) 0;
+  overflow: hidden;
+}
+
+.jurApproach__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.jurApproach__container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+}
+
+.jurApproach__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(36px, 5vw, 68px);
+  align-items: start;
+}
+
+.jurApproach__grid--single {
+  grid-template-columns: 1fr;
+  max-width: 900px;
+}
+
+.jurApproach__title {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 2.6vw, 38px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.01em;
+}
+
+.jurApproach__para {
+  font-family: var(--font-base);
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 18px 0;
+}
+
+.jurApproach__para:last-child {
+  margin-bottom: 0;
+}
+
+.jurWhy {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  padding: clamp(26px, 2.6vw, 34px);
+}
+
+.jurWhy__title {
+  font-family: var(--font-heading);
+  font-size: clamp(18px, 1.6vw, 22px);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.jurWhy__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.jurWhy__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: var(--font-base);
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.jurWhy__check {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* --- 5. Closing call to action -------------------------------------------- */
+
+.jurClosing {
+  background-color: #ffffff;
+  padding: clamp(38px, 4vw, 54px) 0;
+}
+
+.jurClosing__container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+}
+
+.jurClosing__box {
+  background-color: #f5f5f5;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-left: 4px solid #000000;
+  border-radius: 4px;
+  padding: clamp(34px, 4vw, 54px);
+  box-shadow: 0 20px 45px -18px rgba(0, 0, 0, 0.12);
+}
+
+.jurClosing__title {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 2.4vw, 34px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #000000;
+  margin: 0 0 18px 0;
+  letter-spacing: -0.01em;
+}
+
+.jurClosing__line {
+  font-family: var(--font-base);
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: #3d3d3d;
+  margin: 0 0 14px 0;
+  max-width: 900px;
+}
+
+.jurClosing__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  min-width: 160px;
+  margin-top: 14px;
+  padding: 0.85em 2.5em;
+  border: 1px solid #000000;
+  border-radius: 0;
+  background-color: transparent;
+  color: #000000;
+  font-family: var(--font-base);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
+}
+
+.jurClosing__cta:hover {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+/* --- Responsiveness ------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .jurServices__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .jurHero {
+    padding-top: 160px;
+  }
+
+  .jurIntro__grid,
+  .jurApproach__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 700px) {
+  .jurHero {
+    padding-top: 140px;
+  }
+
+  .jurHero__title {
+    font-size: 30px;
+  }
+
+  .jurServices__grid {
+    grid-template-columns: 1fr;
+  }
+}

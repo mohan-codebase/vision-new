@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import useMediaQuery from '../../../hooks/useMediaQuery.js'
 import MainNav from './MainNav.jsx'
 import MobileMenu from './MobileMenu.jsx'
@@ -8,17 +7,20 @@ import './Header.css'
 /**
  * Header — `.mainHeader`.
  * Sleek single-row navigation floating over the hero banner.
- * Supports light mode on pages with clean white hero banners (e.g. /contact).
+ *
+ * Every page now opens on the shared dark hero band, so the header uses one
+ * treatment throughout. The light variant (`.mainHeader--light`, white ground
+ * + dark logo) is kept for any future page that opens on white — set
+ * `isLight` to enable it.
  */
 export default function Header() {
-  const location = useLocation()
   const mobile = useMediaQuery('(max-width: 1200px)')
   const [menuOpen, setMenuOpen] = useState(false)
 
   const closeMenu = useCallback(() => setMenuOpen(false), [])
 
   const panelOpen = menuOpen && mobile
-  const isLight = location.pathname === '/contact'
+  const isLight = false
 
   return (
     <>

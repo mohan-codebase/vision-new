@@ -5,7 +5,7 @@
  * Contact details (phone, WhatsApp, email, address) live in
  * `src/config/contact.js` — that is the single place to edit them.
  */
-import { contact, hasPhone } from '../config/contact.js'
+import { contact, hasPhone, whatsappLink } from '../config/contact.js'
 
 export const brand = {
   name: 'Vision Business Setup',
@@ -33,9 +33,9 @@ export const mainMenu = [
   m('Home', '/'),
   m('About us', '/about'),
   m('Business Setup', '/#business-setup', [
-    m('UAE Mainland', '/#business-setup'),
-    m('UAE Free Zone', '/#business-setup'),
-    m('UAE Offshore', '/#business-setup'),
+    m('UAE Mainland', '/business-setup/uae-mainland'),
+    m('UAE Free Zone', '/business-setup/uae-free-zone'),
+    m('UAE Offshore', '/business-setup/uae-offshore'),
   ]),
   m('Our Services', '/#services', [
     m('Licence', '/#services', [
@@ -58,10 +58,22 @@ export const mainMenu = [
       m('Bookkeeping & VAT Registration', '/#services'),
     ]),
     m('Other', '/#services', [
-      m('VIP Medical & Emirates ID Assistance', '/#services'),
-      m('Customs Registration', '/#services'),
-      m('Office Spaces', '/#services'),
+      m('Emirates ID VIP Service', '/#services'),
+      m('VIP Medical Assistance', '/#services'),
+      m('Customs Clearance Card', '/#services'),
+      m('Virtual Office', '/#services'),
+      m('Trade Mark Registration', '/#services'),
+      m('Establishment Card', '/#services'),
     ]),
+  ]),
+  /* No "#jurisdictions" section exists — the three jurisdictions are the
+     Business Setup band on the homepage, so this points there. */
+  m('Jurisdictions', '/#business-setup', [
+    m('UAE Mainland', '/business-setup/uae-mainland'),
+    m('UAE Free Zone', '/business-setup/uae-free-zone'),
+    m('UAE Offshore', '/business-setup/uae-offshore'),
+    m('DMCC Free Zone', '/business-setup/uae-free-zone'),
+    m('IFZA Free Zone', '/business-setup/uae-free-zone'),
   ]),
   m('Contact Us', '/contact'),
 ]
@@ -71,22 +83,26 @@ export const currentMenuIndex = 0
 
 /** The header's accent button is the phone number — null while it is hidden. */
 export const headerPhone = hasPhone
-  ? { label: contact.phoneDisplay, href: contact.phoneHref }
+  ? {
+      label: contact.phoneDisplay,
+      href: contact.phoneHref,
+    }
   : null
 
 export const footer = {
   cta: {
-    badge: 'START YOUR UAE JOURNEY',
-    headline: 'Our team of qualified business setup consultants is ready & always available, anytime, anywhere.',
+    badge: 'START YOUR JOURNEY',
+    headline:
+      'Whether you are starting fresh or expanding your presence, our team is here to guide you with expertise, clarity, and dedication.',
     subheadline:
-      'Partner with Dubai’s premier corporate formation specialists for swift company setup, Golden Visas, corporate banking, and full regulatory compliance.',
+      'Connect with Vision Business Setup and experience a service built around you.',
     primaryBtn: {
-      label: 'Book Free Consultation',
+      label: 'Contact Us',
       href: '/contact',
     },
     secondaryBtn: {
-      label: 'WhatsApp an Advisor',
-      href: `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(contact.whatsappMessage)}`,
+      label: 'Chat Now',
+      href: whatsappLink,
     },
   },
   contactCards: [
@@ -94,32 +110,32 @@ export const footer = {
       ? [
           {
             icon: 'phone',
-            label: 'Direct Phone Support',
+            label: 'Round-the-Clock Support',
             value: contact.phoneDisplay,
             href: contact.phoneHref,
-            detail: 'Available Mon – Sat (09:30 AM – 06:30 PM)',
+            detail: 'Support whenever you need it, beyond the conventional 9-to-5 framework',
           },
         ]
       : [
           {
             icon: 'whatsapp',
-            label: 'WhatsApp Advisory',
-            value: 'Chat with an advisor',
-            href: `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(contact.whatsappMessage)}`,
-            detail: 'Available Mon – Sat (09:30 AM – 06:30 PM)',
+            label: 'Round-the-Clock Support',
+            value: 'Chat Now',
+            href: whatsappLink,
+            detail: 'Support whenever you need it, beyond the conventional 9-to-5 framework',
             target: '_blank',
           },
         ]),
     {
       icon: 'mail',
-      label: 'Official Inquiries',
+      label: 'Request a Callback',
       value: contact.email,
       href: `mailto:${contact.email}`,
-      detail: 'Guaranteed response within 2 hours',
+      detail: 'Connect with Vision Business Setup and experience a service built around you',
     },
     {
       icon: 'pin',
-      label: 'Dubai Headquarters',
+      label: 'Business Setup in the UAE',
       value: contact.addressLines.join(', '),
       href: `https://www.google.com/maps/search/${encodeURIComponent(contact.addressLines.join(' '))}`,
       detail: 'Open in Google Maps ↗',
@@ -128,45 +144,45 @@ export const footer = {
   ],
   company: {
     title: brand.name,
-    text: `${brand.name} is the UAE’s trusted corporate advisory firm. We empower entrepreneurs, startups, and multinational corporations with seamless company formation, trade licensing, Golden Visas, and corporate banking solutions across Dubai Mainland, Free Zones, and Offshore.`,
+    text: `At ${brand.name}, we provide end-to-end business setup and corporate support services in the UAE. From company formation across Mainland, Free Zone, and Offshore jurisdictions to visa processing and PRO services, we manage the entire process with precision and efficiency.`,
     workingHoursLabel: 'Business Hours',
     workingHours: contact.hours,
-    accreditation: 'Licensed Corporate Service Provider · Dubai, UAE',
+    accreditation: brand.tagline,
   },
   columns: [
     {
       id: 'business-setup',
       title: 'Business Setup',
       links: [
-        { label: 'UAE Mainland Formation', href: '/#business-setup' },
-        { label: 'UAE Free Zone Setup', href: '/#business-setup' },
-        { label: 'UAE Offshore Company', href: '/#business-setup' },
-        { label: 'Dubai South Free Zone', href: '/#business-setup' },
-        { label: 'Meydan Free Zone', href: '/#business-setup' },
-        { label: 'Trade License Renewal', href: '/#services' },
+        { label: 'UAE Mainland', href: '/business-setup/uae-mainland' },
+        { label: 'UAE Free Zone', href: '/business-setup/uae-free-zone' },
+        { label: 'UAE Offshore', href: '/business-setup/uae-offshore' },
+        { label: 'DMCC Free Zone', href: '/business-setup/uae-free-zone' },
+        { label: 'IFZA Free Zone', href: '/business-setup/uae-free-zone' },
+        { label: 'License Renewal', href: '/#services' },
       ],
     },
     {
       id: 'corporate-services',
-      title: 'Corporate Services',
+      title: 'Our Services',
       links: [
-        { label: 'Residence & Golden Visa', href: '/#services' },
-        { label: 'Corporate Bank Account Opening', href: '/#services' },
-        { label: 'Corporate Tax Registration', href: '/#services' },
-        { label: 'VAT Registration & Filing', href: '/#services' },
-        { label: 'Accounting & Bookkeeping', href: '/#services' },
-        { label: 'PRO & Government Liaison', href: '/#services' },
+        { label: 'Residence Visa', href: '/#services' },
+        { label: 'Golden Visa', href: '/#services' },
+        { label: 'Bank Account Opening', href: '/#services' },
+        { label: 'Corporate Tax Guide', href: '/#services' },
+        { label: 'Bookkeeping & VAT Registration', href: '/#services' },
+        { label: 'VIP Medical & Emirates ID Assistance', href: '/#services' },
       ],
     },
     {
       id: 'company-links',
-      title: 'Company & Quick Links',
+      title: 'About Us',
       links: [
-        { label: 'About Vision', href: '/about' },
-        { label: 'Why Businesses Choose Us', href: '/#why-vision' },
-        { label: 'Who We Work With', href: '/#who-we-work-with' },
+        { label: 'About Us', href: '/about' },
+        { label: 'Our Story', href: '/#our-story' },
+        { label: 'Who We Work With', href: '/#industries' },
         { label: 'Our Core Values', href: '/#values' },
-        { label: 'Our Services Overview', href: '/#services' },
+        { label: 'Our Services', href: '/#services' },
         { label: 'Contact Us', href: '/contact' },
       ],
     },

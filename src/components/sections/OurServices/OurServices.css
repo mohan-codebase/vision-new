@@ -6,7 +6,7 @@
 
 .ourServices {
   background-color: #f5f5f5;
-  padding: 2.5em 0;
+  padding: clamp(38px, 4vw, 54px) 0;
 }
 
 .ourServices__cell {
@@ -17,7 +17,7 @@
 
 .svcHead {
   max-width: 680px;
-  margin-bottom: 3.25em;
+  margin-bottom: 2rem;
 }
 
 .svcHead__super {
@@ -131,7 +131,7 @@
 /* --- Foot ---------------------------------------------------------- */
 
 .ourServices__foot {
-  margin-top: 3em;
+  margin-top: 2rem;
   text-align: center;
 }
 

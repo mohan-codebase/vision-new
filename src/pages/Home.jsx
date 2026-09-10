@@ -5,7 +5,6 @@ import WhatSetsUsApart from '../components/sections/WhatSetsUsApart/WhatSetsUsAp
 import WhoWeWorkWith from '../components/sections/WhoWeWorkWith/WhoWeWorkWith.jsx'
 import OurServices from '../components/sections/OurServices/OurServices.jsx'
 import Commitment from '../components/sections/Commitment/Commitment.jsx'
-import Founder from '../components/sections/Founder/Founder.jsx'
 import CoreValues from '../components/sections/CoreValues/CoreValues.jsx'
 import MinimalContact from '../components/sections/MinimalContact/MinimalContact.jsx'
 
@@ -20,9 +19,8 @@ export default function Home() {
       <WhoWeWorkWith />    {/* 5  five industries                          */}
       <OurServices />      {/* 6  Licence / Visa / Finance / Other          */}
       <Commitment />       {/* 7  Our Approach / Commitment                 */}
-      <Founder />          {/* 8  Viekram Sadwani                          */}
-      <CoreValues />       {/* 9  seven core values                        */}
-      <MinimalContact />   {/* 10 minimal callback form                    */}
+      <CoreValues />       {/* 8  seven core values                        */}
+      <MinimalContact />   {/* 9  minimal callback form                    */}
     </>
   )
 }

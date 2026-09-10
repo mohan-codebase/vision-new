@@ -7,7 +7,7 @@
 .callbackForm {
   position: relative;
   background-color: #ffffff;
-  padding: 5em 0;
+  padding: clamp(38px, 4vw, 54px) 0;
   overflow: hidden;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
@@ -141,7 +141,7 @@
 .cbfCard {
   flex: 1 1 55%;
   background: #ffffff;
-  padding: 3.25em 3em;
+  padding: clamp(26px, 2.8vw, 36px) clamp(22px, 2.5vw, 32px);
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
 }
@@ -295,7 +295,7 @@
 /* --- Responsive --------------------------------------------- */
 
 @media (max-width: 960px) {
-  .callbackForm { padding: 4em 0; }
+  .callbackForm { padding: 30px 0; }
   .callbackForm__grid { flex-direction: column; gap: 2.5em; }
   .cbfIntro { max-width: none; }
   .cbfIntro__title { font-size: 2.25rem; }

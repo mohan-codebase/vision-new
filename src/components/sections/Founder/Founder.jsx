@@ -33,11 +33,14 @@ export default function Founder() {
           <div className="founder__content">
             <span className="founder__super">{eyebrow}</span>
             <h2 className="founder__title">
-              Led by <strong>{name}</strong>
+              Our <strong>Founder</strong>
             </h2>
 
             {paragraphs.map((p) => (
-              <p className="founder__para" key={p.slice(0, 24)}>{p}</p>
+              <div className="founder__block" key={p.text.slice(0, 24)}>
+                {p.heading && <h3 className="founder__subhead">{p.heading}</h3>}
+                <p className="founder__para">{p.text}</p>
+              </div>
             ))}
 
             <ul className="founderFacts">

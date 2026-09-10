@@ -12,7 +12,7 @@
   height: 44px;
   border-radius: 0;
   background-color: #ffffff;
-  color: #111826;
+  color: #000000;
   border: 1px solid #000000;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
   cursor: pointer;
@@ -31,7 +31,7 @@
 }
 
 .scrollTopBtn:hover {
-  background-color: #111826;
+  background-color: #000000;
   border-color: #000000;
   color: #ffffff;
   transform: translateY(-3px);

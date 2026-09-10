@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { businessSetup } from '../../../data/home.js'
 import Icon from '../../ui/Icon.jsx'
 import './BusinessSetup.css'
@@ -59,10 +60,10 @@ export default function BusinessSetup() {
                   ))}
                 </ul>
 
-                <a href="#request-callback" className="bsCard__cta">
+                <Link to={box.href} className="bsCard__cta">
                   <span>{box.cta}</span>
                   <Icon name="arrow-right" size="small" />
-                </a>
+                </Link>
               </div>
             </article>
           ))}

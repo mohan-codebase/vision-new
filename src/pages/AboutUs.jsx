@@ -1,131 +1,245 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Founder from '../components/sections/Founder/Founder.jsx'
-import CoreValues from '../components/sections/CoreValues/CoreValues.jsx'
+import Icon from '../components/ui/Icon.jsx'
+import WhoWeWorkWith from '../components/sections/WhoWeWorkWith/WhoWeWorkWith.jsx'
+import WhatSetsUsApart from '../components/sections/WhatSetsUsApart/WhatSetsUsApart.jsx'
 import Commitment from '../components/sections/Commitment/Commitment.jsx'
-import imgAboutUs from '../assets/images/about-us.jpg'
+import Founder from '../components/sections/Founder/Founder.jsx'
+import { ourStory, coreValues, ourServices, commitment } from '../data/home.js'
+import { contact, whatsappLink } from '../config/contact.js'
+import imgStory from '../assets/images/our-story-advisory.jpg'
 import './AboutUs.css'
 
 /**
- * Dedicated About Us page for Vision Business Setup.
- * Streamlined executive profile: narrative, founder, core values, and corporate commitment.
+ * About Us.
+ *
+ * Every user-facing string on this page comes from the client's own copy deck,
+ * "Website Content_Vision.docx" (mirrored in `Website-Content-Vision.txt`), and
+ * the sections follow that document's "About Us" order:
+ *
+ *   1. Hero
+ *   2. Our Story
+ *   3. Who We Work With
+ *   4. What Sets Us Apart
+ *   5. Our Core Values
+ *   6. Our Commitment
+ *   7. Our Founder
+ *   8. Our Services  (labels from the document's navigation list)
+ *   9. Request a Callback  (a required feature per "Other Requirements")
+ *
+ * Nothing here is written copy: no invented statistics, straplines or intros.
  */
 export default function AboutUs() {
+  const [sent, setSent] = useState(false)
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    const data = Object.fromEntries(new FormData(event.currentTarget).entries())
+    // eslint-disable-next-line no-console
+    console.info('[AboutUs] contact submission', data)
+    event.currentTarget.reset()
+    setSent(true)
+  }
+
   return (
     <main className="aboutPage">
-      {/* 1. Page Hero Banner */}
-      <section className="aboutHero">
-        <div className="aboutHero__overlay" aria-hidden="true" />
+      {/* ── 1. Hero ─────────────────────────────────────────────── */}
+      <header className="aboutHero">
+        <span className="aboutHero__overlay" aria-hidden="true" />
         <div className="aboutHero__container">
-          <nav className="aboutBreadcrumb" aria-label="Breadcrumb">
-            <Link to="/" className="aboutBreadcrumb__link">
-              Home
-            </Link>
-            <span className="aboutBreadcrumb__sep">/</span>
-            <span className="aboutBreadcrumb__current">About Us</span>
-          </nav>
-
-          <span className="aboutHero__eyebrow">VISION BUSINESS SETUP · EST. 2015</span>
-          <h1 className="aboutHero__title">
-            Pioneering Corporate Excellence in the UAE
-          </h1>
-          <p className="aboutHero__lead">
-            At Vision Business Setup, we provide end-to-end company formation and corporate support services
-            across UAE Mainland, Free Zone, and Offshore jurisdictions. Every business starts with vision —
-            we act as strategic advisors to build a strong foundation for your long-term success.
-          </p>
-        </div>
-      </section>
-
-      {/* 2. Fast Facts & Key Metrics Strip */}
-      <section className="aboutMetricsStrip">
-        <div className="aboutMetricsStrip__container">
-          <div className="aboutMetricCard">
-            <span className="aboutMetricCard__num">10+</span>
-            <span className="aboutMetricCard__label">Years in Dubai</span>
-            <p className="aboutMetricCard__desc">Established in 2015 with continuous regional excellence</p>
-          </div>
-          <div className="aboutMetricCard">
-            <span className="aboutMetricCard__num">5,000+</span>
-            <span className="aboutMetricCard__label">Companies Formed</span>
-            <p className="aboutMetricCard__desc">Mainland, Free Zone, and Offshore entities established</p>
-          </div>
-          <div className="aboutMetricCard">
-            <span className="aboutMetricCard__num">50+</span>
-            <span className="aboutMetricCard__label">Jurisdictions Covered</span>
-            <p className="aboutMetricCard__desc">Direct liaison with DET, Free Zone authorities & ministries</p>
-          </div>
-          <div className="aboutMetricCard">
-            <span className="aboutMetricCard__num">100%</span>
-            <span className="aboutMetricCard__label">Transparent Advisory</span>
-            <p className="aboutMetricCard__desc">No hidden fees, tailored solutions, and client-first guidance</p>
+          <div className="aboutHero__head">
+            <span className="aboutHero__super">
+              <Link to="/">HOME</Link> / <span>ABOUT US</span>
+            </span>
+            <h1 className="aboutHero__title">About Us</h1>
+            <p className="aboutHero__intro">Every Business starts with Vision.</p>
           </div>
         </div>
-      </section>
+      </header>
 
-      {/* 3. Deep Story: Narrative & Philosophy */}
-      <section className="aboutStoryDeep">
-        <div className="aboutStoryDeep__container">
-          <div className="aboutStoryDeep__grid">
-            <div className="aboutStoryDeep__content">
-              <span className="aboutStoryDeep__badge">OUR JOURNEY & PHILOSOPHY</span>
-              <h2 className="aboutStoryDeep__title">
-                Going Beyond Documentation to Deliver Strategic Value
-              </h2>
-              <div className="aboutStoryDeep__paragraphs">
-                <p>
-                  At Vision Business Setup, we provide end-to-end business setup and corporate support services in the UAE.
-                  From company formation across Mainland, Free Zone, and Offshore jurisdictions to visa processing and PRO services,
-                  we manage the entire process with precision and efficiency.
-                </p>
-                <p>
-                  Our role goes beyond documentation—we act as strategic advisors, helping clients choose the right structure,
-                  navigate regulations, and build a strong foundation for long-term success in the UAE.
-                </p>
-                <p>
-                  Established in 2015, Vision Business Setup has grown into a trusted name in the UAE’s business setup landscape.
-                  Over the years, we have had the privilege of working with high-value clients, entrepreneurs, and well-connected
-                  business networks across the region—delivering solutions that are not only efficient, but also strategically aligned
-                  with long-term success.
-                </p>
-                <blockquote className="aboutStoryDeep__quote">
-                  &ldquo;Our journey has been defined by one simple principle: putting our clients first in everything we do.&rdquo;
-                </blockquote>
-              </div>
-            </div>
+      {/* ── 2. Our Story ────────────────────────────────────────── */}
+      <section className="aboutStory" id="our-story">
+        <div className="aboutStory__inner">
+          <div className="aboutStory__panel">
+            <span className="aboutStory__badge">EST. 2015</span>
+            <h2 className="aboutStory__title">{ourStory.title}</h2>
+            {ourStory.paragraphs.map((p, index) => (
+              <p
+                key={index}
+                className={
+                  index === 0
+                    ? 'aboutStory__lead'
+                    : index === 2
+                      ? 'aboutStory__quote'
+                      : 'aboutStory__para'
+                }
+              >
+                {p}
+              </p>
+            ))}
+          </div>
 
-            <div className="aboutStoryDeep__visual">
-              <div className="aboutStoryCard">
-                <div className="aboutStoryCard__imageWrapper">
-                  <img
-                    src={imgAboutUs}
-                    alt="Vision Business Setup — Downtown Dubai"
-                    className="aboutStoryCard__img"
-                  />
-                  <div className="aboutStoryCard__tag">
-                    <span>DUBAI HEADQUARTERS</span>
-                  </div>
-                </div>
-                <div className="aboutStoryCard__info">
-                  <h3 className="aboutStoryCard__head">Tailored Solutions, Never Templated</h3>
-                  <p className="aboutStoryCard__text">
-                    Whether you are an ambitious startup founder, an international enterprise expanding into the Middle East,
-                    or a private investor seeking tax-optimized structuring, our bespoke advisory ensures seamless corporate establishment.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="aboutStory__media">
+            <img
+              src={imgStory}
+              alt="Vision Business Setup — established in 2015"
+              className="aboutStory__image"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
 
-      {/* 4. Our Founder: Viekram Sadwani */}
+      {/* ── 3. Who We Work With ─────────────────────────────────── */}
+      <WhoWeWorkWith />
+
+      {/* ── 4. What Sets Us Apart ───────────────────────────────── */}
+      <WhatSetsUsApart />
+
+      {/* ── 5. Our Core Values ──────────────────────────────────── */}
+      <section className="aboutStand">
+        <header className="aboutStand__head">
+          <h2 className="aboutStand__title">Our Core Values</h2>
+        </header>
+
+        <div className="aboutStand__grid">
+          {coreValues.items.map((item) => (
+            <article className="aboutValue" key={item.title}>
+              <h3 className="aboutValue__title">{item.title}</h3>
+              <p className="aboutValue__text">{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 6. Our Commitment ───────────────────────────────────── */}
+      <Commitment />
+
+      {/* ── 7. Our Founder ──────────────────────────────────────── */}
       <Founder />
 
-      {/* 5. Our Core Values (7 values) */}
-      <CoreValues />
+      {/* ── 8. Our Services ─────────────────────────────────────── */}
+      <section className="aboutServices" id="services">
+        <div className="aboutServices__inner">
+          <header className="aboutServices__head">
+            <span className="aboutServices__super">{ourServices.super || 'OUR SERVICES'}</span>
+            <h2 className="aboutServices__title">
+              Our <strong>Services</strong>
+            </h2>
+            {ourServices.intro && <p className="aboutServices__intro">{ourServices.intro}</p>}
+          </header>
 
-      {/* 6. Our Commitment */}
-      <Commitment />
+          <div className="aboutServices__grid">
+            {ourServices.groups.map((group, index) => (
+              <article className="aboutServiceCard" key={group.title}>
+                <div className="aboutServiceCard__header">
+                  <span className="aboutServiceCard__icon">
+                    <Icon name={group.icon} />
+                  </span>
+                  <span className="aboutServiceCard__index" aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                </div>
+
+                <h3 className="aboutServiceCard__title">{group.title}</h3>
+
+                <ul className="aboutServiceCard__list">
+                  {group.items.map((item) => (
+                    <li className="aboutServiceCard__item" key={item}>
+                      <Icon name="check" size="small" className="aboutServiceCard__check" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="aboutServiceCard__foot">
+                  <a href="#request-callback" className="aboutServiceCard__cta">
+                    <span>Inquire Now</span>
+                    <Icon name="arrow-right" size="small" />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="aboutServices__banner">
+            <div className="aboutServices__bannerText">
+              <span className="aboutServices__bannerSuper">OUR COMMITMENT</span>
+              <h3 className="aboutServices__bannerTitle">Every Business starts with Vision.</h3>
+              <p className="aboutServices__bannerDesc">
+                Whether you are starting fresh or expanding your presence, our team is here to guide you with expertise, clarity, and dedication. Connect with Vision Business Setup and experience a service built around you.
+              </p>
+            </div>
+            <div className="aboutServices__bannerActions">
+              <a href="#request-callback" className="aboutServices__bannerBtn aboutServices__bannerBtn--primary">
+                <span>Request a Callback</span>
+                <Icon name="arrow-right" size="small" />
+              </a>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="aboutServices__bannerBtn aboutServices__bannerBtn--secondary"
+                aria-label="Chat on WhatsApp"
+              >
+                <Icon name="whatsapp" size="small" />
+                <span>WhatsApp Us</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 9. Request a Callback ───────────────────────────────── */}
+      <section className="aboutContact" id="request-callback">
+        <div className="aboutContact__inner">
+          <div className="aboutContact__formCol">
+            <h2 className="aboutContact__formTitle">Request a Callback</h2>
+
+            {sent ? (
+              <div className="aboutContact__sent" role="status">
+                <Icon name="check-circle" />
+                <p>{commitment.closing.lines[0]}</p>
+                <button type="button" className="aboutContact__again" onClick={() => setSent(false)}>
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form className="aboutContact__form" onSubmit={handleSubmit}>
+                <div className="aboutField">
+                  <label htmlFor="ab-name">Name</label>
+                  <input id="ab-name" name="name" type="text" autoComplete="name" />
+                </div>
+                <div className="aboutField">
+                  <label htmlFor="ab-phone">Phone*</label>
+                  <input id="ab-phone" name="phone" type="tel" autoComplete="tel" required />
+                </div>
+                <div className="aboutField">
+                  <label htmlFor="ab-email">Email*</label>
+                  <input id="ab-email" name="email" type="email" autoComplete="email" required />
+                </div>
+                <div className="aboutField">
+                  <label htmlFor="ab-message">Message</label>
+                  <textarea id="ab-message" name="message" rows={4} />
+                </div>
+                <button type="submit" className="aboutContact__submit">Request a Callback</button>
+              </form>
+            )}
+          </div>
+
+          <aside className="aboutContact__panel">
+            <h2 className="aboutContact__panelTitle">{commitment.closing.tagline}</h2>
+            <p className="aboutContact__panelText">{commitment.closing.lines[0]}</p>
+            <p className="aboutContact__panelText">{commitment.closing.lines[1]}</p>
+            <p className="aboutContact__panelMeta">
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              <span>{contact.addressLines.join(', ')}</span>
+              <span>{contact.hours}</span>
+            </p>
+            <Link to="/contact" className="aboutContact__cta">Contact Us</Link>
+          </aside>
+        </div>
+      </section>
     </main>
   )
 }

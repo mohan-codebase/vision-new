@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
-import { ReactLenis } from 'lenis/react'
 import Footer from './components/layout/Footer/Footer.jsx'
 import Header from './components/layout/Header/Header.jsx'
 import WhatsApp from './components/layout/WhatsApp/WhatsApp.jsx'
 import Home from './pages/Home.jsx'
 import AboutUs from './pages/AboutUs.jsx'
 import Contact from './pages/Contact.jsx'
+import Jurisdiction from './pages/Jurisdiction.jsx'
+import { jurisdictions } from './data/jurisdictions.js'
 
 /**
  * RouteScrollHandler — Smoothly handles scrolling on route changes
@@ -35,22 +36,34 @@ export default function App() {
   return (
     <BrowserRouter>
       <RouteScrollHandler />
-      <ReactLenis root>
-        {/* Header overlays the hero banner and scrolls with the page. */}
-        <Header />
-        <div className="btPageWrap">
-          <div className="btContentWrap">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<Home />} />
-            </Routes>
-          </div>
-          <Footer />
+      {/* Header overlays the hero banner and scrolls with the page. */}
+      <Header />
+      <div className="btPageWrap">
+        <div className="btContentWrap">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<Contact />} />
+            {/* Business Setup — one page per jurisdiction, content verbatim
+                from "Website Content_Vision.docx". */}
+            <Route
+              path="/business-setup/uae-mainland"
+              element={<Jurisdiction data={jurisdictions.mainland} />}
+            />
+            <Route
+              path="/business-setup/uae-free-zone"
+              element={<Jurisdiction data={jurisdictions.freeZone} />}
+            />
+            <Route
+              path="/business-setup/uae-offshore"
+              element={<Jurisdiction data={jurisdictions.offshore} />}
+            />
+            <Route path="*" element={<Home />} />
+          </Routes>
         </div>
-        <WhatsApp />
-      </ReactLenis>
+        <Footer />
+      </div>
+      <WhatsApp />
     </BrowserRouter>
   )
 }

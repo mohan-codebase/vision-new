@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { contact, hasPhone, whatsappLink } from '../../../config/contact.js'
 import Icon from '../../ui/Icon.jsx'
+import SmartLink from '../../ui/SmartLink.jsx'
 import './MinimalContact.css'
 
 /**
@@ -29,10 +30,12 @@ export default function MinimalContact() {
       <div className="minimalContact__container">
         <div className="minimalContact__card">
           <header className="minimalContact__header">
-            <span className="minimalContact__super">FAST-TRACK CONSULTATION</span>
-            <h2 className="minimalContact__title">Request a Quick Callback</h2>
+            <span className="minimalContact__super">EVERY BUSINESS STARTS WITH VISION</span>
+            <h2 className="minimalContact__title">Request a Callback</h2>
             <p className="minimalContact__desc">
-              Speak directly with a UAE corporate formation specialist. We typically call you back within 15 minutes during business hours.
+              Whether you are starting fresh or expanding your presence, our team is here to guide you with
+              expertise, clarity, and dedication. Connect with Vision Business Setup and experience a service
+              built around you.
             </p>
           </header>
 
@@ -44,7 +47,7 @@ export default function MinimalContact() {
               <div className="minimalContact__successBody">
                 <h3 className="minimalContact__successTitle">Callback Request Received</h3>
                 <p className="minimalContact__successText">
-                  Thank you. A Vision Business Setup advisor will call you {phone ? `at ${phone}` : 'shortly'}. For immediate assistance, feel free to contact us on{' '}
+                  Thank you. A Vision Business Setup consultant will call you {phone ? `at ${phone}` : 'shortly'}. For immediate assistance, contact us on{' '}
                   {hasPhone ? (
                     <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
                   ) : (
@@ -92,13 +95,13 @@ export default function MinimalContact() {
                 <label htmlFor="min-service" className="minimalContact__label">Service Required</label>
                 <select id="min-service" name="service" defaultValue="" className="minimalContact__select">
                   <option value="" disabled>Select Setup Service</option>
-                  <option value="mainland">UAE Mainland Formation</option>
-                  <option value="freezone">UAE Free Zone License</option>
-                  <option value="offshore">UAE Offshore Company</option>
-                  <option value="golden-visa">Residence &amp; Golden Visa</option>
-                  <option value="bank-account">Corporate Bank Account</option>
-                  <option value="tax-accounting">Corporate Tax &amp; Bookkeeping</option>
-                  <option value="other">Other Inquiries</option>
+                  <option value="mainland">UAE Mainland</option>
+                  <option value="freezone">UAE Free Zone</option>
+                  <option value="offshore">UAE Offshore</option>
+                  <option value="licence">Licence</option>
+                  <option value="visa">Visa</option>
+                  <option value="finance-banking">Finance &amp; Banking</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
 
@@ -115,21 +118,21 @@ export default function MinimalContact() {
           <div className="minimalContact__footer">
             <div className="minimalContact__trustList">
               <span className="minimalContact__trustItem">
-                <Icon name="check" size="small" /> No-obligation consultation
+                <Icon name="check" size="small" /> Round-the-Clock Support
               </span>
               <span className="minimalContact__trustItem">
-                <Icon name="check" size="small" /> 100% Confidential
+                <Icon name="check" size="small" /> Tailored Solutions
               </span>
               <span className="minimalContact__trustItem">
-                <Icon name="check" size="small" /> Mainland, Free Zone &amp; Offshore
+                <Icon name="check" size="small" /> UAE Mainland, Free Zone &amp; Offshore
               </span>
             </div>
 
             <div className="minimalContact__pageLink">
-              <span>Need our office location &amp; full inquiry form?</span>{' '}
-              <a href="/contact" className="minimalContact__contactLink">
-                Visit Contact Page →
-              </a>
+              <span>Need our full inquiry form?</span>{' '}
+              <SmartLink href="/contact" className="minimalContact__contactLink">
+                Contact Us →
+              </SmartLink>
             </div>
           </div>
         </div>

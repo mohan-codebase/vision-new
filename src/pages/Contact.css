@@ -1,6 +1,6 @@
 /* ==========================================================================
    Contact Page Styles
-   · Clean white background (#ffffff) matching "Who We Work With" executive style
+   · Shared dark page-hero band, then white content
    · Single-tone black typography (#000000)
    · 5 uniform, balanced contact cards with subtle border
    · Seamless integration with Header and footer
@@ -13,74 +13,100 @@
 
 .contactHero {
   position: relative;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 160px 0 70px;
+  background: linear-gradient(135deg, #000000 0%, #111111 50%, #222222 100%);
+  color: #ffffff;
+  padding: clamp(180px, 16vw, 220px) 0 clamp(75px, 8vw, 105px);
   overflow: hidden;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.contactHero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
+              radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .contactHero__container {
   position: relative;
   z-index: 1;
-  width: var(--w-boxed-1200);
-  max-width: calc(100% - (var(--page-gutter) * 2));
+  width: 100%;
+  max-width: 1240px;
   margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
 }
 
 .contactHero__head {
-  max-width: 720px;
-  margin-bottom: 44px;
+  max-width: 950px;
 }
 
+/* Breadcrumb — matches `.aboutBreadcrumb` / `.jurBreadcrumb`. */
 .contactHero__super {
   display: block;
   font-family: var(--font-base);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-size: 13.5px;
+  font-weight: 400;
+  letter-spacing: normal;
   text-transform: uppercase;
-  color: #000000;
-  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 24px;
 }
 
 .contactHero__super a {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  transition: color var(--t-fast);
+  transition: color 0.2s ease;
 }
 
 .contactHero__super a:hover {
-  color: #000000;
+  color: #ffffff;
 }
 
 .contactHero__super span {
-  color: #000000;
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .contactHero__title {
-  font-family: var(--font-base);
-  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 54px);
   font-weight: 700;
   line-height: 1.18;
-  letter-spacing: -0.02em;
-  color: #000000;
-  margin: 0 0 14px;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  max-width: 950px;
+  margin: 0 0 22px 0;
 }
 
 .contactHero__intro {
   font-family: var(--font-base);
-  font-size: 15px;
-  line-height: 1.65;
-  color: rgba(0, 0, 0, 0.65);
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 900px;
   margin: 0;
+}
+
+/* --- Touchpoint band (white, below the hero) ----------------------- */
+
+.contactChannels {
+  background-color: #ffffff;
+  padding: clamp(50px, 6vw, 76px) 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.contactChannels__container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
 }
 
 /* --- Minimal 5-Card Touchpoint Grid ------------------------------- */
 
 .contactHero__grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 18px;
   list-style: none;
   margin: 0;
@@ -146,7 +172,7 @@
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.55);
   text-transform: uppercase;
 }
 
@@ -164,9 +190,9 @@
   line-height: 1.4;
   color: rgba(0, 0, 0, 0.62);
   margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /* Wrap rather than truncate — the columns are equal-width now, so long
+     values (opening hours, email) must stay fully readable. */
+  overflow-wrap: anywhere;
 }
 
 /* --- Responsive Breakpoints ---------------------------------------- */
@@ -180,7 +206,7 @@
 
 @media (max-width: 768px) {
   .contactHero {
-    padding: 130px 0 50px;
+    padding: 110px 0 32px;
   }
 
   .contactHero__grid {
@@ -191,7 +217,7 @@
 
 @media (max-width: 480px) {
   .contactHero {
-    padding: 110px 0 40px;
+    padding: 100px 0 28px;
   }
 
   .contactHero__grid {

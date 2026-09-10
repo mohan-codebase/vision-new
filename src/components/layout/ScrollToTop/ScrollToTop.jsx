@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useLenis } from 'lenis/react'
 import Icon from '../../ui/Icon.jsx'
 import './ScrollToTop.css'
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
-  const lenis = useLenis()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,14 +17,10 @@ export default function ScrollToTop() {
   }, [])
 
   const scrollToTop = () => {
-    if (lenis) {
-      lenis.scrollTo(0, { duration: 1.2 })
-    } else {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      })
-    }
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
   }
 
   return (

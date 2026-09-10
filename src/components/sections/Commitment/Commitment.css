@@ -7,8 +7,8 @@
 .commitment {
   position: relative;
   background-color: var(--c-white);
-  padding-top: 4.5em;
-  padding-bottom: 4.5em;
+  padding-top: clamp(36px, 4vw, 52px);
+  padding-bottom: clamp(36px, 4vw, 52px);
   overflow: hidden;
 }
 
@@ -44,7 +44,7 @@
   min-width: 0;
   max-width: 580px;
   margin-left: auto;
-  padding: 3em 0;
+  padding: 0.5em 0;
 }
 
 .cmtHeadline__super {
@@ -116,7 +116,7 @@
   display: block;
   width: 100%;
   border-top: 2px solid var(--c-border-soft);
-  margin: 3em 0;
+  margin: 1.8em 0;
 }
 
 .cmtClosing {

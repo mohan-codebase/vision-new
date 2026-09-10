@@ -1,6 +1,7 @@
 import { useCallback } from 'react'
 import { footer } from '../../../data/site.js'
 import Icon from '../../ui/Icon.jsx'
+import SmartLink from '../../ui/SmartLink.jsx'
 import './Footer.css'
 
 const logo = `${import.meta.env.BASE_URL}logo-lockup-light.png`
@@ -37,9 +38,12 @@ export default function Footer() {
             </div>
 
             <div className="luxuryFooter__ctaActions">
-              <a href={cta.primaryBtn.href} className="luxuryFooter__ctaBtn luxuryFooter__ctaBtn--primary">
+              <SmartLink
+                href={cta.primaryBtn.href}
+                className="luxuryFooter__ctaBtn luxuryFooter__ctaBtn--primary"
+              >
                 {cta.primaryBtn.label}
-              </a>
+              </SmartLink>
               <a
                 href={cta.secondaryBtn.href}
                 target="_blank"
@@ -57,11 +61,10 @@ export default function Footer() {
         {contactCards && contactCards.length > 0 && (
           <div className="luxuryFooter__contactGrid">
             {contactCards.map((card, idx) => (
-              <a
+              <SmartLink
                 key={idx}
                 href={card.href}
                 target={card.target || undefined}
-                rel={card.target ? 'noopener noreferrer' : undefined}
                 className="luxuryFooter__contactCard"
               >
                 <div className="luxuryFooter__cardIconHolder">
@@ -72,7 +75,7 @@ export default function Footer() {
                   <span className="luxuryFooter__cardValue">{card.value}</span>
                   <span className="luxuryFooter__cardDetail">{card.detail}</span>
                 </div>
-              </a>
+              </SmartLink>
             ))}
           </div>
         )}
@@ -116,12 +119,12 @@ export default function Footer() {
                 <ul className="luxuryFooter__list">
                   {col.links.map((link) => (
                     <li key={link.label}>
-                      <a href={link.href} className="luxuryFooter__link">
+                      <SmartLink href={link.href} className="luxuryFooter__link">
                         <span className="luxuryFooter__linkArrow" aria-hidden="true">
                           ›
                         </span>
                         <span>{link.label}</span>
-                      </a>
+                      </SmartLink>
                     </li>
                   ))}
                 </ul>

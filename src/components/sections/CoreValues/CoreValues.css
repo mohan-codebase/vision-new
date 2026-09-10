@@ -1,21 +1,20 @@
 /* ==========================================================================
    Section 9 — Our Core Values (Luxury Carousel)
    Inspired by Pride and Property Dubai:
-   · Obsidian dark background (#090f1a)
+   · Clean white background (#ffffff)
    · Section header with top-right [ ← ] [ → ] rectangular arrow controls
    · Smooth horizontal carousel with 3 full-height cards on desktop
-   · Single-tone white typography & sharp geometry (border-radius: 0)
+   · Single-tone black typography & sharp geometry (border-radius: 0)
    · Subtle progress bar & slide counter
    ========================================================================== */
 
 .coreValues {
   position: relative;
-  background-color: #0b1320;
-  background: linear-gradient(180deg, #090f1a 0%, #0d1626 100%);
-  color: #ffffff;
-  padding: 6rem 0 6.5rem;
+  background-color: #ffffff;
+  color: #000000;
+  padding: clamp(40px, 4.5vw, 60px) 0;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .coreValues__cell {
@@ -33,7 +32,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 32px;
-  margin-bottom: 3.25rem;
+  margin-bottom: 2rem;
 }
 
 .coreValues__head {
@@ -46,9 +45,9 @@
   font-family: var(--font-superheadline);
   font-size: 0.8rem;
   font-weight: 700;
-  color: #c9a24e;
-  background-color: rgba(201, 162, 78, 0.1);
-  border: 1px solid rgba(201, 162, 78, 0.3);
+  color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.16);
   border-radius: 2px;
   margin-bottom: 1.25rem;
   letter-spacing: 0.12em;
@@ -59,7 +58,7 @@
   font-family: var(--font-heading);
   font-size: clamp(2.2rem, 3.5vw, 2.85rem);
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
   line-height: 1.18;
   letter-spacing: -0.02em;
   margin: 0 0 1rem;
@@ -68,14 +67,14 @@
 .coreValues__titlePlain,
 .coreValues__titleAccent {
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
 }
 
 .coreValues__subtitle {
   font-family: var(--font-base);
   font-size: 1.05rem;
   font-weight: 400;
-  color: #94a3b8;
+  color: rgba(0, 0, 0, 0.55);
   line-height: 1.6;
   margin: 0;
 }
@@ -92,10 +91,10 @@
 .cvNavBtn {
   width: 48px;
   height: 48px;
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.18);
   border-radius: 0;
-  color: #ffffff;
+  color: #000000;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -104,9 +103,9 @@
 }
 
 .cvNavBtn:hover:not(.cvNavBtn--disabled) {
-  background-color: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
   transform: translateY(-2px);
 }
 
@@ -151,20 +150,20 @@
   aspect-ratio: 3 / 4;
   min-height: 480px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0;
-  background-color: #0d1626;
+  background-color: #000000;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: border-color 300ms ease, transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms ease;
 }
 
 .cvSlide:hover {
-  border-color: rgba(255, 255, 255, 0.38);
+  border-color: rgba(0, 0, 0, 0.28);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
 }
 
 /* Media Background */
@@ -194,10 +193,10 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(8, 12, 20, 0.96) 0%,
-    rgba(8, 12, 20, 0.85) 42%,
-    rgba(8, 12, 20, 0.3) 72%,
-    rgba(8, 12, 20, 0.1) 100%
+    rgba(0, 0, 0, 0.96) 0%,
+    rgba(0, 0, 0, 0.85) 42%,
+    rgba(0, 0, 0, 0.3) 72%,
+    rgba(0, 0, 0, 0.1) 100%
   );
   pointer-events: none;
 }
@@ -213,7 +212,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   color: #ffffff;
-  background: #0a101c;
+  background: #000000;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 0;
 }
@@ -283,14 +282,14 @@
 .coreValues__progressTrack {
   flex: 1;
   height: 2px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.12);
   position: relative;
   overflow: hidden;
 }
 
 .coreValues__progressBar {
   height: 100%;
-  background: #ffffff;
+  background: #000000;
   transition: width 300ms ease;
 }
 
@@ -299,7 +298,7 @@
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.55);
   white-space: nowrap;
 }
 
@@ -314,7 +313,7 @@
 
 @media (max-width: 680px) {
   .coreValues {
-    padding: 4.5rem 0 5rem;
+    padding: 34px 0;
   }
 
   .coreValues__headerRow {

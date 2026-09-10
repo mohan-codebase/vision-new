@@ -1,58 +1,246 @@
+import { useRef, useState, useEffect, useCallback } from 'react'
 import { whoWeWorkWith } from '../../../data/home.js'
+import Icon from '../../ui/Icon.jsx'
 import './WhoWeWorkWith.css'
 
-import workWith01 from '../../../assets/images/who-we-work-with-1-clean.avif'
-import workWith02 from '../../../assets/images/who-we-work-with-2-clean.avif'
-import workWith03 from '../../../assets/images/who-we-work-with-3-clean.avif'
-import workWith04 from '../../../assets/images/who-we-work-with-4-clean.avif'
-import workWith05 from '../../../assets/images/who-we-work-with-5-clean.avif'
+import workWith01 from '../../../assets/images/industry-real-estate.jpg'
+import workWith02 from '../../../assets/images/industry-food-beverage.jpg'
+import workWith03 from '../../../assets/images/industry-trading-commerce.jpg'
+import workWith04 from '../../../assets/images/industry-salons-lifestyle.jpg'
+import workWith05 from '../../../assets/images/industry-manpower-workforce.jpg'
 
 const IMAGES = {
-  'who-we-work-with-1-clean.avif': workWith01,
-  'who-we-work-with-2-clean.avif': workWith02,
-  'who-we-work-with-3-clean.avif': workWith03,
-  'who-we-work-with-4-clean.avif': workWith04,
-  'who-we-work-with-5-clean.avif': workWith05,
+  'industry-real-estate.jpg': workWith01,
+  'industry-food-beverage.jpg': workWith02,
+  'industry-trading-commerce.jpg': workWith03,
+  'industry-salons-lifestyle.jpg': workWith04,
+  'industry-manpower-workforce.jpg': workWith05,
 }
 
 /**
- * Section 5 — Who We Work With (Minimal Executive Redesign)
- * Clean, uniform 5-card layout showcasing client industries with
- * crisp photography, index numbering, and single-tone black typography.
+ * Section 5 — Who We Work With (Luxury Executive Redesign)
+ *
+ * Designed in full alignment with the Pride & Property / Avantage monochrome luxury theme:
+ * - Sarabun typography with proper weight contrast
+ * - Refined pill badge & tracking
+ * - Dual view modes: Luxury Carousel Slider (default) & Balanced All-Industries Grid
+ * - Full-height photographic cards with deep multi-stop gradient scrims
+ * - Industry tags, numeral badges, dedicated SVG icons, and setup capabilities
+ * - Interactive carousel controls with touch/swipe support and progress indicator
+ * - Executive closing consultation banner connecting to #request-callback
  */
 export default function WhoWeWorkWith() {
-  const { super: eyebrow, title, accent, intro, items } = whoWeWorkWith
+  const { super: eyebrow, title, accent, intro, items, closing } = whoWeWorkWith
+  const trackRef = useRef(null)
+  const [viewMode, setViewMode] = useState('carousel') // 'carousel' | 'grid'
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(true)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const checkScroll = useCallback(() => {
+    const el = trackRef.current
+    if (!el) return
+    const { scrollLeft, scrollWidth, clientWidth } = el
+    setCanScrollLeft(scrollLeft > 6)
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 6)
+
+    const card = el.querySelector('.whoCard')
+    if (card) {
+      const cardWidth = card.offsetWidth + 24
+      const idx = Math.round(scrollLeft / cardWidth)
+      setActiveIndex(Math.min(Math.max(0, idx), items.length - 1))
+    }
+  }, [items.length])
+
+  useEffect(() => {
+    if (viewMode !== 'carousel') return
+    const el = trackRef.current
+    if (!el) return
+
+    checkScroll()
+    el.addEventListener('scroll', checkScroll, { passive: true })
+    window.addEventListener('resize', checkScroll)
+
+    return () => {
+      el.removeEventListener('scroll', checkScroll)
+      window.removeEventListener('resize', checkScroll)
+    }
+  }, [checkScroll, viewMode])
+
+  const scrollBy = (direction) => {
+    const el = trackRef.current
+    if (!el) return
+    const card = el.querySelector('.whoCard')
+    const gap = 24
+    const amount = card ? (card.offsetWidth + gap) * direction : 380 * direction
+    el.scrollBy({ left: amount, behavior: 'smooth' })
+  }
 
   return (
     <section className="whoWork" id="industries">
       <div className="whoWork__cell">
-        <header className="whoWork__head">
-          <span className="whoWork__super">{eyebrow}</span>
-          <h2 className="whoWork__title">
-            <span className="whoWork__plain">{title}</span>{' '}
-            <strong className="whoWork__accent">{accent}</strong>
-          </h2>
-          <p className="whoWork__intro">{intro}</p>
-        </header>
+        {/* Header Row: Title & Subtitle on Left, View & Navigation Controls on Right */}
+        <div className="whoWork__headerRow">
+          <header className="whoWork__head">
+            <div className="whoWork__badgeWrapper">
+              <span className="whoWork__badge">{eyebrow}</span>
+            </div>
+            <h2 className="whoWork__title">
+              <span className="whoWork__plain">{title}</span>{' '}
+              <strong className="whoWork__accent">{accent}</strong>
+            </h2>
+            <p className="whoWork__intro">{intro}</p>
+          </header>
 
-        <ul className="whoWork__grid">
-          {items.map((item, idx) => (
-            <li className="workTile" key={item.title}>
-              <div className="workTile__media">
-                <img
-                  className="workTile__img"
-                  src={IMAGES[item.image]}
-                  alt={item.title}
-                  loading="lazy"
-                />
+          <div className="whoWork__toolbar">
+            {/* View Switcher: Slider vs All Industries */}
+            <div className="whoWork__viewSwitcher" role="group" aria-label="View options">
+              <button
+                type="button"
+                className={`whoWork__viewBtn ${viewMode === 'carousel' ? 'whoWork__viewBtn--active' : ''}`}
+                onClick={() => setViewMode('carousel')}
+                aria-pressed={viewMode === 'carousel'}
+              >
+                <span>Slider</span>
+              </button>
+              <button
+                type="button"
+                className={`whoWork__viewBtn ${viewMode === 'grid' ? 'whoWork__viewBtn--active' : ''}`}
+                onClick={() => setViewMode('grid')}
+                aria-pressed={viewMode === 'grid'}
+              >
+                <span>Grid</span>
+              </button>
+            </div>
+
+            {/* Carousel Navigation Buttons */}
+            {viewMode === 'carousel' && (
+              <div className="whoWork__controls" aria-label="Industries carousel controls">
+                <button
+                  type="button"
+                  className={`whoNavBtn whoNavBtn--prev ${!canScrollLeft ? 'whoNavBtn--disabled' : ''}`}
+                  onClick={() => scrollBy(-1)}
+                  disabled={!canScrollLeft}
+                  aria-label="Previous industry"
+                >
+                  <Icon name="arrow-left" />
+                </button>
+                <button
+                  type="button"
+                  className={`whoNavBtn whoNavBtn--next ${!canScrollRight ? 'whoNavBtn--disabled' : ''}`}
+                  onClick={() => scrollBy(1)}
+                  disabled={!canScrollRight}
+                  aria-label="Next industry"
+                >
+                  <Icon name="arrow-right" />
+                </button>
               </div>
-              <div className="workTile__body">
-                <span className="workTile__index">0{idx + 1}</span>
-                <h3 className="workTile__label">{item.title}</h3>
-              </div>
-            </li>
-          ))}
-        </ul>
+            )}
+          </div>
+        </div>
+
+        {/* Carousel / Grid Container */}
+        <div className={`whoWork__container whoWork__container--${viewMode}`}>
+          <div
+            className={`whoWork__track ${viewMode === 'grid' ? 'whoWork__track--grid' : ''}`}
+            ref={trackRef}
+          >
+            {items.map((item, idx) => {
+              const imgSrc = IMAGES[item.image] || workWith01
+
+              return (
+                <article
+                  className={`whoCard ${viewMode === 'grid' ? 'whoCard--grid' : ''}`}
+                  key={item.title}
+                >
+                  {/* Full-bleed high-resolution imagery */}
+                  <div className="whoCard__media">
+                    <img
+                      src={imgSrc}
+                      alt={`${item.title} - Vision Business Setup UAE`}
+                      className="whoCard__image"
+                      loading="lazy"
+                    />
+                    <div className="whoCard__overlay" />
+                    <div className="whoCard__topMeta">
+                      <span className="whoCard__badge">
+                        {item.num || `0${idx + 1}`}
+                      </span>
+                      {item.tag && (
+                        <span className="whoCard__tag">{item.tag}</span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Card Content Overlay */}
+                  <div className="whoCard__content">
+                    <div className="whoCard__headingRow">
+                      {item.icon && (
+                        <span className="whoCard__icon" aria-hidden="true">
+                          <Icon name={item.icon} />
+                        </span>
+                      )}
+                      <h3 className="whoCard__title">{item.title}</h3>
+                    </div>
+
+                    {item.desc && (
+                      <p className="whoCard__desc">{item.desc}</p>
+                    )}
+
+                    {item.features && item.features.length > 0 && (
+                      <ul className="whoCard__features">
+                        {item.features.map((feat) => (
+                          <li key={feat} className="whoCard__featureItem">
+                            <span className="whoCard__featureBullet" aria-hidden="true" />
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    <div className="whoCard__foot">
+                      <a href="#request-callback" className="whoCard__link">
+                        <span>Setup Advisory</span>
+                        <Icon name="arrow-right" size="small" />
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Bottom Progress Bar & Counter (visible in carousel mode) */}
+        {viewMode === 'carousel' && (
+          <div className="whoWork__pagination">
+            <div className="whoWork__progressTrack">
+              <div
+                className="whoWork__progressBar"
+                style={{
+                  width: `${((activeIndex + 1) / items.length) * 100}%`,
+                }}
+              />
+            </div>
+            <span className="whoWork__counter">
+              0{activeIndex + 1} / 0{items.length}
+            </span>
+          </div>
+        )}
+
+        {/* Executive Closing Callout Strip */}
+        <div className="whoWork__closingStrip">
+          <div className="whoWork__closingText">
+            <span className="whoWork__closingSuper">Cross-Industry Strategic Advisory</span>
+            <p className="whoWork__closingPara">{closing}</p>
+          </div>
+          <div className="whoWork__closingAction">
+            <a href="#request-callback" className="whoWork__closingBtn">
+              <span>Consult an Industry Specialist</span>
+              <Icon name="arrow-right" size="small" />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   )

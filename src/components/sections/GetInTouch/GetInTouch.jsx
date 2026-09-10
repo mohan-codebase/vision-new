@@ -85,14 +85,14 @@ export default function GetInTouch() {
           <span className="giPanel__corner" aria-hidden="true" />
 
           <div className="giPanel__intro">
-            <span className="giPanel__super">OUR OFFICES</span>
+            <span className="giPanel__super">EVERY BUSINESS STARTS WITH VISION</span>
             <h2 className="giPanel__title">
-              <span className="giPanel__titlePlain">Get in</span>{' '}
-              <strong className="giPanel__titleAccent">Touch</strong>
+              <span className="giPanel__titlePlain">Contact</span>{' '}
+              <strong className="giPanel__titleAccent">Us</strong>
             </h2>
             <p className="giPanel__text">
               Whether you are starting fresh or expanding your presence, our team is here to
-              guide you with expertise, clarity and dedication. Connect with Vision Business
+              guide you with expertise, clarity, and dedication. Connect with Vision Business
               Setup and experience a service built around you.
             </p>
 
@@ -107,7 +107,7 @@ export default function GetInTouch() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Icon name="whatsapp" size="small" />
+                <Icon name="whatsapp" />
                 <span>Chat Now</span>
               </a>
             </div>

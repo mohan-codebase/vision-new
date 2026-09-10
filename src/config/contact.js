@@ -10,6 +10,15 @@
  * `whatsappNumber` must be digits only in full international format (no "+",
  * spaces or dashes) so it can be dropped straight into a wa.me link.
  */
+const whatsappNumber = '971542887888'
+const whatsappMessage =
+  'Hi Vision Business Setup, I would like to know more about setting up my business in the UAE.'
+
+/** wa.me deep link built from the configured number + prefilled message. */
+export const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+  whatsappMessage,
+)}`
+
 export const contact = {
   // Public phone line is hidden site-wide until the number is confirmed.
   // Leave both values empty to hide every "call us" display and link; set
@@ -17,8 +26,8 @@ export const contact = {
   phoneDisplay: '',
   phoneHref: '',
 
-  whatsappNumber: '971542887888',
-  whatsappMessage: 'Hi Vision Business Setup, I would like to know more about setting up my business in the UAE.',
+  whatsappNumber,
+  whatsappMessage,
 
   email: 'admin@visionbusinesssetup.ae',
   // City-level only for now — the full street address is withheld until the
@@ -34,17 +43,9 @@ export const contact = {
   mapLink: '',
 
   social: [
-    { icon: 'facebook', href: '#', label: 'Facebook' },
-    { icon: 'whatsapp', href: 'https://wa.me/971542887888', label: 'WhatsApp' },
-    { icon: 'linkedin', href: '#', label: 'LinkedIn' },
-    { icon: 'instagram', href: '#', label: 'Instagram' },
+    { icon: 'whatsapp', href: whatsappLink, label: 'WhatsApp' },
   ],
 }
 
 /** True while a public phone number is configured (display + tel: link). */
 export const hasPhone = Boolean(contact.phoneDisplay && contact.phoneHref)
-
-/** wa.me deep link built from the configured number + prefilled message. */
-export const whatsappLink = `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(
-  contact.whatsappMessage,
-)}`
