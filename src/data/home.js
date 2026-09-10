@@ -107,8 +107,17 @@ export const ourStory = {
     'Strategic advisory that goes beyond documentation — structure, regulations, foundation',
     'Established in 2015 — a trusted name in the UAE’s business setup landscape',
   ],
-  buttonText: 'More about us',
+  buttonText: 'Read our full story',
   buttonHref: '/about',
+  /*
+   * Homepage teaser only — two sentences lifted verbatim from the document's
+   * first and second paragraphs. The full three-paragraph story runs on
+   * /about, which is where this section's button leads.
+   */
+  lead: [
+    'At Vision Business Setup, we provide end-to-end business setup and corporate support services in the UAE.',
+    'Established in 2015, we have grown into a trusted name in the UAE’s business setup landscape.',
+  ],
   image: 'our-story-advisory.jpg',
   quote:
     'Our journey has been defined by one simple principle: putting our clients first in everything we do.',
@@ -260,7 +269,7 @@ export const ourServices = {
   super: 'OUR SERVICES',
   title: 'Our',
   accent: 'Services',
-  intro: '',
+  intro: 'Licensing, visas, banking and the day-to-day compliance work that keeps a UAE company running \u2014 handled end to end by one team.',
   cta: 'Request a Callback',
   ctaHref: '#request-callback',
   groups: [

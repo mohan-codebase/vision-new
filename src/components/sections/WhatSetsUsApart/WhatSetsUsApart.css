@@ -27,16 +27,27 @@
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
   gap: clamp(44px, 6vw, 92px);
-  /* The headline column is shorter than the list; centring it balances the
-     whitespace above and below. (Sticky is not an option: the global
-     `.btPageWrap` sets `overflow: hidden`, which disables it page-wide.) */
-  align-items: center;
+  /* Top-aligned, not centred: the headline column is far shorter than the
+     four-row list, and centring it opened a large empty band above the
+     heading. */
+  align-items: start;
 }
 
 /* --- Headline column --------------------------------------------------- */
 
+/* The headline travels with the list instead of leaving dead space beneath
+   it. `.btPageWrap` uses `overflow-x: clip`, so sticky resolves against the
+   page. */
 .whatSets__head {
-  position: relative;
+  position: sticky;
+  top: 108px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatSets__head {
+    position: relative;
+    top: 0;
+  }
 }
 
 .whatSets__super {
@@ -216,12 +227,55 @@
   color: var(--c-body);
 }
 
+/* --- Scroll reveal ------------------------------------------------------
+   Driven by `useInView`: `.is-inView` lands on the headline column and on
+   each row as it enters the viewport. Keyframes rather than transitions, and
+   `animation-fill-mode: backwards` rather than `both`, so a finished reveal
+   leaves no forwards fill sitting on top of the hover transform below.
+   ------------------------------------------------------------------------ */
+
+@keyframes wsReveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@keyframes wsReveal-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+}
+
+.whatSets .wsReveal {
+  opacity: 0;
+}
+
+.whatSets__head.is-inView .wsReveal,
+.whatSets .wsItem.wsReveal.is-inView {
+  opacity: 1;
+  animation: wsReveal-rise 720ms var(--ease) var(--reveal-delay, 0ms) backwards;
+}
+
+/* The icon tile lands just after its row. */
+.wsItem.is-inView .wsItem__icon {
+  animation: wsReveal-pop 620ms var(--ease)
+    calc(var(--reveal-delay, 0ms) + 140ms) backwards;
+}
+
 /* --- Responsive --------------------------------------------------------- */
 
 @media (max-width: 1100px) {
   .whatSets__layout {
     grid-template-columns: 1fr;
     gap: 46px;
+  }
+
+  /* Single column — the headline sits directly above the list. */
+  .whatSets__head {
+    position: relative;
+    top: 0;
   }
 
   .whatSets__intro {
@@ -278,5 +332,16 @@
 
   .wsItem:hover {
     transform: none;
+  }
+
+  /* No scroll reveal — everything is simply present. */
+  .whatSets .wsReveal {
+    opacity: 1;
+  }
+
+  .whatSets__head.is-inView .wsReveal,
+  .whatSets .wsItem.wsReveal.is-inView,
+  .wsItem.is-inView .wsItem__icon {
+    animation: none;
   }
 }

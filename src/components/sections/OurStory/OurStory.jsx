@@ -38,6 +38,7 @@ export default function OurStory() {
     badge = 'About Us',
     title = 'Our Story',
     paragraphs = [],
+    lead = [],
     checklist = [],
     quote,
     buttonText = 'More about us',
@@ -55,14 +56,12 @@ export default function OurStory() {
 
           <h2 className="aboutWhyTitle">{title}</h2>
 
-          {paragraphs.length > 0 && (
-            <div className="aboutWhyParagraphs">
-              <p className="aboutWhyParagraph">{paragraphs[0]}</p>
-              {paragraphs[1] && (
-                <p className="aboutWhyParagraph">{paragraphs[1]}</p>
-              )}
-            </div>
-          )}
+          {/* Short teaser on the homepage; the full story lives on /about. */}
+          <div className="aboutWhyParagraphs">
+            {(lead.length > 0 ? lead : paragraphs.slice(0, 2)).map((para) => (
+              <p className="aboutWhyParagraph" key={para.slice(0, 24)}>{para}</p>
+            ))}
+          </div>
 
           {checklist.length > 0 && (
             <ul className="aboutWhyList">

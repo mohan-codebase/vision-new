@@ -10,7 +10,10 @@
 
 .btPageWrap {
   position: relative;
-  overflow: hidden;
+  /* `overflow-x: clip` still contains decorative bleeds, but unlike
+     `overflow: hidden` it does not turn this into a scroll container — which
+     is what stopped `position: sticky` from working anywhere on the page. */
+  overflow-x: clip;
 }
 
 .btContentWrap {

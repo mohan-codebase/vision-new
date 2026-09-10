@@ -1,7 +1,10 @@
 /* ==========================================================================
    Section 6 — Our Services
-   Four category cards on a light-grey band. Accent icon, navy title, a checked
-   list of the documented sub-services, and a closing accent button.
+   A joined hairline matrix on the light-grey band: split header (headline
+   left, tally + button right) over four columns that share one grid rule.
+   Columns are equal height by construction, so the unequal service lists no
+   longer leave ragged card bottoms — each column pins a count + enquiry link
+   to its base. Hover / focus inverts a column to black.
    ========================================================================== */
 
 .ourServices {
@@ -15,9 +18,20 @@
   margin: 0 auto;
 }
 
+/* --- Header ------------------------------------------------------------ */
+
 .svcHead {
-  max-width: 680px;
-  margin-bottom: 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 1.6rem;
+  margin-bottom: 2.4rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+.svcHead__lead {
+  max-width: 620px;
 }
 
 .svcHead__super {
@@ -40,100 +54,236 @@
   color: #000000;
 }
 
-.svcHead__plain {
-  font-weight: var(--fw-bold);
-  color: #000000;
-}
-
+.svcHead__plain,
 .svcHead__accent {
   font-weight: var(--fw-bold);
   color: #000000;
 }
 
 .svcHead__intro {
-  margin-top: 1.2em;
+  margin-top: 1.1em;
   font-family: var(--font-alt);
   font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--c-body);
 }
 
-/* --- Cards ------------------------------------------------------------ */
-
-.svcGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  list-style: none;
-}
-
-.svcCard {
+.svcHead__aside {
+  flex: none;
   display: flex;
   flex-direction: column;
-  background-color: var(--c-white);
-  padding: 2.25em 1.75em 2em;
-  border: 1px solid var(--c-border);
-  transition: transform var(--t-base), border-color var(--t-base);
+  align-items: flex-end;
+  gap: 1.1rem;
+  padding-bottom: 0.25rem;
 }
 
-.svcCard:hover {
-  transform: translateY(-6px);
-  border-color: #000000;
+.svcHead__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  font-family: var(--font-alt);
+  font-size: 0.9375rem;
+  line-height: 1.3;
+  color: var(--c-muted);
+  text-align: right;
 }
 
-.svcCard__icon {
-  display: inline-flex;
+.svcHead__count {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
   color: #000000;
-  margin-bottom: 0.9em;
 }
 
-.svcCard__icon .btIcon {
-  width: 46px;
-  height: 46px;
+.svcHead__metaLabel {
+  max-width: 12em;
 }
 
-.svcCard__title {
+/* --- Matrix ------------------------------------------------------------ */
+
+.svcMatrix {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  list-style: none;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.14);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+.svcCol {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 2.1em 1.6em 1.4em;
+  background-color: var(--c-white);
+  color: #000000;
+  transition: background-color var(--t-base), color var(--t-base);
+}
+
+.svcCol:hover,
+.svcCol:focus-within {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+.svcCol__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 1.5em;
+}
+
+.svcCol__index {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.14em;
+  color: rgba(0, 0, 0, 0.35);
+  transition: color var(--t-base);
+}
+
+.svcCol:hover .svcCol__index,
+.svcCol:focus-within .svcCol__index {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.svcCol__icon {
+  display: inline-flex;
+  color: inherit;
+}
+
+.svcCol__icon .btIcon {
+  width: 38px;
+  height: 38px;
+}
+
+.svcCol__title {
   font-family: var(--font-base);
   font-weight: var(--fw-bold);
   font-size: 1.375rem;
   line-height: 1.2;
-  color: #000000;
-  margin-bottom: 0.9em;
+  color: inherit;
+  padding-bottom: 0.7em;
+  margin-bottom: 0.2em;
+  border-bottom: 1px solid currentColor;
 }
 
-.svcCard__list {
+.svcCol__list {
   list-style: none;
   margin: 0;
 }
 
-.svcCard__list li {
-  position: relative;
+.svcCol__item {
   display: flex;
   align-items: flex-start;
-  gap: 0.6em;
-  padding: 0.4em 0;
+  gap: 0.65em;
+  padding: 0.62em 0;
   font-family: var(--font-base);
   font-size: 0.9375rem;
   line-height: 1.45;
-  color: var(--c-body);
+  color: inherit;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: border-color var(--t-base);
 }
 
-.svcCard__bullet {
+.svcCol:hover .svcCol__item,
+.svcCol:focus-within .svcCol__item {
+  border-bottom-color: rgba(255, 255, 255, 0.16);
+}
+
+.svcCol__item:last-child {
+  border-bottom: 0;
+}
+
+.svcCol__bullet {
   flex: none;
-  width: 6px;
-  height: 6px;
-  margin-top: 0.55em;
-  background: #000000;
+  width: 5px;
+  height: 5px;
+  margin-top: 0.62em;
+  background-color: currentColor;
   transform: rotate(45deg);
 }
 
-/* --- Foot ---------------------------------------------------------- */
-
-.ourServices__foot {
-  margin-top: 2rem;
-  text-align: center;
+.svcCol__itemText {
+  min-width: 0;
 }
+
+/* --- Column foot — pinned, so short lists end on a deliberate baseline -- */
+
+.svcCol__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  margin-top: auto;
+  padding-top: 1.6em;
+}
+
+.svcCol__tally {
+  font-family: var(--font-alt);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  color: rgba(0, 0, 0, 0.4);
+  transition: color var(--t-base);
+}
+
+.svcCol:hover .svcCol__tally,
+.svcCol:focus-within .svcCol__tally {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.svcCol__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-base);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: inherit;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--t-base), transform var(--t-base);
+}
+
+/* The link covers its column, so the whole column reads as one target. */
+.svcCol__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.svcCol:hover .svcCol__link,
+.svcCol:focus-within .svcCol__link {
+  opacity: 1;
+  transform: none;
+}
+
+.svcCol__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Category name is read out for screen readers but not shown in the row. */
+.svcCol__linkLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --- Header button ----------------------------------------------------- */
 
 .ourServices__button {
   display: inline-flex;
@@ -152,6 +302,7 @@
   border-radius: 0;
   text-decoration: none;
   cursor: pointer;
+  white-space: nowrap;
   transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
 }
 
@@ -161,14 +312,56 @@
   border-color: #000000;
 }
 
-/* --- Responsive ------------------------------------------------- */
+/* --- Responsive -------------------------------------------------------- */
 
 @media (max-width: 1024px) {
-  .svcGrid { grid-template-columns: repeat(2, 1fr); }
+  .svcMatrix { grid-template-columns: repeat(2, 1fr); }
   .svcHead__title { font-size: 2.4rem; }
 }
 
+@media (max-width: 768px) {
+  .svcHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+  }
+
+  .svcHead__aside {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .svcHead__meta { text-align: left; }
+}
+
 @media (max-width: 560px) {
-  .svcGrid { grid-template-columns: 1fr; }
+  .svcMatrix { grid-template-columns: 1fr; }
   .svcHead__title { font-size: 2rem; }
+
+  /* No hover on touch — keep the enquiry link permanently visible. */
+  .svcCol__link {
+    opacity: 1;
+    transform: none;
+  }
+
+  .ourServices__button { width: 100%; }
+}
+
+@media (hover: none) {
+  .svcCol__link {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svcCol,
+  .svcCol__link,
+  .svcCol__index,
+  .svcCol__tally,
+  .svcCol__item {
+    transition: none;
+  }
+
+  .svcCol__link { transform: none; }
 }

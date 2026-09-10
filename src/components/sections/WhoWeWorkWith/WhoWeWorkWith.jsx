@@ -32,7 +32,6 @@ const IMAGES = {
 export default function WhoWeWorkWith() {
   const { super: eyebrow, title, accent, intro, items, closing } = whoWeWorkWith
   const trackRef = useRef(null)
-  const [viewMode, setViewMode] = useState('carousel') // 'carousel' | 'grid'
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
   const [activeIndex, setActiveIndex] = useState(0)
@@ -53,7 +52,6 @@ export default function WhoWeWorkWith() {
   }, [items.length])
 
   useEffect(() => {
-    if (viewMode !== 'carousel') return
     const el = trackRef.current
     if (!el) return
 
@@ -65,7 +63,7 @@ export default function WhoWeWorkWith() {
       el.removeEventListener('scroll', checkScroll)
       window.removeEventListener('resize', checkScroll)
     }
-  }, [checkScroll, viewMode])
+  }, [checkScroll])
 
   const scrollBy = (direction) => {
     const el = trackRef.current
@@ -79,7 +77,7 @@ export default function WhoWeWorkWith() {
   return (
     <section className="whoWork" id="industries">
       <div className="whoWork__cell">
-        {/* Header Row: Title & Subtitle on Left, View & Navigation Controls on Right */}
+        {/* Header Row: Title & Subtitle on Left, Navigation Controls on Right */}
         <div className="whoWork__headerRow">
           <header className="whoWork__head">
             <div className="whoWork__badgeWrapper">
@@ -93,66 +91,38 @@ export default function WhoWeWorkWith() {
           </header>
 
           <div className="whoWork__toolbar">
-            {/* View Switcher: Slider vs All Industries */}
-            <div className="whoWork__viewSwitcher" role="group" aria-label="View options">
+            {/* Carousel Navigation Buttons */}
+            <div className="whoWork__controls" aria-label="Industries carousel controls">
               <button
                 type="button"
-                className={`whoWork__viewBtn ${viewMode === 'carousel' ? 'whoWork__viewBtn--active' : ''}`}
-                onClick={() => setViewMode('carousel')}
-                aria-pressed={viewMode === 'carousel'}
+                className={`whoNavBtn whoNavBtn--prev ${!canScrollLeft ? 'whoNavBtn--disabled' : ''}`}
+                onClick={() => scrollBy(-1)}
+                disabled={!canScrollLeft}
+                aria-label="Previous industry"
               >
-                <span>Slider</span>
+                <Icon name="arrow-left" />
               </button>
               <button
                 type="button"
-                className={`whoWork__viewBtn ${viewMode === 'grid' ? 'whoWork__viewBtn--active' : ''}`}
-                onClick={() => setViewMode('grid')}
-                aria-pressed={viewMode === 'grid'}
+                className={`whoNavBtn whoNavBtn--next ${!canScrollRight ? 'whoNavBtn--disabled' : ''}`}
+                onClick={() => scrollBy(1)}
+                disabled={!canScrollRight}
+                aria-label="Next industry"
               >
-                <span>Grid</span>
+                <Icon name="arrow-right" />
               </button>
             </div>
-
-            {/* Carousel Navigation Buttons */}
-            {viewMode === 'carousel' && (
-              <div className="whoWork__controls" aria-label="Industries carousel controls">
-                <button
-                  type="button"
-                  className={`whoNavBtn whoNavBtn--prev ${!canScrollLeft ? 'whoNavBtn--disabled' : ''}`}
-                  onClick={() => scrollBy(-1)}
-                  disabled={!canScrollLeft}
-                  aria-label="Previous industry"
-                >
-                  <Icon name="arrow-left" />
-                </button>
-                <button
-                  type="button"
-                  className={`whoNavBtn whoNavBtn--next ${!canScrollRight ? 'whoNavBtn--disabled' : ''}`}
-                  onClick={() => scrollBy(1)}
-                  disabled={!canScrollRight}
-                  aria-label="Next industry"
-                >
-                  <Icon name="arrow-right" />
-                </button>
-              </div>
-            )}
           </div>
         </div>
 
-        {/* Carousel / Grid Container */}
-        <div className={`whoWork__container whoWork__container--${viewMode}`}>
-          <div
-            className={`whoWork__track ${viewMode === 'grid' ? 'whoWork__track--grid' : ''}`}
-            ref={trackRef}
-          >
+        {/* Carousel Container */}
+        <div className="whoWork__container">
+          <div className="whoWork__track" ref={trackRef}>
             {items.map((item, idx) => {
               const imgSrc = IMAGES[item.image] || workWith01
 
               return (
-                <article
-                  className={`whoCard ${viewMode === 'grid' ? 'whoCard--grid' : ''}`}
-                  key={item.title}
-                >
+                <article className="whoCard" key={item.title}>
                   {/* Full-bleed high-resolution imagery */}
                   <div className="whoCard__media">
                     <img
@@ -211,22 +181,20 @@ export default function WhoWeWorkWith() {
           </div>
         </div>
 
-        {/* Bottom Progress Bar & Counter (visible in carousel mode) */}
-        {viewMode === 'carousel' && (
-          <div className="whoWork__pagination">
-            <div className="whoWork__progressTrack">
-              <div
-                className="whoWork__progressBar"
-                style={{
-                  width: `${((activeIndex + 1) / items.length) * 100}%`,
-                }}
-              />
-            </div>
-            <span className="whoWork__counter">
-              0{activeIndex + 1} / 0{items.length}
-            </span>
+        {/* Bottom Progress Bar & Counter */}
+        <div className="whoWork__pagination">
+          <div className="whoWork__progressTrack">
+            <div
+              className="whoWork__progressBar"
+              style={{
+                width: `${((activeIndex + 1) / items.length) * 100}%`,
+              }}
+            />
           </div>
-        )}
+          <span className="whoWork__counter">
+            0{activeIndex + 1} / 0{items.length}
+          </span>
+        </div>
 
         {/* Executive Closing Callout Strip */}
         <div className="whoWork__closingStrip">

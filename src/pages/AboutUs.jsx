@@ -105,6 +105,8 @@ export default function AboutUs() {
         <div className="aboutStand__grid">
           {coreValues.items.map((item) => (
             <article className="aboutValue" key={item.title}>
+              <span className="aboutValue__num" aria-hidden="true">{item.num}</span>
+              <span className="aboutValue__rule" aria-hidden="true" />
               <h3 className="aboutValue__title">{item.title}</h3>
               <p className="aboutValue__text">{item.text}</p>
             </article>
