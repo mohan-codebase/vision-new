@@ -120,7 +120,7 @@ export const footer = {
           {
             icon: 'whatsapp',
             label: 'Round-the-Clock Support',
-            value: 'Chat Now',
+            value: contact.whatsappDisplay,
             href: whatsappLink,
             detail: 'Support whenever you need it, beyond the conventional 9-to-5 framework',
             target: '_blank',

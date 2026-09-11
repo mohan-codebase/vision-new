@@ -18,7 +18,7 @@ const mapLink =
 /** Direct lines — only channels with a configured value are listed. */
 const CONTACT_LINES = [
   hasPhone && { icon: 'phone', label: 'Call us', value: contact.phoneDisplay, href: contact.phoneHref },
-  { icon: 'whatsapp', label: 'WhatsApp', value: 'Chat Now', href: whatsappLink, external: true },
+  { icon: 'whatsapp', label: 'WhatsApp', value: contact.whatsappDisplay, href: whatsappLink, external: true },
   contact.email && { icon: 'mail', label: 'Email Us', value: contact.email, href: `mailto:${contact.email}` },
   officeQuery && { icon: 'pin', label: 'Office', value: officeQuery, href: mapLink, external: true },
   contact.hours && { icon: 'clock', label: 'Office hours', value: contact.hours },

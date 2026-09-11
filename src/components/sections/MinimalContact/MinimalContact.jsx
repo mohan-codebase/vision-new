@@ -51,7 +51,7 @@ export default function MinimalContact() {
                   {hasPhone ? (
                     <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
                   ) : (
-                    <a href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a>
+                    <>WhatsApp at <a href={whatsappLink} target="_blank" rel="noreferrer">{contact.whatsappDisplay}</a></>
                   )}.
                 </p>
                 <button

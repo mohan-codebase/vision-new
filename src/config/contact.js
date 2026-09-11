@@ -27,6 +27,7 @@ export const contact = {
   phoneHref: '',
 
   whatsappNumber,
+  whatsappDisplay: '+971 54 288 7888',
   whatsappMessage,
 
   email: 'admin@visionbusinesssetup.ae',
