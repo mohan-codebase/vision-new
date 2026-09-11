@@ -104,8 +104,8 @@
 
 .minimalContact__input:focus,
 .minimalContact__select:focus {
-  border-color: #295583;
-  box-shadow: 0 0 0 1px #295583;
+  border-color: #1c3b5f;
+  box-shadow: 0 0 0 1px #1c3b5f;
 }
 
 .minimalContact__select {
@@ -130,7 +130,7 @@
   line-height: 1.2;
   color: #000000;
   background-color: transparent;
-  border: 1px solid #295583;
+  border: 1px solid #1c3b5f;
   border-radius: 0;
   display: inline-flex;
   align-items: center;
@@ -142,9 +142,9 @@
 }
 
 .minimalContact__submitBtn:hover {
-  background-color: #295583;
+  background-color: #1c3b5f;
   color: #ffffff;
-  border-color: #295583;
+  border-color: #1c3b5f;
 }
 
 .minimalContact__submitBtn .btIcon,
@@ -167,7 +167,7 @@
   align-items: flex-start;
   gap: 20px;
   background-color: #f5f5f5;
-  border: 1px solid #295583;
+  border: 1px solid #1c3b5f;
   padding: 32px;
   margin-bottom: 32px;
 }
@@ -175,7 +175,7 @@
 .minimalContact__successIcon {
   width: 44px;
   height: 44px;
-  background-color: #295583;
+  background-color: #1c3b5f;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -274,7 +274,7 @@
   color: #000000;
   font-weight: 600;
   text-decoration: none;
-  border-bottom: 1px solid #295583;
+  border-bottom: 1px solid #1c3b5f;
   transition: opacity var(--t-fast);
 }
 

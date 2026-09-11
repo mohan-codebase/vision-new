@@ -37,7 +37,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(31, 68, 104, 0.62);
+  background: rgba(19, 42, 69, 0.62);
   z-index: 1;
   pointer-events: none;
 }

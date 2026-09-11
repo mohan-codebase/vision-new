@@ -174,8 +174,8 @@ export const testimonials = {
 
 export const whatSetsUsApart = {
   super: 'WHAT SETS US APART',
-  title: 'What Sets',
-  accent: 'Us Apart',
+  title: 'Why founders',
+  accent: 'choose Vision',
   intro:
     'At Vision Business Setup, we believe that true value lies not just in delivering a service—but in how that service is delivered.',
   cta: 'Contact Us',
@@ -208,8 +208,8 @@ export const whatSetsUsApart = {
 
 export const whoWeWorkWith = {
   super: 'WHO WE WORK WITH',
-  title: 'Who We',
-  accent: 'Work With',
+  title: 'Trusted across',
+  accent: 'every industry',
   intro:
     'Our diverse client base spans multiple industries, reflecting our ability to adapt, understand, and deliver across different business environments. We have successfully supported:',
   items: [
@@ -267,8 +267,8 @@ export const whoWeWorkWith = {
 
 export const ourServices = {
   super: 'OUR SERVICES',
-  title: 'Our',
-  accent: 'Services',
+  title: 'Everything your company needs,',
+  accent: 'under one roof',
   intro: 'Licensing, visas, banking and the day-to-day compliance work that keeps a UAE company running \u2014 handled end to end by one team.',
   cta: 'Request a Callback',
   ctaHref: '#request-callback',
@@ -300,8 +300,8 @@ export const ourServices = {
 
 export const commitment = {
   super: 'OUR COMMITMENT',
-  title: 'Our',
-  accent: 'Commitment',
+  title: 'Partners well beyond',
+  accent: 'day one',
   text: 'At Vision Business Setup, we don’t just help you start a business—we partner with you throughout your journey. From initial setup to ongoing support, our focus remains on delivering value, building trust, and ensuring your business operates with confidence in the UAE.',
   cta: 'Request a Callback',
   ctaHref: '#request-callback',
@@ -346,11 +346,6 @@ export const founder = {
     {
       text: 'His focus on quality, attention to detail, and commitment to delivering results have become foundational principles within the organization—setting a standard that is increasingly rare in today’s fast-paced business environment.',
     },
-  ],
-  facts: [
-    { label: 'In the UAE market since', value: '2008' },
-    { label: 'Founded Vision Business Setup', value: '2015' },
-    { label: 'Leadership approach', value: 'People-first' },
   ],
 }
 

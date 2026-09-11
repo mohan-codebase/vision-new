@@ -26,84 +26,7 @@
   scroll-behavior: smooth;
 }
 
-/* ==========================================================================
-   1 — Hero (Identical to Contact.css luxury dark hero band)
-   ========================================================================== */
-
-.aboutHero {
-  position: relative;
-  background: var(--c-brand);
-  color: #ffffff;
-  padding: clamp(180px, 16vw, 220px) 0 clamp(75px, 8vw, 105px);
-  overflow: hidden;
-}
-
-.aboutHero__overlay {
-  position: absolute;
-  inset: 0;
-  background: none;
-  pointer-events: none;
-}
-
-.aboutHero__container {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 40px);
-}
-
-.aboutHero__head {
-  max-width: 950px;
-}
-
-/* Breadcrumb — matching contactHero__super */
-.aboutHero__super {
-  display: block;
-  font-family: var(--font-base);
-  font-size: 13.5px;
-  font-weight: 400;
-  letter-spacing: normal;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 24px;
-}
-
-.aboutHero__super a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.aboutHero__super a:hover {
-  color: #ffffff;
-}
-
-.aboutHero__super span {
-  color: #ffffff;
-  font-weight: 500;
-}
-
-.aboutHero__title {
-  font-family: var(--font-heading);
-  font-size: clamp(32px, 4vw, 54px);
-  font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: -0.015em;
-  color: #ffffff;
-  max-width: 950px;
-  margin: 0 0 22px 0;
-}
-
-.aboutHero__intro {
-  font-family: var(--font-base);
-  font-size: clamp(16px, 1.3vw, 19px);
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 900px;
-  margin: 0;
-}
+/* 1 — Hero: shared component, see components/layout/PageHero/PageHero.css */
 
 /* ==========================================================================
    2 — Our Story
@@ -186,7 +109,7 @@
   color: #000000;
   padding: 14px 18px;
   background-color: rgba(0, 0, 0, 0.04);
-  border-left: 3px solid #295583;
+  border-left: 3px solid #1c3b5f;
   border-radius: 0 4px 4px 0;
   margin: 4px 0 0 0;
 }
@@ -260,7 +183,7 @@
   bottom: 0;
   width: 46px;
   height: 1px;
-  background-color: #295583;
+  background-color: #1c3b5f;
   transform: translateX(-50%);
 }
 
@@ -320,7 +243,7 @@
   width: 26px;
   height: 1px;
   margin: 18px 0 22px;
-  background-color: #295583;
+  background-color: #1c3b5f;
   transition: width 420ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -434,7 +357,7 @@
 
 .aboutServiceCard:hover {
   transform: translateY(-6px);
-  border-color: #295583;
+  border-color: #1c3b5f;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
 }
 
@@ -467,8 +390,8 @@
 }
 
 .aboutServiceCard:hover .aboutServiceCard__icon {
-  background-color: #295583;
-  border-color: #295583;
+  background-color: #1c3b5f;
+  border-color: #1c3b5f;
   color: #ffffff;
 }
 
@@ -573,7 +496,7 @@
 .aboutServices__banner {
   margin-top: 44px;
   padding: 34px 38px;
-  background-color: #295583;
+  background-color: #1c3b5f;
   color: #ffffff;
   border-radius: 12px;
   display: flex;
@@ -648,7 +571,7 @@
 }
 
 .aboutServices__bannerBtn--primary:hover {
-  background-color: #295583;
+  background-color: #1c3b5f;
   color: #ffffff;
   border-color: #ffffff;
 }
@@ -733,7 +656,7 @@
 .aboutField input:focus,
 .aboutField textarea:focus {
   outline: none;
-  border-color: #295583;
+  border-color: #1c3b5f;
 }
 
 .aboutField textarea {
@@ -752,8 +675,8 @@
   font-weight: 400;
   line-height: 20px;
   color: #ffffff;
-  background-color: #295583;
-  border: 1px solid #295583;
+  background-color: #1c3b5f;
+  border: 1px solid #1c3b5f;
   border-radius: 0;
   padding: 12px 24px;
   margin-top: 10px;
@@ -866,11 +789,6 @@
    ========================================================================== */
 
 @media (max-width: 991px) {
-  .aboutHero {
-    min-height: 280px;
-    padding: 120px 20px 40px;
-  }
-
   .aboutStory {
     padding: 38px 0;
   }
@@ -903,18 +821,6 @@
   .aboutServices__bannerActions {
     width: 100%;
     flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 768px) {
-  .aboutHero {
-    padding: 110px 0 32px;
-  }
-}
-
-@media (max-width: 480px) {
-  .aboutHero {
-    padding: 100px 0 28px;
   }
 }
 

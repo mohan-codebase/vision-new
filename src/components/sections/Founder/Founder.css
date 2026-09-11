@@ -1,7 +1,7 @@
 /* ==========================================================================
    Section 8 — Our Founder
-   Two columns: a navy monogram card (portrait stand-in) and the founder story
-   with a compact facts strip. Light-grey band, geometric accents.
+   Two columns: a navy monogram card (portrait stand-in) and the founder
+   story. Light-grey band, geometric accents.
    ========================================================================== */
 
 .founder {
@@ -166,39 +166,6 @@
   margin-top: 0;
 }
 
-.founderFacts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 1.8em;
-  list-style: none;
-}
-
-.founderFact {
-  flex: 1 1 150px;
-  padding: 1.1em 1.2em;
-  background: var(--c-white);
-  border: 1px solid var(--c-border);
-  border-left: 3px solid var(--c-brand);
-}
-
-.founderFact__value {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: var(--fw-bold);
-  color: #000000;
-}
-
-.founderFact__label {
-  display: block;
-  margin-top: 0.25em;
-  font-family: var(--font-base);
-  font-size: 0.8125rem;
-  line-height: 1.4;
-  color: var(--c-body);
-}
-
 /* --- Responsive ----------------------------------------------- */
 
 @media (max-width: 960px) {
@@ -210,5 +177,4 @@
 @media (max-width: 560px) {
   .founderCard { padding: 2.25em 1.75em; }
   .founder__title { font-size: 1.8rem; }
-  .founderFact { flex-basis: 100%; }
 }

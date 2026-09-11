@@ -5,21 +5,21 @@
 
 :root {
   /* --- Palette — brand blue + monochrome type ---------------------------
-     Every dark surface, fill, rule, border and focus ring is brand blue
-     #295583 (flat — no gradients). Text stays black; body copy is black at
+     Every dark surface, fill, rule, border and focus ring is brand navy
+     #1c3b5f (flat — no gradients). Text stays black; body copy is black at
      reduced opacity and #f5f5f5 carries any light tonal band.
      ---------------------------------------------------------------------- */
-  --c-brand:             #295583;  /* dark surfaces, fills, accents */
-  --c-brand-deep:        #1f4468;  /* hover / pressed, panels on brand ground */
+  --c-brand:             #1c3b5f;  /* dark surfaces, fills, accents */
+  --c-brand-deep:        #132a45;  /* hover / pressed, panels on brand ground */
   --c-accent:            #000000;  /* text accents — was brand gold */
-  --c-accent-dark:       #1f4468;  /* hover / pressed */
-  --c-accent-alt:        #1f4468;
+  --c-accent-dark:       #132a45;  /* hover / pressed */
+  --c-accent-alt:        #132a45;
   --c-accent-light:      #444444;  /* lighter step, used on dark grounds */
   --c-secondary:         #000000;  /* headline */
-  --c-navy-deep:         #295583;  /* dark bands, hero, mobile drawer */
-  --c-brand-blue:        #295583;  /* feature bands */
+  --c-navy-deep:         #1c3b5f;  /* dark bands, hero, mobile drawer */
+  --c-brand-blue:        #1c3b5f;  /* feature bands */
   --c-dark:              #000000;  /* base font color */
-  --c-dark-alt:          #295583;  /* dark scheme background */
+  --c-dark-alt:          #1c3b5f;  /* dark scheme background */
 
   /* --- Neutrals ---------------------------------------------------------- */
   --c-white:             #ffffff;

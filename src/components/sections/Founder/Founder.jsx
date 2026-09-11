@@ -7,10 +7,9 @@ import './Founder.css'
  *
  * No approved founder photograph exists in the project, so the portrait slot
  * is a clean navy monogram card carrying the name, role and a pull-quote.
- * Facts are limited to what the source document states.
  */
 export default function Founder() {
-  const { super: eyebrow, name, role, initials, quote, paragraphs, facts } = founder
+  const { super: eyebrow, name, role, initials, quote, paragraphs } = founder
 
   return (
     <section className="founder" id="founder">
@@ -42,15 +41,6 @@ export default function Founder() {
                 <p className="founder__para">{p.text}</p>
               </div>
             ))}
-
-            <ul className="founderFacts">
-              {facts.map((fact) => (
-                <li className="founderFact" key={fact.label}>
-                  <span className="founderFact__value">{fact.value}</span>
-                  <span className="founderFact__label">{fact.label}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>

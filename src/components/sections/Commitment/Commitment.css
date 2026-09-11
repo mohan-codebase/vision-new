@@ -99,7 +99,7 @@
   line-height: 1.2;
   color: #000000;
   background-color: transparent;
-  border: 1px solid #295583;
+  border: 1px solid #1c3b5f;
   border-radius: 0;
   text-decoration: none;
   cursor: pointer;
@@ -107,9 +107,9 @@
 }
 
 .cmtButton:hover {
-  background-color: #295583;
+  background-color: #1c3b5f;
   color: #ffffff;
-  border-color: #295583;
+  border-color: #1c3b5f;
 }
 
 .cmtRule {
@@ -131,7 +131,7 @@
   top: 0.15em;
   bottom: 0.15em;
   width: 3px;
-  background: #295583;
+  background: #1c3b5f;
 }
 
 .cmtClosing__tagline {

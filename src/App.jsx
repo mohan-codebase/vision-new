@@ -8,6 +8,9 @@ import AboutUs from './pages/AboutUs.jsx'
 import Contact from './pages/Contact.jsx'
 import Jurisdiction from './pages/Jurisdiction.jsx'
 import { jurisdictions } from './data/jurisdictions.js'
+import heroMainland from './assets/images/banner-night.jpg'
+import heroFreeZone from './assets/images/banner-atlantis.webp'
+import heroOffshore from './assets/images/banner-palm-jumeirah.jpg'
 
 /**
  * RouteScrollHandler — Smoothly handles scrolling on route changes
@@ -48,15 +51,15 @@ export default function App() {
                 from "Website Content_Vision.docx". */}
             <Route
               path="/business-setup/uae-mainland"
-              element={<Jurisdiction data={jurisdictions.mainland} />}
+              element={<Jurisdiction data={jurisdictions.mainland} heroImage={heroMainland} />}
             />
             <Route
               path="/business-setup/uae-free-zone"
-              element={<Jurisdiction data={jurisdictions.freeZone} />}
+              element={<Jurisdiction data={jurisdictions.freeZone} heroImage={heroFreeZone} />}
             />
             <Route
               path="/business-setup/uae-offshore"
-              element={<Jurisdiction data={jurisdictions.offshore} />}
+              element={<Jurisdiction data={jurisdictions.offshore} heroImage={heroOffshore} />}
             />
             <Route path="*" element={<Home />} />
           </Routes>

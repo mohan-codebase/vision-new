@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Icon from '../components/ui/Icon.jsx'
+import PageHero from '../components/layout/PageHero/PageHero.jsx'
 import './Jurisdiction.css'
 
 /**
@@ -12,12 +13,10 @@ import './Jurisdiction.css'
  * only Offshore has "Why Choose Vision Business Setup") are simply not
  * rendered.
  *
- * The visual language matches the existing About Us page: navy gradient hero
- * with breadcrumb, white content bands, gold accents.
+ * Opens on the shared PageHero; `heroImage` is supplied per route in App.jsx.
  */
-export default function Jurisdiction({ data }) {
+export default function Jurisdiction({ data, heroImage }) {
   const {
-    eyebrow,
     title,
     intro = [],
     definition,
@@ -31,24 +30,18 @@ export default function Jurisdiction({ data }) {
   return (
     <main className="jurPage">
       {/* 1 — Hero banner */}
-      <section className="jurHero">
-        <div className="jurHero__overlay" aria-hidden="true" />
-        <div className="jurHero__container">
-          <nav className="jurBreadcrumb" aria-label="Breadcrumb">
-            <Link to="/" className="jurBreadcrumb__link">Home</Link>
-            <span className="jurBreadcrumb__sep">/</span>
-            <Link to="/#business-setup" className="jurBreadcrumb__link">Business Setup</Link>
-            <span className="jurBreadcrumb__sep">/</span>
-            <span className="jurBreadcrumb__current">{title}</span>
-          </nav>
-
-          <span className="jurHero__eyebrow">{eyebrow}</span>
-          <h1 className="jurHero__title">{title}</h1>
-          {intro.map((para) => (
-            <p className="jurHero__lead" key={para.slice(0, 32)}>{para}</p>
-          ))}
-        </div>
-      </section>
+      {/* The breadcrumb already reads "Business Setup", so the data's
+          eyebrow isn't repeated above the title. */}
+      <PageHero
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Business Setup', href: '/#business-setup' },
+          { label: title },
+        ]}
+        title={title}
+        intro={intro}
+        image={heroImage}
+      />
 
       {/* 2 — "What is a … Company?" + key advantages */}
       <section className="jurIntro">

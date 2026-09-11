@@ -7,7 +7,9 @@ import Commitment from '../components/sections/Commitment/Commitment.jsx'
 import Founder from '../components/sections/Founder/Founder.jsx'
 import { ourStory, coreValues, ourServices, commitment } from '../data/home.js'
 import { contact, whatsappLink } from '../config/contact.js'
+import PageHero from '../components/layout/PageHero/PageHero.jsx'
 import imgStory from '../assets/images/our-story-advisory.jpg'
+import imgHero from '../assets/images/banner-burj-khalifa.jpg'
 import './AboutUs.css'
 
 /**
@@ -44,18 +46,12 @@ export default function AboutUs() {
   return (
     <main className="aboutPage">
       {/* ── 1. Hero ─────────────────────────────────────────────── */}
-      <header className="aboutHero">
-        <span className="aboutHero__overlay" aria-hidden="true" />
-        <div className="aboutHero__container">
-          <div className="aboutHero__head">
-            <span className="aboutHero__super">
-              <Link to="/">HOME</Link> / <span>ABOUT US</span>
-            </span>
-            <h1 className="aboutHero__title">About Us</h1>
-            <p className="aboutHero__intro">Every Business starts with Vision.</p>
-          </div>
-        </div>
-      </header>
+      <PageHero
+        crumbs={[{ label: 'Home', href: '/' }, { label: 'About Us' }]}
+        title="About Us"
+        intro="Every Business starts with Vision."
+        image={imgHero}
+      />
 
       {/* ── 2. Our Story ────────────────────────────────────────── */}
       <section className="aboutStory" id="our-story">
@@ -126,7 +122,7 @@ export default function AboutUs() {
           <header className="aboutServices__head">
             <span className="aboutServices__super">{ourServices.super || 'OUR SERVICES'}</span>
             <h2 className="aboutServices__title">
-              Our <strong>Services</strong>
+              {ourServices.title} <strong>{ourServices.accent}</strong>
             </h2>
             {ourServices.intro && <p className="aboutServices__intro">{ourServices.intro}</p>}
           </header>

@@ -112,7 +112,7 @@
 
 .bsCard__content:hover {
   transform: translateY(-6px);
-  border-color: #295583;
+  border-color: #1c3b5f;
 }
 
 .bsCard__icon {
@@ -199,7 +199,7 @@
   line-height: 1.2;
   color: #000000;
   background-color: transparent;
-  border: 1px solid #295583;
+  border: 1px solid #1c3b5f;
   border-radius: 0;
   text-decoration: none;
   cursor: pointer;
@@ -207,9 +207,9 @@
 }
 
 .bsCard__cta:hover {
-  background-color: #295583;
+  background-color: #1c3b5f;
   color: #ffffff;
-  border-color: #295583;
+  border-color: #1c3b5f;
 }
 
 /* --- Responsive ------------------------------------------------------- */
