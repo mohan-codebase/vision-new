@@ -17,15 +17,16 @@ import './AboutUs.css'
  *
  * Every user-facing string on this page comes from the client's own copy deck,
  * "Website Content_Vision.docx" (mirrored in `Website-Content-Vision.txt`), and
- * the sections follow that document's "About Us" order:
+ * the sections follow that document's "About Us" order — except Our Founder,
+ * which the client asked to lead the page:
  *
  *   1. Hero
- *   2. Our Story
- *   3. Who We Work With
- *   4. What Sets Us Apart
- *   5. Our Core Values
- *   6. Our Commitment
- *   7. Our Founder
+ *   2. Our Founder
+ *   3. Our Story
+ *   4. Who We Work With
+ *   5. What Sets Us Apart
+ *   6. Our Core Values
+ *   7. Our Commitment
  *   8. Our Services  (labels from the document's navigation list)
  *   9. Request a Callback  (a required feature per "Other Requirements")
  *
@@ -53,7 +54,10 @@ export default function AboutUs() {
         image={imgHero}
       />
 
-      {/* ── 2. Our Story ────────────────────────────────────────── */}
+      {/* ── 2. Our Founder ──────────────────────────────────────── */}
+      <Founder />
+
+      {/* ── 3. Our Story ────────────────────────────────────────── */}
       <section className="aboutStory" id="our-story">
         <div className="aboutStory__inner">
           <div className="aboutStory__panel">
@@ -86,13 +90,13 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* ── 3. Who We Work With ─────────────────────────────────── */}
+      {/* ── 4. Who We Work With ─────────────────────────────────── */}
       <WhoWeWorkWith />
 
-      {/* ── 4. What Sets Us Apart ───────────────────────────────── */}
+      {/* ── 5. What Sets Us Apart ───────────────────────────────── */}
       <WhatSetsUsApart />
 
-      {/* ── 5. Our Core Values ──────────────────────────────────── */}
+      {/* ── 6. Our Core Values ──────────────────────────────────── */}
       <section className="aboutStand">
         <header className="aboutStand__head">
           <h2 className="aboutStand__title">Our Core Values</h2>
@@ -110,11 +114,8 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* ── 6. Our Commitment ───────────────────────────────────── */}
+      {/* ── 7. Our Commitment ───────────────────────────────────── */}
       <Commitment />
-
-      {/* ── 7. Our Founder ──────────────────────────────────────── */}
-      <Founder />
 
       {/* ── 8. Our Services ─────────────────────────────────────── */}
       <section className="aboutServices" id="services">
